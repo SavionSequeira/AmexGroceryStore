@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
 -- Host: localhost    Database: amex
 -- ------------------------------------------------------
--- Server version	8.0.21
+-- Server version	8.0.19
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,67 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cart`
+--
+
+DROP TABLE IF EXISTS `cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cart` (
+  `cartid` int NOT NULL,
+  `status` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `custphone` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `timestamp` time DEFAULT NULL,
+  `otp` int DEFAULT NULL,
+  `payment_option` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `total_payment` float DEFAULT NULL,
+  `ShopID` int DEFAULT NULL,
+  `KioskID` int DEFAULT NULL,
+  PRIMARY KEY (`cartid`),
+  KEY `ShopID` (`ShopID`),
+  KEY `KioskID` (`KioskID`),
+  CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`ShopID`) REFERENCES `shop` (`ShopID`),
+  CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`KioskID`) REFERENCES `kiosk` (`kioskid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart`
+--
+
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cart_item`
+--
+
+DROP TABLE IF EXISTS `cart_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cart_item` (
+  `CartId` int NOT NULL,
+  `ItemId` int NOT NULL,
+  `quantity_p` int DEFAULT NULL,
+  PRIMARY KEY (`CartId`,`ItemId`),
+  KEY `Cart_itemId` (`ItemId`),
+  CONSTRAINT `Cart_itemId` FOREIGN KEY (`ItemId`) REFERENCES `item` (`item_no`),
+  CONSTRAINT `Cartid_item` FOREIGN KEY (`CartId`) REFERENCES `cart` (`cartid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cart_item`
+--
+
+LOCK TABLES `cart_item` WRITE;
+/*!40000 ALTER TABLE `cart_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart_item` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `item`
@@ -127,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-11 19:21:41
+-- Dump completed on 2020-08-11 20:32:15
