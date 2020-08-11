@@ -10,12 +10,13 @@ public class CARRUS {
 
         // TODO code application logic here
         
-        System.out.println("Hi");
+         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new WelcomeScreen().setVisible(true);
+            }
+        });
 
-<<<<<<< HEAD
-=======
     }
->>>>>>> 07d4fec334028b3a685febf21b560b7013f00fd3
     
 }
-}
+
