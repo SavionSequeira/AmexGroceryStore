@@ -1,5 +1,7 @@
 package carrus;
 
+import javax.swing.JFrame;
+
 
 public class StoresScreen extends javax.swing.JFrame {
 
@@ -19,6 +21,14 @@ public class StoresScreen extends javax.swing.JFrame {
         Stores_Screen_Logo = new javax.swing.JLabel();
         Stores_Screen_Label2 = new javax.swing.JLabel();
         Stores_Screen_Label1 = new javax.swing.JLabel();
+        storesScreenStoreLabel1 = new javax.swing.JLabel();
+        storesScreenStoreLabel2 = new javax.swing.JLabel();
+        storesScreenStoreLabel3 = new javax.swing.JLabel();
+        storesScreenStoreLabel4 = new javax.swing.JLabel();
+        storesScreenDistanceLabel1 = new javax.swing.JLabel();
+        storesScreenDistanceLabel2 = new javax.swing.JLabel();
+        storesScreenDistanceLabel3 = new javax.swing.JLabel();
+        storesScreenDistanceLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,6 +47,71 @@ public class StoresScreen extends javax.swing.JFrame {
         Stores_Screen_Label1.setForeground(new java.awt.Color(255, 255, 255));
         Stores_Screen_Label1.setText("Nearest Stores ");
 
+        storesScreenStoreLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenStoreLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenStoreLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenStoreLabel1.setText("Store 1");
+        storesScreenStoreLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenStoreLabel1MouseClicked(evt);
+            }
+        });
+
+        storesScreenStoreLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenStoreLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenStoreLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenStoreLabel2.setText("Store 2");
+
+        storesScreenStoreLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenStoreLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenStoreLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenStoreLabel3.setText("Store 3");
+
+        storesScreenStoreLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenStoreLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenStoreLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenStoreLabel4.setText("Store 4");
+
+        storesScreenDistanceLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenDistanceLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenDistanceLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenDistanceLabel1.setText("dist1");
+        storesScreenDistanceLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenDistanceLabel1MouseClicked(evt);
+            }
+        });
+
+        storesScreenDistanceLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenDistanceLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenDistanceLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenDistanceLabel2.setText("dist2");
+        storesScreenDistanceLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenDistanceLabel2MouseClicked(evt);
+            }
+        });
+
+        storesScreenDistanceLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenDistanceLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenDistanceLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenDistanceLabel3.setText("dist3");
+        storesScreenDistanceLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenDistanceLabel3MouseClicked(evt);
+            }
+        });
+
+        storesScreenDistanceLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        storesScreenDistanceLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        storesScreenDistanceLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenDistanceLabel4.setText("dist4");
+        storesScreenDistanceLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenDistanceLabel4MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -48,12 +123,28 @@ public class StoresScreen extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(Stores_Screen_Label1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
-                        .addComponent(Stores_Screen_Logo)
-                        .addContainerGap())
+                        .addComponent(Stores_Screen_Logo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(102, 102, 102)
-                        .addComponent(Stores_Screen_Label2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Stores_Screen_Label2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(storesScreenStoreLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(storesScreenStoreLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(storesScreenStoreLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(storesScreenStoreLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(91, 91, 91)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(storesScreenDistanceLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(storesScreenDistanceLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(storesScreenDistanceLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(storesScreenDistanceLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(89, 89, 89)))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,6 +156,22 @@ public class StoresScreen extends javax.swing.JFrame {
                     .addComponent(Stores_Screen_Logo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Stores_Screen_Label2)
+                .addGap(69, 69, 69)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(storesScreenStoreLabel1)
+                    .addComponent(storesScreenDistanceLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(storesScreenStoreLabel2)
+                    .addComponent(storesScreenDistanceLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(storesScreenStoreLabel3)
+                    .addComponent(storesScreenDistanceLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(storesScreenStoreLabel4)
+                    .addComponent(storesScreenDistanceLabel4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -81,6 +188,33 @@ public class StoresScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void storesScreenStoreLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel1MouseClicked
+        // TODO add your handling code here:
+        ItemScreen is = new ItemScreen();    //Traces to the SignUp Page;
+        is.setVisible(true);   //Sets Visibility after method is called;
+        is.pack();
+        is.setLocationRelativeTo(null);
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
+        this.dispose(); //collapses the login page
+        
+    }//GEN-LAST:event_storesScreenStoreLabel1MouseClicked
+
+    private void storesScreenDistanceLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_storesScreenDistanceLabel1MouseClicked
+
+    private void storesScreenDistanceLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_storesScreenDistanceLabel2MouseClicked
+
+    private void storesScreenDistanceLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_storesScreenDistanceLabel3MouseClicked
+
+    private void storesScreenDistanceLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_storesScreenDistanceLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -123,5 +257,13 @@ public class StoresScreen extends javax.swing.JFrame {
     private javax.swing.JLabel Stores_Screen_Label2;
     private javax.swing.JLabel Stores_Screen_Logo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel storesScreenDistanceLabel1;
+    private javax.swing.JLabel storesScreenDistanceLabel2;
+    private javax.swing.JLabel storesScreenDistanceLabel3;
+    private javax.swing.JLabel storesScreenDistanceLabel4;
+    private javax.swing.JLabel storesScreenStoreLabel1;
+    private javax.swing.JLabel storesScreenStoreLabel2;
+    private javax.swing.JLabel storesScreenStoreLabel3;
+    private javax.swing.JLabel storesScreenStoreLabel4;
     // End of variables declaration//GEN-END:variables
 }
