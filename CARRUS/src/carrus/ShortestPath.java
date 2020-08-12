@@ -12,11 +12,13 @@ package carrus;
 import java.util.*; 
 import java.lang.*; 
 import java.io.*; 
-  
+import carrus.SqlFunctions;
 class ShortestPath { 
     // A utility function to find the vertex with minimum distance value, 
     // from the set of vertices not yet included in shortest path tree 
     static final int V = 8; 
+     ArrayList<Integer> shopId= new ArrayList<>();
+     Map<Integer, Integer> hm = new HashMap<Integer, Integer>();
     int minDistance(int dist[], Boolean sptSet[]) 
     { 
         // Initialize min value 
@@ -36,7 +38,16 @@ class ShortestPath {
     { 
         System.out.println("Vertex \t\t Distance from Source"); 
         for (int i = 0; i < V; i++) 
+        {
+            for(int j=0;j<shopId.size();j++)
+            {
+                if(i==shopId.get(j))
+                {
+                    generateHaspMap(i,dist[i]);
+                }
+            }
             System.out.println(i + " \t\t " + dist[i]); 
+        }
     } 
   
     // Function that implements Dijkstra's single source shortest path 
@@ -84,11 +95,27 @@ class ShortestPath {
         // print the constructed distance array 
         printSolution(dist); 
     } 
-  
+    void getArrayList()
+    {
+         SqlFunctions shopIdExtractor = new SqlFunctions();
+       //  ArrayList<Integer> shopId= new ArrayList<>();
+         shopId = shopIdExtractor.itemSearch("Coca Cola");
+       //  System.out.println(shopId);
+    }
+    void generateHaspMap(int pos,int dist)
+    {
+        hm.put(pos, dist);
+    }
+    void printHashMap()
+    {
+        System.out.println(hm);
+    }
     // Driver method 
     public static void main(String[] args) 
     { 
         /* Let us create the example graph discussed above */
+        
+        
         int graph[][] = new int[][] { { 0, 4, 0, 0, 0, 0, 0, 8, 0 }, 
                                       { 4, 0, 8, 0, 0, 0, 0, 11, 0 }, 
                                       { 0, 8, 0, 7, 0, 4, 0, 0, 2 }, 
@@ -99,6 +126,9 @@ class ShortestPath {
                                       { 8, 11, 0, 0, 0, 0, 1, 0, 7 }, };
                                      
         ShortestPath t = new ShortestPath(); 
-        t.dijkstra(graph, 0); 
+       
+       t.getArrayList();
+       t.dijkstra(graph, 2); 
+       t.printHashMap();
     } 
 } 
