@@ -61,7 +61,7 @@
                           <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
                           <Component id="Search_Screen_NextButton" min="-2" pref="59" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>

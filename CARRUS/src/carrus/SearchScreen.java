@@ -77,7 +77,7 @@ public class SearchScreen extends javax.swing.JFrame {
                             .addComponent(Search_Screen_AdSpace, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(101, 101, 101))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
+                        .addGap(289, 289, 289)
                         .addComponent(Search_Screen_NextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );

@@ -2,6 +2,7 @@ package carrus;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 public class Carrus {
 
     /**
@@ -9,14 +10,9 @@ public class Carrus {
      */
     public static void main(String[] args) {
          SqlFunctions shopIdExtractor = new SqlFunctions();
-         ResultSet rs = shopIdExtractor.itemSearch("Coca Cola");
-         try{
-         while(rs.next())  
-            System.out.println(rs.getInt(1)); 
-         }
-         catch(Exception e){
-             
-         }
+         ArrayList<Integer> shopId= new ArrayList<>();
+         shopId = shopIdExtractor.itemSearch("Coca Cola");
+         System.out.println(shopId);
 
     }
 }
