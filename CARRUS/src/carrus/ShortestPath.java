@@ -18,7 +18,7 @@ class ShortestPath {
     // from the set of vertices not yet included in shortest path tree 
     static final int V = 8; 
      ArrayList<Integer> shopId= new ArrayList<>();
-     Map<Integer, Integer> hm = new HashMap<Integer, Integer>();
+     HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
     int minDistance(int dist[], Boolean sptSet[]) 
     { 
         // Initialize min value 
@@ -99,7 +99,7 @@ class ShortestPath {
     {
          SqlFunctions shopIdExtractor = new SqlFunctions();
        //  ArrayList<Integer> shopId= new ArrayList<>();
-         shopId = shopIdExtractor.itemSearch("Coca Cola");
+         shopId = shopIdExtractor.itemSearch("Lays");
        //  System.out.println(shopId);
     }
     void generateHaspMap(int pos,int dist)
@@ -115,7 +115,7 @@ class ShortestPath {
     { 
         /* Let us create the example graph discussed above */
         
-        
+         SqlFunctions shopNameExtractor = new SqlFunctions();
         int graph[][] = new int[][] { { 0, 4, 0, 0, 0, 0, 0, 8, 0 }, 
                                       { 4, 0, 8, 0, 0, 0, 0, 11, 0 }, 
                                       { 0, 8, 0, 7, 0, 4, 0, 0, 2 }, 
@@ -129,6 +129,7 @@ class ShortestPath {
        
        t.getArrayList();
        t.dijkstra(graph, 2); 
-       t.printHashMap();
+       shopNameExtractor.shopDisplay(t.hm);
+       //t.printHashMap();
     } 
 } 
