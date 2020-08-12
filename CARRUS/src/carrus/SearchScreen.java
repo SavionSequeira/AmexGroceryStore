@@ -11,8 +11,15 @@ public class SearchScreen extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); //Sets the screen in the center
     }
-
-   
+    public String getString()
+    {
+        String text;
+        text=SearchItem_TextField.getText();
+        return text;
+        
+       // System.out.println(text);
+       
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -237,7 +244,11 @@ public class SearchScreen extends javax.swing.JFrame {
 
     private void Search_Screen_NextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_Screen_NextButtonMouseClicked
         // TODO add your handling code here:
-        StoresScreen ss = new StoresScreen();    //Traces to the SignUp Page;
+        String text = getString();
+        ShortestPath s = new ShortestPath();
+        s.setString(text);
+        s.runFunctions();
+        StoresScreen ss = new StoresScreen(text);    //Traces to the SignUp Page;
         ss.setVisible(true);   //Sets Visibility after method is called;
         ss.pack();
         ss.setLocationRelativeTo(null);

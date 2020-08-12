@@ -56,5 +56,19 @@ public class SqlFunctions {
             }
         }
     }
-   
+   HashMap itemDisplay(int storeNo){
+       HashMap<String,Integer> itemList = new HashMap<>();
+       try{
+           
+           rs = stmt.executeQuery("Select item_name,price from item where item_no in (select item_no from shop_item where ShopID="+storeNo+")");
+           while(rs.next()){
+               itemList.put(rs.getString(1),rs.getInt(2));
+           }     
+           
+       }
+       catch(Exception e){
+       }
+       System.out.println(itemList);
+       return itemList;
+   }
 }

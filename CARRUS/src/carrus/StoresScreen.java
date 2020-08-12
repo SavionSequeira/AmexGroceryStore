@@ -1,14 +1,15 @@
 package carrus;
 
 import javax.swing.JFrame;
-
+import java.util.HashMap;
 
 public class StoresScreen extends javax.swing.JFrame {
 
-    
-    public StoresScreen() {
+    private String item;
+    public StoresScreen(String item) {
         initComponents();
-        this.setLocationRelativeTo(null); //Sets the screen in the center
+        this.setLocationRelativeTo(null);
+        this.item = item;          //Sets the screen in the center
     }
 
     
@@ -191,7 +192,10 @@ public class StoresScreen extends javax.swing.JFrame {
 
     private void storesScreenStoreLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel1MouseClicked
         // TODO add your handling code here:
-        ItemScreen is = new ItemScreen();    //Traces to the SignUp Page;
+        HashMap<String,Integer> itemList = new HashMap<>();
+        SqlFunctions itemExtractor = new SqlFunctions();
+        itemList = itemExtractor.itemDisplay(3);
+        ItemScreen is = new ItemScreen(item,100,itemList);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -219,13 +223,13 @@ public class StoresScreen extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   /*public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+      /*  try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -244,12 +248,12 @@ public class StoresScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       /* java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new StoresScreen().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Stores_Screen_Animation;
