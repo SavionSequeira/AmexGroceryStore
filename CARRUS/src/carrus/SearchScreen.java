@@ -19,6 +19,7 @@ public class SearchScreen extends javax.swing.JFrame {
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
+    boolean kioskCheck = false;
     public SearchScreen() {
         initComponents();
         this.setLocationRelativeTo(null); //Sets the screen in the center
@@ -293,12 +294,23 @@ public class SearchScreen extends javax.swing.JFrame {
         String text = getString();
         s.setString(text);
         s.runFunctions();
+        if(kioskCheck && !"".equals(text))
+        {
         StoresScreen ss = new StoresScreen(text);    //Traces to the SignUp Page;
         ss.setVisible(true);   //Sets Visibility after method is called;
         ss.pack();
         ss.setLocationRelativeTo(null);
         ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
         this.dispose(); //collapses the login page
+        }
+        if(!kioskCheck)
+        {
+            System.out.println("Please select a kiosk");
+        }
+        if("".equals(text))
+        {
+            System.out.println("Please enter an item");
+        }
     }//GEN-LAST:event_Search_Screen_NextButtonMouseClicked
 
     private void searchScreenCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchScreenCheckBox1MouseClicked
@@ -307,6 +319,7 @@ public class SearchScreen extends javax.swing.JFrame {
         searchScreenCheckBox2.setSelected(false);
         setColour(jPanel2);
         resetColour(jPanel3);
+        kioskCheck=true;
         int value = 2;
         s.setIndex(value);
         
@@ -318,6 +331,7 @@ public class SearchScreen extends javax.swing.JFrame {
         searchScreenCheckBox1.setSelected(false);
         setColour(jPanel3);
         resetColour(jPanel2);
+        kioskCheck= true;
         int value = 4;
          s.setIndex(value);
     }//GEN-LAST:event_searchScreenCheckBox2MouseClicked
