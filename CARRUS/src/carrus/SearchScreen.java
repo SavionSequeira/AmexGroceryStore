@@ -73,6 +73,11 @@ public class SearchScreen extends javax.swing.JFrame {
                 SearchItem_TextFieldFocusGained(evt);
             }
         });
+        SearchItem_TextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SearchItem_TextFieldKeyReleased(evt);
+            }
+        });
 
         Search_Screen_NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/NextButoon_60px.png"))); // NOI18N
         Search_Screen_NextButton.setText("jLabel1");
@@ -374,7 +379,7 @@ public class SearchScreen extends javax.swing.JFrame {
 
     private void searchTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTableKeyReleased
         // TODO add your handling code here:
-         try {
+        /* try {
             String searchKey = SearchItem_TextField.getText();
             con= SqlSingletonConnection.getConnection();
           //  java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/amex","root", "root@0412");
@@ -413,8 +418,49 @@ public class SearchScreen extends javax.swing.JFrame {
 
         // TODO add your handling code here:
         
-        
+        */
     }//GEN-LAST:event_searchTableKeyReleased
+
+    private void SearchItem_TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchItem_TextFieldKeyReleased
+        // TODO add your handling code here:
+          try {
+            String searchKey = SearchItem_TextField.getText();
+            con= SqlSingletonConnection.getConnection();
+          //  java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/amex","root", "root@0412");
+            stmt=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            String sql = "Select item_name from item where item_name like '"+ searchKey +"%'";
+            rs=stmt.executeQuery(sql);
+           // DefaultListModel listModel = new DefaultListModel();
+                            rs.last();
+		            int r =rs.getRow();
+		          
+		            resultSet = new Object[r][1];
+		            rs.beforeFirst();
+		            int row = 0;
+		            while (rs.next())
+                            {
+		            	String temp = rs.getString("item_name");
+                               // rs.updateString( "item_name", pwd );                        
+		               resultSet[row][0] = temp;		                    
+         	                  row++;
+		            }
+		            
+		            searchTable = new JTable(resultSet,colHeads);
+		    	   searchTable.setEnabled(false);
+		    	jScrollPane1.setViewportView(searchTable);
+            
+		
+            
+            System.out.println("***");
+            
+            
+   
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_SearchItem_TextFieldKeyReleased
 
     /**
      * @param args the command line arguments

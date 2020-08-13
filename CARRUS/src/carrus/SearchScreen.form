@@ -156,6 +156,7 @@
           </Properties>
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="SearchItem_TextFieldFocusGained"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="SearchItem_TextFieldKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
