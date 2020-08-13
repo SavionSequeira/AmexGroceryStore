@@ -47,7 +47,7 @@ public class ItemScreen extends javax.swing.JFrame {
         fixedPrice.setText(firstPrice+"₹");
         fixedPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
         fixedPrice.setForeground(Color.white);
-        grid.insets = new Insets(5,5,5,250);
+        grid.insets = new Insets(5,5,5,150);
         grid.gridx=0;
         grid.gridy=0;
         itemList.add(fixedItem,grid);
@@ -175,7 +175,7 @@ public class ItemScreen extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         itemList.setBackground(new java.awt.Color(20, 40, 80));
