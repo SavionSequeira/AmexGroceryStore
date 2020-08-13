@@ -27,9 +27,11 @@ public class ItemScreen extends javax.swing.JFrame {
      * Creates new form ItemScreen
      */
     int i = 1;
+    static int totalPrice=0;
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemLabel = new HashMap<>();
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemQuantModifier= new HashMap<>();
     ArrayList<javax.swing.JLabel> itemQuant = new ArrayList<>();
+    ArrayList<Integer> itemPrice = new ArrayList<>();
     javax.swing.JLabel itemListerName;
     javax.swing.JLabel itemListerPrice;
     javax.swing.JLabel itemListerQuantModifierPlus;
@@ -49,6 +51,7 @@ public class ItemScreen extends javax.swing.JFrame {
         fixedPrice.setText(firstPrice+"₹");
         fixedPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
         fixedPrice.setForeground(Color.white);
+        itemPrice.add(firstPrice);
         grid.insets = new Insets(5,5,5,150);
         grid.gridx=0;
         grid.gridy=0;
@@ -104,6 +107,7 @@ public class ItemScreen extends javax.swing.JFrame {
             grid.gridx=1;
             grid.gridy=i;
             itemList.add(iter.getValue(),grid);
+            itemPrice.add(Integer.parseInt(iter.getValue().getText().replaceAll("[\\D]", "")));
             i++;
         }
         i = 0;
@@ -122,7 +126,7 @@ public class ItemScreen extends javax.swing.JFrame {
             iter.getValue().addMouseListener(new YourMouseListener(iter.getValue(),i));
             i++;
         }
-    
+        System.out.println(itemPrice);
     }
     class YourMouseListener extends MouseAdapter{
    javax.swing.JLabel actionLabel;
@@ -136,11 +140,15 @@ public class ItemScreen extends javax.swing.JFrame {
        if(actionLabel.getText().equals("+")){
           quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
           itemQuant.get(quantNum).setText(Integer.toString(quantChange));
+          totalPrice = totalPrice+itemPrice.get(quantNum);
+          itemScreenTotalLabel.setText("Total:"+totalPrice);
        }
        else{
           quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())-1;
           if(quantChange>-1){
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
+            totalPrice = totalPrice-itemPrice.get(quantNum);
+            itemScreenTotalLabel.setText("Total:"+totalPrice);
           }
           else{
             quantChange=0;
