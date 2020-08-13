@@ -2,17 +2,61 @@ package carrus;
 
 import javax.swing.JFrame;
 import java.util.HashMap;
-
+import java.util.Iterator;
+import java.util.Map;
 public class StoresScreen extends javax.swing.JFrame {
 
     private String item;
     public StoresScreen(String item) {
         initComponents();
+        setLabels();
         this.setLocationRelativeTo(null);
         this.item = item;          //Sets the screen in the center
     }
 
-    
+    void setLabels()
+    {
+        SqlFunctions st = new SqlFunctions();
+       
+       HashMap<String,Integer> storeDist = new HashMap<>();
+      
+       storeDist=st.setMapStoreScreen();
+       int shopNum=1;
+ 
+          for(Map.Entry<String,Integer>iter : storeDist.entrySet()){
+              
+  
+            
+                //System.out.println("Key : "+mapElement.getKey()+" Value : "+mapElement.getValue());
+              switch(shopNum)
+              {
+                  case 1:
+                      storesScreenStoreLabel1.setText(iter.getKey());
+                  storesScreenDistanceLabel1.setText(Integer.toString(iter.getValue())+("km"));
+                      break;
+                  case 2:
+                      storesScreenStoreLabel2.setText(iter.getKey());
+                     storesScreenDistanceLabel2.setText(Integer.toString(iter.getValue())+("km"));
+                      break;
+                  case 3:
+                     storesScreenStoreLabel3.setText(iter.getKey());
+                     storesScreenDistanceLabel3.setText(Integer.toString(iter.getValue())+("km"));
+                     break;
+                  case 4:
+                      storesScreenStoreLabel4.setText(iter.getKey());
+                      storesScreenDistanceLabel4.setText(Integer.toString(iter.getValue())+("km"));
+                      break;
+                  default:
+                      System.out.println("Wrong input");
+              }
+              shopNum++;
+            
+        
+           
+        }
+        
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -51,7 +95,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenStoreLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel1.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenStoreLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenStoreLabel1.setText("Store 1");
         storesScreenStoreLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 storesScreenStoreLabel1MouseClicked(evt);
@@ -61,22 +104,18 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenStoreLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel2.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenStoreLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenStoreLabel2.setText("Store 2");
 
         storesScreenStoreLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel3.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenStoreLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenStoreLabel3.setText("Store 3");
 
         storesScreenStoreLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel4.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenStoreLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenStoreLabel4.setText("Store 4");
 
         storesScreenDistanceLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel1.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel1.setText("dist1");
         storesScreenDistanceLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 storesScreenDistanceLabel1MouseClicked(evt);
@@ -86,7 +125,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel2.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel2.setText("dist2");
         storesScreenDistanceLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 storesScreenDistanceLabel2MouseClicked(evt);
@@ -96,7 +134,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel3.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel3.setText("dist3");
         storesScreenDistanceLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 storesScreenDistanceLabel3MouseClicked(evt);
@@ -106,7 +143,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel4.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel4.setText("dist4");
         storesScreenDistanceLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 storesScreenDistanceLabel4MouseClicked(evt);

@@ -15,6 +15,7 @@ public class SqlFunctions {
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
+    static HashMap<String,Integer> storeDist = new HashMap<>();
     public SqlFunctions(){
     con= SqlSingletonConnection.getConnection();
         try{
@@ -42,6 +43,7 @@ public class SqlFunctions {
         return shopId;
     }
     void shopDisplay(HashMap<Integer,Integer> distShop){
+        
         Iterator distIter = distShop.entrySet().iterator();
         while(distIter.hasNext()){
             Map.Entry mapElement = (Map.Entry)distIter.next();
@@ -49,12 +51,18 @@ public class SqlFunctions {
                 //System.out.println("Key : "+mapElement.getKey()+" Value : "+mapElement.getValue());
                 rs = stmt.executeQuery("Select ShopName from shop where ShopID="+mapElement.getKey());
                 rs.next();
-                System.out.println(rs.getString(1)+"\t\t "+mapElement.getValue());
+             //   var x = mapElement.getValue();
+                System.out.println(rs.getString(1)+"\t\t"+mapElement.getValue());
+                
+                storeDist.put(rs.getString(1), (int)mapElement.getValue());
             }
             catch(Exception e){
                 
             }
+           
         }
+       
+       //  System.out.println(storeDist);
     }
    HashMap itemDisplay(int storeNo){
        HashMap<String,Integer> itemList = new HashMap<>();
@@ -70,5 +78,12 @@ public class SqlFunctions {
        }
        System.out.println(itemList);
        return itemList;
+   }
+   
+   
+   HashMap setMapStoreScreen()
+   {
+       
+       return storeDist;
    }
 }
