@@ -11,11 +11,14 @@ import java.awt.Insets;
 import java.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.ArrayList;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 /**
  *
  * @author shrey
  */
+
 public class ItemScreen extends javax.swing.JFrame {
 
     /**
@@ -23,8 +26,14 @@ public class ItemScreen extends javax.swing.JFrame {
      */
     int i = 1;
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemLabel = new HashMap<>();
+    HashMap<javax.swing.JLabel,javax.swing.JLabel> itemQuantModifier= new HashMap<>();
+    ArrayList<javax.swing.JLabel> itemQuant = new ArrayList<>();
     javax.swing.JLabel itemListerName;
     javax.swing.JLabel itemListerPrice;
+    javax.swing.JLabel itemListerQuantModifierPlus;
+    javax.swing.JLabel itemListerQuantModifierMinus;
+    javax.swing.JLabel itemListerQuant;
+    //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
     public ItemScreen(String firstItem,int firstPrice,HashMap<String,Integer> itemInShop) {
         initComponents();
         
@@ -48,7 +57,18 @@ public class ItemScreen extends javax.swing.JFrame {
 
         for(Map.Entry<String,Integer>iter : itemInShop.entrySet()){
                 if(iter.getKey().equals(firstItem)){
-                    continue;
+                    itemListerQuantModifierPlus = new javax.swing.JLabel("+");
+                    itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                    itemListerQuantModifierPlus.setForeground(Color.white);
+                    itemListerQuantModifierMinus = new javax.swing.JLabel("-");
+                    itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                    itemListerQuantModifierMinus.setForeground(Color.white);
+                    itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
+                    itemListerQuant = new javax.swing.JLabel();
+                    itemListerQuant.setText("0");
+                    itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                    itemListerQuant.setForeground(Color.white);
+                    itemQuant.add(itemListerQuant);
                 }
                 else{
                 itemListerName = new javax.swing.JLabel();
@@ -60,6 +80,18 @@ public class ItemScreen extends javax.swing.JFrame {
                 itemListerPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
                 itemListerPrice.setForeground(Color.white);
                 itemLabel.put(itemListerName,itemListerPrice);
+                itemListerQuantModifierPlus = new javax.swing.JLabel("+");
+                itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                itemListerQuantModifierPlus.setForeground(Color.white);
+                itemListerQuantModifierMinus = new javax.swing.JLabel("-");
+                itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                itemListerQuantModifierMinus.setForeground(Color.white);
+                itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
+                itemListerQuant = new javax.swing.JLabel();
+                itemListerQuant.setText("0");
+                itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                itemListerQuant.setForeground(Color.white);
+                itemQuant.add(itemListerQuant);
                 }
 
         }
@@ -72,7 +104,48 @@ public class ItemScreen extends javax.swing.JFrame {
             itemList.add(iter.getValue(),grid);
             i++;
         }
+        i = 0;
+        grid.insets = new Insets(5,5,5,5);
+        for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemQuantModifier.entrySet()){
+            grid.gridx=2;
+            grid.gridy=i;
+            itemList.add(iter.getKey(),grid);
+            iter.getKey().addMouseListener(new YourMouseListener(iter.getKey(),i));
+            grid.gridx=3;
+            grid.gridy=i;
+            itemList.add(itemQuant.get(i),grid);
+            grid.gridx=4;
+            grid.gridy=i;
+            itemList.add(iter.getValue(),grid);
+            iter.getValue().addMouseListener(new YourMouseListener(iter.getValue(),i));
+            i++;
+        }
+    
     }
+    class YourMouseListener extends MouseAdapter{
+   javax.swing.JLabel actionLabel;
+   int quantNum;
+   int quantChange;
+   YourMouseListener(javax.swing.JLabel actionLabel,int i){
+       this.actionLabel = actionLabel;
+       quantNum = i;
+   }
+   public void mousePressed(MouseEvent entered){
+       if(actionLabel.getText().equals("+")){
+          quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
+          itemQuant.get(quantNum).setText(Integer.toString(quantChange));
+       }
+       else{
+          quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())-1;
+          if(quantChange>-1){
+            itemQuant.get(quantNum).setText(Integer.toString(quantChange));
+          }
+          else{
+            quantChange=0;
+          }
+       }
+   }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
