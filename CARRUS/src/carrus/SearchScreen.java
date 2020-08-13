@@ -171,6 +171,14 @@ public class SearchScreen extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        searchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchTableMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                searchTableMouseReleased(evt);
+            }
+        });
         searchTable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 searchTableKeyReleased(evt);
@@ -447,12 +455,12 @@ public class SearchScreen extends javax.swing.JFrame {
 		            
 		            searchTable = new JTable(resultSet,colHeads);
 		    	   searchTable.setEnabled(false);
+                           searchTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		    	jScrollPane1.setViewportView(searchTable);
-            
+                        
 		
             
-            System.out.println("***");
-            
+           
             
    
             // TODO add your handling code here:
@@ -461,6 +469,32 @@ public class SearchScreen extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_SearchItem_TextFieldKeyReleased
+
+    private void searchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTableMouseClicked
+        // TODO add your handling code here:
+       
+       
+        int column = 1;
+        int row = searchTable.getSelectedRow();
+        System.out.println(row);
+        
+        String tableSelection = searchTable.getModel().getValueAt(row, column).toString();
+        System.out.println(tableSelection);
+        SearchItem_TextField.setText(tableSelection);
+       
+    }//GEN-LAST:event_searchTableMouseClicked
+
+    private void searchTableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTableMouseReleased
+        // TODO add your handling code here:
+        
+       /*  int column = 1;
+        int row = searchTable.getSelectedRow();
+        System.out.println(row);
+        
+        String tableSelection = searchTable.getModel().getValueAt(row, column).toString();
+        System.out.println(tableSelection);
+        SearchItem_TextField.setText(tableSelection);*/
+    }//GEN-LAST:event_searchTableMouseReleased
 
     /**
      * @param args the command line arguments
