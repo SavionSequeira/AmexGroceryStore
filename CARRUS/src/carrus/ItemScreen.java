@@ -23,6 +23,11 @@ import javax.swing.JFrame;
 
 public class ItemScreen extends javax.swing.JFrame {
 
+    
+    void setStoreLabel(String str)
+    {
+           itemScreenStoreNameLabel.setText(str);
+    }
     /**
      * Creates new form ItemScreen
      */
@@ -41,7 +46,7 @@ public class ItemScreen extends javax.swing.JFrame {
     //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
     public ItemScreen(String firstItem,int firstPrice,HashMap<String,Integer> itemInShop) {
         initComponents();
-        
+    
         grid = new GridBagConstraints();
         itemList.setLayout(new GridBagLayout());
         fixedItem = new javax.swing.JLabel();
