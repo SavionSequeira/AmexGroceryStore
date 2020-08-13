@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 public class SearchScreen extends javax.swing.JFrame {
 
-    
+     ShortestPath s = new ShortestPath();
     Object[][] resultSet;
     String[] colHeads = {"Let me guess......."};
     private Connection con;
@@ -291,7 +291,6 @@ public class SearchScreen extends javax.swing.JFrame {
     private void Search_Screen_NextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_Screen_NextButtonMouseClicked
         // TODO add your handling code here:
         String text = getString();
-        ShortestPath s = new ShortestPath();
         s.setString(text);
         s.runFunctions();
         StoresScreen ss = new StoresScreen(text);    //Traces to the SignUp Page;
@@ -308,6 +307,8 @@ public class SearchScreen extends javax.swing.JFrame {
         searchScreenCheckBox2.setSelected(false);
         setColour(jPanel2);
         resetColour(jPanel3);
+        int value = 2;
+        s.setIndex(value);
         
     }//GEN-LAST:event_searchScreenCheckBox1MouseClicked
 
@@ -317,6 +318,8 @@ public class SearchScreen extends javax.swing.JFrame {
         searchScreenCheckBox1.setSelected(false);
         setColour(jPanel3);
         resetColour(jPanel2);
+        int value = 4;
+         s.setIndex(value);
     }//GEN-LAST:event_searchScreenCheckBox2MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked

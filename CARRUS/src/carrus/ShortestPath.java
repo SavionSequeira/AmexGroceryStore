@@ -147,6 +147,7 @@ class ShortestPath {
     // A utility function to find the vertex with minimum distance value, 
     // from the set of vertices not yet included in shortest path tree 
     static final int V = 8; 
+    static int index;
     public static String final_text;
      ArrayList<Integer> shopId= new ArrayList<>();
      HashMap<Integer, Integer> hm = new HashMap<>();
@@ -247,6 +248,10 @@ class ShortestPath {
         System.out.println("Shortest part get string : "+ text);
      
     }
+    void setIndex(int value)
+    {
+        index=value;
+    }
     // Driver method 
     void runFunctions()
     {
@@ -263,7 +268,7 @@ class ShortestPath {
         ShortestPath t = new ShortestPath(); 
        
        t.getArrayList();
-       t.dijkstra(graph, 2); 
+       t.dijkstra(graph, index); 
        shopNameExtractor.shopDisplay(t.hm);
     }
     public static void main(String[] args) 
