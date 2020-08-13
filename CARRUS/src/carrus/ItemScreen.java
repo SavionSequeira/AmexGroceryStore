@@ -54,21 +54,21 @@ public class ItemScreen extends javax.swing.JFrame {
         grid.gridx=1;
         grid.gridy=0;
         itemList.add(fixedPrice,grid);
-
+        itemListerQuantModifierPlus = new javax.swing.JLabel("+");
+        itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+        itemListerQuantModifierPlus.setForeground(Color.white);
+        itemListerQuantModifierMinus = new javax.swing.JLabel("-");
+        itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+        itemListerQuantModifierMinus.setForeground(Color.white);
+        itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
+        itemListerQuant = new javax.swing.JLabel();
+        itemListerQuant.setText("0");
+        itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+        itemListerQuant.setForeground(Color.white);
+        itemQuant.add(itemListerQuant);
         for(Map.Entry<String,Integer>iter : itemInShop.entrySet()){
                 if(iter.getKey().equals(firstItem)){
-                    itemListerQuantModifierPlus = new javax.swing.JLabel("+");
-                    itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                    itemListerQuantModifierPlus.setForeground(Color.white);
-                    itemListerQuantModifierMinus = new javax.swing.JLabel("-");
-                    itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                    itemListerQuantModifierMinus.setForeground(Color.white);
-                    itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
-                    itemListerQuant = new javax.swing.JLabel();
-                    itemListerQuant.setText("0");
-                    itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                    itemListerQuant.setForeground(Color.white);
-                    itemQuant.add(itemListerQuant);
+                       continue;
                 }
                 else{
                 itemListerName = new javax.swing.JLabel();
