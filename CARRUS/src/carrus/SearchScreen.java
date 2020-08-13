@@ -20,18 +20,23 @@ public class SearchScreen extends javax.swing.JFrame {
     private Statement stmt;
     private ResultSet rs;
     boolean kioskCheck = false;
+    static String text;
     public SearchScreen() {
         initComponents();
         this.setLocationRelativeTo(null); //Sets the screen in the center
     }
     public String getString()
     {
-        String text;
+        
         text=SearchItem_TextField.getText();
         return text;
         
-       // System.out.println(text);
-       
+       // System.out.println(text);   
+    }
+    public String passString()
+    {
+        System.out.println("Call function "+ text);
+        return text;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

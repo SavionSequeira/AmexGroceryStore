@@ -35,6 +35,7 @@ public class ItemScreen extends javax.swing.JFrame {
     javax.swing.JLabel itemListerQuantModifierPlus;
     javax.swing.JLabel itemListerQuantModifierMinus;
     javax.swing.JLabel itemListerQuant;
+   
     //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
     public ItemScreen(String firstItem,int firstPrice,HashMap<String,Integer> itemInShop) {
         initComponents();
@@ -43,7 +44,7 @@ public class ItemScreen extends javax.swing.JFrame {
         itemList.setLayout(new GridBagLayout());
         fixedItem = new javax.swing.JLabel();
         fixedPrice = new javax.swing.JLabel();
-        fixedItem.setText(firstItem);
+        fixedItem.setText(firstItem.toUpperCase());
         fixedItem.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
         fixedItem.setForeground(Color.white);
         fixedPrice.setText(firstPrice+"₹");
@@ -69,7 +70,7 @@ public class ItemScreen extends javax.swing.JFrame {
         itemListerQuant.setForeground(Color.white);
         itemQuant.add(itemListerQuant);
         for(Map.Entry<String,Integer>iter : itemInShop.entrySet()){
-                if(iter.getKey().equals(firstItem)){
+                if(iter.getKey().equalsIgnoreCase(firstItem)){
                        continue;
                 }
                 else{

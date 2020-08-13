@@ -168,7 +168,7 @@ class ShortestPath {
     // A utility function to print the constructed distance array 
     void printSolution(int dist[]) 
     { 
-        System.out.println("Vertex \t\t Distance from Source"); 
+     //   System.out.println("Vertex \t\t Distance from Source"); 
         for (int i = 0; i < V; i++) 
         {
             for(int j=0;j<shopId.size();j++)
@@ -271,14 +271,5 @@ class ShortestPath {
        t.dijkstra(graph, index); 
        shopNameExtractor.shopDisplay(t.hm);
     }
-    public static void main(String[] args) 
-    { 
-        /* Let us create the example graph discussed above */
-        
-        ShortestPath t = new ShortestPath(); 
-        t.runFunctions();
-                                     
-        
-       //t.printHashMap();
-    } 
+  
 } 

@@ -24,7 +24,7 @@ public class SqlSingletonConnection {
     //enter your username
     private static String username = "root";
     //enter your password
-    private static String password ="1234";
+    private static String password ="root@0412";
     public static Connection getConnection() {
         try
         {

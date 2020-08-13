@@ -7,6 +7,7 @@ import java.util.Map;
 public class StoresScreen extends javax.swing.JFrame {
 
     private String item;
+    private String storeScreenLabel;
     public StoresScreen(String item) {
         initComponents();
         setLabels();
@@ -104,14 +105,29 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenStoreLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel2.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenStoreLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenStoreLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenStoreLabel2MouseClicked(evt);
+            }
+        });
 
         storesScreenStoreLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel3.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenStoreLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenStoreLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenStoreLabel3MouseClicked(evt);
+            }
+        });
 
         storesScreenStoreLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel4.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenStoreLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        storesScreenStoreLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                storesScreenStoreLabel4MouseClicked(evt);
+            }
+        });
 
         storesScreenDistanceLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,10 +244,18 @@ public class StoresScreen extends javax.swing.JFrame {
 
     private void storesScreenStoreLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel1MouseClicked
         // TODO add your handling code here:
+        getStoresScreenStoreLabel(storesScreenStoreLabel1.getText());
+        int storeId;
+        int price;
         HashMap<String,Integer> itemList = new HashMap<>();
         SqlFunctions itemExtractor = new SqlFunctions();
-        itemList = itemExtractor.itemDisplay(3);
-        ItemScreen is = new ItemScreen(item,100,itemList);    //Traces to the SignUp Page;
+        price = itemExtractor.getPrice();
+      //  System.out.println("Received price "+ price);
+     //   System.out.println("String label check store id "+ storeScreenLabel);
+        storeId = itemExtractor.getStoreId(storeScreenLabel);
+       // System.out.println("Store id check shop label "+ storeId);
+        itemList = itemExtractor.itemDisplay(storeId);
+        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -256,6 +280,72 @@ public class StoresScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_storesScreenDistanceLabel4MouseClicked
 
+    private void storesScreenStoreLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel2MouseClicked
+        // TODO add your handling code here:
+        getStoresScreenStoreLabel(storesScreenStoreLabel2.getText());
+        int storeId;
+        int price;
+        HashMap<String,Integer> itemList = new HashMap<>();
+        SqlFunctions itemExtractor = new SqlFunctions();
+        price = itemExtractor.getPrice();
+        System.out.println("String label check store id "+ storeScreenLabel);
+        storeId = itemExtractor.getStoreId(storeScreenLabel);
+        System.out.println("Store id check shop label "+ storeId);
+        itemList = itemExtractor.itemDisplay(storeId);
+        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
+        is.setVisible(true);   //Sets Visibility after method is called;
+        is.pack();
+        is.setLocationRelativeTo(null);
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
+        this.dispose(); //collapses the login page
+    }//GEN-LAST:event_storesScreenStoreLabel2MouseClicked
+
+    private void storesScreenStoreLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel3MouseClicked
+        // TODO add your handling code here:
+        getStoresScreenStoreLabel(storesScreenStoreLabel3.getText());
+        int storeId;
+        int price;
+        HashMap<String,Integer> itemList = new HashMap<>();
+        SqlFunctions itemExtractor = new SqlFunctions();
+        price = itemExtractor.getPrice();
+        System.out.println("String label check store id "+ storeScreenLabel);
+        storeId = itemExtractor.getStoreId(storeScreenLabel);
+        System.out.println("Store id check shop label "+ storeId);
+        itemList = itemExtractor.itemDisplay(storeId);
+        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
+        is.setVisible(true);   //Sets Visibility after method is called;
+        is.pack();
+        is.setLocationRelativeTo(null);
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
+        this.dispose(); //collapses the login page
+    }//GEN-LAST:event_storesScreenStoreLabel3MouseClicked
+
+    private void storesScreenStoreLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel4MouseClicked
+        // TODO add your handling code here:
+        
+        getStoresScreenStoreLabel(storesScreenStoreLabel4.getText());
+        int storeId;
+        int price;
+        HashMap<String,Integer> itemList = new HashMap<>();
+        SqlFunctions itemExtractor = new SqlFunctions();
+        price = itemExtractor.getPrice();
+        System.out.println("String label check store id "+ storeScreenLabel);
+        storeId = itemExtractor.getStoreId(storeScreenLabel);
+        System.out.println("Store id check shop label "+ storeId);
+        itemList = itemExtractor.itemDisplay(storeId);
+        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
+        is.setVisible(true);   //Sets Visibility after method is called;
+        is.pack();
+        is.setLocationRelativeTo(null);
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
+        this.dispose(); //collapses the login page
+    }//GEN-LAST:event_storesScreenStoreLabel4MouseClicked
+    private void getStoresScreenStoreLabel(String str)
+    {
+        storeScreenLabel = str;
+        System.out.println(storeScreenLabel);
+        
+    }
     /**
      * @param args the command line arguments
      */
