@@ -49,7 +49,7 @@ public class SqlFunctions {
                 //System.out.println("Key : "+mapElement.getKey()+" Value : "+mapElement.getValue());
                 rs = stmt.executeQuery("Select ShopName from shop where ShopID="+mapElement.getKey());
                 rs.next();
-                System.out.println(rs.getString(1)+" "+mapElement.getValue());
+                System.out.println(rs.getString(1)+"\t\t "+mapElement.getValue());
             }
             catch(Exception e){
                 
