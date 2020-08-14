@@ -281,7 +281,7 @@ public class ItemScreen extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Seperator");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 120, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 120, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/Buy (4).png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -337,6 +337,7 @@ public class ItemScreen extends javax.swing.JFrame {
         ps.setVisible(true);   //Sets Visibility after method is called;
         ps.pack();
         ps.setLocationRelativeTo(null);
+        //ps.jp2.setVisible(true);
         ps.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
         this.dispose(); //collapses the login page
     }//GEN-LAST:event_itemScreenPayButtonMouseClicked
