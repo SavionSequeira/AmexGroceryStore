@@ -255,7 +255,7 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
        // System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -292,7 +292,7 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -312,7 +312,7 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -333,7 +333,7 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,itemList);    //Traces to the SignUp Page;
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);

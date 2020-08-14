@@ -44,9 +44,9 @@ public class ItemScreen extends javax.swing.JFrame {
     javax.swing.JLabel itemListerQuant;
    
     //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
-    public ItemScreen(String firstItem,int firstPrice,HashMap<String,Integer> itemInShop) {
+    public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop) {
         initComponents();
-    
+        itemScreenStoreNameLabel.setText(storeName);
         grid = new GridBagConstraints();
         itemList.setLayout(new GridBagLayout());
         fixedItem = new javax.swing.JLabel();
@@ -147,14 +147,14 @@ public class ItemScreen extends javax.swing.JFrame {
           quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
           itemQuant.get(quantNum).setText(Integer.toString(quantChange));
           totalPrice = totalPrice+itemPrice.get(quantNum);
-          itemScreenTotalLabel.setText("Total:"+totalPrice);
+          itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
        }
        else{
           quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())-1;
           if(quantChange>-1){
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
             totalPrice = totalPrice-itemPrice.get(quantNum);
-            itemScreenTotalLabel.setText("Total:"+totalPrice);
+            itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
           }
           else{
             quantChange=0;
@@ -206,7 +206,7 @@ public class ItemScreen extends javax.swing.JFrame {
 
         itemScreenTotalLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         itemScreenTotalLabel.setForeground(new java.awt.Color(255, 255, 255));
-        itemScreenTotalLabel.setText("Total :");
+        itemScreenTotalLabel.setText("Total : 0₹");
 
         itemScreenPayButton.setBackground(new java.awt.Color(34, 167, 240));
         itemScreenPayButton.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
