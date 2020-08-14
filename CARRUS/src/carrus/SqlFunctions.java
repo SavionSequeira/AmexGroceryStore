@@ -171,7 +171,6 @@ public class SqlFunctions {
    void updateQuantityAdd(int itemNo)
    {
        int cartid=1;
-       itemNo =7 ;
        String query1 = "SELECT quantity_p FROM cart_item WHERE ItemId = ? and CartId = ?";
        try{
                  PreparedStatement pstmt = con.prepareStatement(query1); 
@@ -218,7 +217,6 @@ public class SqlFunctions {
    void updateQuantitySub(int itemNo)
    {
        int cartid=1;
-       itemNo =7 ;
        String query1 = "SELECT quantity_p FROM cart_item WHERE ItemId = ? and CartId = ?";
        try{
                  PreparedStatement pstmt = con.prepareStatement(query1); 

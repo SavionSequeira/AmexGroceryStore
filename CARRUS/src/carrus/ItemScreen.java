@@ -189,6 +189,7 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
           if(quantChange<itemQuantOrdered.get(quantNum)){
             quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
+            sqlFunc.updateQuantityAdd(itemIDOrdered.get(quantNum));
             totalPrice = totalPrice+itemPrice.get(quantNum);
             itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
            }
@@ -202,6 +203,7 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
             totalPrice = totalPrice-itemPrice.get(quantNum);
             itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+            sqlFunc.updateQuantitySub(itemIDOrdered.get(quantNum));
           }
           else{
             quantChange=0;
