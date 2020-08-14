@@ -307,6 +307,8 @@ public class SearchScreen extends javax.swing.JFrame {
         String text = getString();
         s.setString(text);
         s.runFunctions();
+        SqlFunctions ss1 = new SqlFunctions();
+        ss1.UpdateCartTable();
         if(kioskCheck && !"".equals(text))
         {
         StoresScreen ss = new StoresScreen(text);    //Traces to the SignUp Page;

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package carrus;
+import java.security.Timestamp;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -14,6 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class SqlFunctions {
+    static int cartid=1;
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
@@ -170,7 +172,7 @@ public class SqlFunctions {
    
    void updateQuantityAdd(int itemNo)
    {
-       int cartid=1;
+      
        String query1 = "SELECT quantity_p FROM cart_item WHERE ItemId = ? and CartId = ?";
        try{
                  PreparedStatement pstmt = con.prepareStatement(query1); 
@@ -216,7 +218,7 @@ public class SqlFunctions {
    
    void updateQuantitySub(int itemNo)
    {
-       int cartid=1;
+    
        String query1 = "SELECT quantity_p FROM cart_item WHERE ItemId = ? and CartId = ?";
        try{
                  PreparedStatement pstmt = con.prepareStatement(query1); 
@@ -265,4 +267,67 @@ public class SqlFunctions {
        }
 
    }
+   
+   
+   void UpdateCartTable()
+   {
+       boolean firstCart =true;
+       java.util.Date date=new java.util.Date();
+        java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());
+       if(firstCart)
+       {
+           firstCart = false;
+           
+           try{
+               String sql = "Delete from cart";
+                PreparedStatement preparedStmt1 = con.prepareStatement(sql);
+                preparedStmt1.execute();
+                  
+             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?, ?, ?,?,?,?,?,?,?,?)";
+                             PreparedStatement preparedStmt = con.prepareStatement(query1);
+                             preparedStmt.setInt(1, cartid);
+                             preparedStmt.setString(2, "In progress");
+                             preparedStmt.setString(3, "9999999999");
+                             preparedStmt.setTimestamp(4, sqlTime);
+                             preparedStmt.setInt(5, 56094);
+                             preparedStmt.setString(6, "Yet to Decide");
+                             preparedStmt.setDouble(7, 100.0);
+                             preparedStmt.setInt(8, 0);
+                             preparedStmt.setInt(9, 2);
+                             preparedStmt.execute();
+                
+           }
+           catch(Exception e)
+           {
+               
+           }
+     
+       }
+       else
+       {
+                try{
+           
+                  
+             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?, ?, ?,?,?,?,?,?,?,?)";
+                             PreparedStatement preparedStmt = con.prepareStatement(query1);
+                             preparedStmt.setInt(1, cartid);
+                             preparedStmt.setString(2, "In progress");
+                             preparedStmt.setString(3, "9999999999");
+                             preparedStmt.setTimestamp(4, sqlTime);
+                             preparedStmt.setInt(5, 56094);
+                             preparedStmt.setString(6, "Yet to Decide");
+                             preparedStmt.setDouble(7, 100.0);
+                             preparedStmt.setInt(8, 0);
+                             preparedStmt.setInt(9, 2);
+                             preparedStmt.execute();
+                
+           }
+           catch(Exception e)
+           {
+               
+           }
+       }
+   }
+   
+ 
 }
