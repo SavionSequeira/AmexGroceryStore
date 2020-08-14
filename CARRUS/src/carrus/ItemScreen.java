@@ -9,11 +9,13 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Font;
+import static java.awt.SystemColor.text;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
 /**
  *
  * @author shrey
@@ -157,78 +159,178 @@ public class ItemScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         itemList = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        itemScreenTotalLabel = new javax.swing.JLabel();
+        itemScreenPayButton = new javax.swing.JButton();
+        itemScreenCarrusLogo = new javax.swing.JLabel();
+        itemScreenStoreNameLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(20, 40, 80));
+        jPanel3.setBackground(new java.awt.Color(64, 71, 109));
         jPanel3.setForeground(new java.awt.Color(51, 51, 51));
 
-        jPanel4.setBackground(new java.awt.Color(0, 144, 158));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-
-        itemList.setBackground(new java.awt.Color(20, 40, 80));
+        itemList.setBackground(new java.awt.Color(64, 71, 109));
         itemList.setForeground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout itemListLayout = new javax.swing.GroupLayout(itemList);
         itemList.setLayout(itemListLayout);
         itemListLayout.setHorizontalGroup(
             itemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
         itemListLayout.setVerticalGroup(
             itemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
+            .addGap(0, 401, Short.MAX_VALUE)
+        );
+
+        jPanel1.setBackground(new java.awt.Color(20, 40, 80));
+
+        itemScreenTotalLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        itemScreenTotalLabel.setForeground(new java.awt.Color(255, 255, 255));
+        itemScreenTotalLabel.setText("Total :");
+
+        itemScreenPayButton.setBackground(new java.awt.Color(34, 167, 240));
+        itemScreenPayButton.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        itemScreenPayButton.setForeground(new java.awt.Color(255, 255, 255));
+        itemScreenPayButton.setText("Pay");
+        itemScreenPayButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemScreenPayButtonMouseClicked(evt);
+            }
+        });
+        itemScreenPayButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemScreenPayButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(itemScreenTotalLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(itemScreenPayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(itemScreenTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemScreenPayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addComponent(itemList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addGap(92, 92, 92))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(42, 42, 42)
                 .addComponent(itemList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 630, 600));
+
+        itemScreenCarrusLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        itemScreenCarrusLogo.setForeground(new java.awt.Color(255, 255, 255));
+        itemScreenCarrusLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        itemScreenCarrusLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/29d4626c-f7fa-4de2-befb-5bf6d0b1ef01_200x200.png"))); // NOI18N
+        itemScreenCarrusLogo.setText("jLabel3");
+        getContentPane().add(itemScreenCarrusLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 210, 180));
+
+        itemScreenStoreNameLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        itemScreenStoreNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        itemScreenStoreNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        itemScreenStoreNameLabel.setText("Store Name");
+        getContentPane().add(itemScreenStoreNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 140, 70));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Seperator");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 120, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/Buy (4).png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void itemScreenPayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemScreenPayButtonActionPerformed
+        // TODO add your handling code here:
+       /* Connection conn = null;
+        try{
+            int flag = 1;
+            conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from login");
+            while(rs.next())
+            {
+                if(rs.getString(2).equals(jTextField_username.getText()) && rs.getString(3).equals( jPasswordField1.getText()))
+                {
+                    flag = 0;
+                    break;
+                }
+            }
+            if(flag==0)
+            {
+                jLabel6.setText("Login Successful");
+                int response = JOptionPane.showConfirmDialog(this,"Do you want to continue?","Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if(response==JOptionPane.YES_OPTION)
+                {
+                    System.out.println("Yes Option Selected");
+                    ChatBox cb = new ChatBox();
+                    cb.setVisible(true);
+                    cb.pack();
+                    cb.setLocationRelativeTo(null);
+                    cb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
+                    this.dispose();
+                }
+            }
+            else
+            {
+                jLabel6.setText("Login Not Successful");
+            }
+        }catch(SQLException ex){
+            System.err.println(ex);
+        } */
+
+    }//GEN-LAST:event_itemScreenPayButtonActionPerformed
+
+    private void itemScreenPayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemScreenPayButtonMouseClicked
+        // TODO add your handling code here:
+        PayScreen ps = new PayScreen();    //Traces to the SignUp Page;
+        ps.setVisible(true);   //Sets Visibility after method is called;
+        ps.pack();
+        ps.setLocationRelativeTo(null);
+        ps.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
+        this.dispose(); //collapses the login page
+    }//GEN-LAST:event_itemScreenPayButtonMouseClicked
+
     /**
      * @param args the command line arguments
      */
-   /* public static void main(String args[]) {
+   /*public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -265,7 +367,13 @@ public class ItemScreen extends javax.swing.JFrame {
     private GridBagConstraints grid;
     private javax.swing.JLabel fixedItem;
     private javax.swing.JLabel fixedPrice;
+    private javax.swing.JLabel itemScreenCarrusLogo;
+    private javax.swing.JButton itemScreenPayButton;
+    private javax.swing.JLabel itemScreenStoreNameLabel;
+    private javax.swing.JLabel itemScreenTotalLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
