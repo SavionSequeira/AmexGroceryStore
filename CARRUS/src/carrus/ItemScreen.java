@@ -83,6 +83,21 @@ public class ItemScreen extends javax.swing.JFrame {
          }
      }
  }
+void generateBill(){
+    int cnt = 1;
+    System.out.println("Item    Quantity    Price");
+    if(Integer.parseInt(itemQuant.get(0).getText())>0){
+            System.out.println(fixedItem.getText()+"    "+itemQuant.get(0).getText()+"    "+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText()));     
+    }
+    for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
+        if(Integer.parseInt(itemQuant.get(cnt).getText())>0){
+            System.out.println(iter.getKey().getText()+"  "+itemQuant.get(cnt).getText()+"  "+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText()));
+            
+        }
+        cnt++;
+    }
+    
+}
     
 void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
         {
@@ -382,6 +397,7 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
 
     private void itemScreenPayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemScreenPayButtonMouseClicked
         // TODO add your handling code here:
+        generateBill();
         PayScreen ps = new PayScreen();    //Traces to the SignUp Page;
         ps.setVisible(true);   //Sets Visibility after method is called;
         ps.pack();
