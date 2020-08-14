@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
+import java.util.LinkedHashMap;
 /**
  *
  * @author shrey
@@ -32,6 +33,7 @@ public class ItemScreen extends javax.swing.JFrame {
      * Creates new form ItemScreen
      */
     int i = 1;
+    static int cartIdNumber = 0;
     static int totalPrice=0;
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemLabel = new HashMap<>();
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemQuantModifier= new HashMap<>();
@@ -42,10 +44,48 @@ public class ItemScreen extends javax.swing.JFrame {
     javax.swing.JLabel itemListerQuantModifierPlus;
     javax.swing.JLabel itemListerQuantModifierMinus;
     javax.swing.JLabel itemListerQuant;
-   
+    ArrayList<Integer> itemIDOrdered = new ArrayList<>();
+    ArrayList<Integer> itemQuantOrdered = new ArrayList<>();
+    SqlFunctions sqlFunc;
     //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
-    public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop) {
+    public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop,HashMap<Integer,Integer> idQuant) {
         initComponents();
+        
+        String firstItemFunc=firstItem;
+        int firstPriceFunc = firstPrice;
+        String storeNameFunc = storeName;
+        HashMap<String,Integer> itemInShopFunc = itemInShop;
+        generateLabels(firstItemFunc,firstPriceFunc,storeNameFunc,itemInShopFunc);
+        generateIdQuantOrder(firstItem,idQuant,itemLabel);
+    }
+ void generateIdQuantOrder(String firstItem,HashMap<Integer,Integer> idQuant,HashMap<javax.swing.JLabel,javax.swing.JLabel> itemInShop){
+     Integer itemID;
+     sqlFunc=new SqlFunctions();
+     itemID = sqlFunc.itemIdChecker(firstItem);
+     for(Map.Entry<Integer,Integer>iter1 : idQuant.entrySet()){
+            if(itemID == iter1.getKey()){
+                itemIDOrdered.add(iter1.getKey());
+                itemQuantOrdered.add(iter1.getValue());
+                
+            }
+     }
+     for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemInShop.entrySet()){
+         System.out.println(iter.getKey().getText());
+         if(iter.getKey().getText().equalsIgnoreCase(firstItem)){
+             continue;
+         }
+         itemID = sqlFunc.itemIdChecker(iter.getKey().getText());
+         for(Map.Entry<Integer,Integer>iter1 : idQuant.entrySet()){
+                if(itemID == iter1.getKey()){
+                    itemIDOrdered.add(iter1.getKey());
+                    itemQuantOrdered.add(iter1.getValue());
+                }
+         }
+     }
+ }
+    
+void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
+        {
         itemScreenStoreNameLabel.setText(storeName);
         grid = new GridBagConstraints();
         itemList.setLayout(new GridBagLayout());
@@ -133,7 +173,7 @@ public class ItemScreen extends javax.swing.JFrame {
             i++;
         }
         System.out.println(itemPrice);
-    }
+        }
     class YourMouseListener extends MouseAdapter{
    javax.swing.JLabel actionLabel;
    int quantNum;
@@ -142,12 +182,20 @@ public class ItemScreen extends javax.swing.JFrame {
        this.actionLabel = actionLabel;
        quantNum = i;
    }
+   @Override
    public void mousePressed(MouseEvent entered){
        if(actionLabel.getText().equals("+")){
-          quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
-          itemQuant.get(quantNum).setText(Integer.toString(quantChange));
-          totalPrice = totalPrice+itemPrice.get(quantNum);
-          itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+          
+          if(quantChange<itemQuantOrdered.get(quantNum)){
+            quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
+            itemQuant.get(quantNum).setText(Integer.toString(quantChange));
+            sqlFunc.updateQuantityAdd(itemIDOrdered.get(quantNum));
+            totalPrice = totalPrice+itemPrice.get(quantNum);
+            itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+           }
+          else{
+              System.out.println("No more available");
+          }
        }
        else{
           quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())-1;
@@ -155,6 +203,7 @@ public class ItemScreen extends javax.swing.JFrame {
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
             totalPrice = totalPrice-itemPrice.get(quantNum);
             itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+            sqlFunc.updateQuantitySub(itemIDOrdered.get(quantNum));
           }
           else{
             quantChange=0;
@@ -276,7 +325,7 @@ public class ItemScreen extends javax.swing.JFrame {
         itemScreenStoreNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         itemScreenStoreNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         itemScreenStoreNameLabel.setText("Store Name");
-        getContentPane().add(itemScreenStoreNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 140, 70));
+        getContentPane().add(itemScreenStoreNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 190, 70));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

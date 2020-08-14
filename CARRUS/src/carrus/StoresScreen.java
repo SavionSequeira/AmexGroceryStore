@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.LinkedHashMap;
 public class StoresScreen extends javax.swing.JFrame {
 
     private String item;
@@ -248,6 +249,7 @@ public class StoresScreen extends javax.swing.JFrame {
         int storeId;
         int price;
         HashMap<String,Integer> itemList = new HashMap<>();
+        HashMap<Integer,Integer> idQuant = new HashMap<>();
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
       //  System.out.println("Received price "+ price);
@@ -255,7 +257,10 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
        // System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
+        idQuant = itemExtractor.idQuants(storeId);
+        
+        System.out.println(idQuant);
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -286,13 +291,16 @@ public class StoresScreen extends javax.swing.JFrame {
         int storeId;
         int price;
         HashMap<String,Integer> itemList = new HashMap<>();
+        HashMap<Integer,Integer> idQuant = new HashMap<>();
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
         System.out.println("String label check store id "+ storeScreenLabel);
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
+        idQuant = itemExtractor.idQuants(storeId);
+        System.out.println(idQuant);
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -306,13 +314,16 @@ public class StoresScreen extends javax.swing.JFrame {
         int storeId;
         int price;
         HashMap<String,Integer> itemList = new HashMap<>();
+        HashMap<Integer,Integer> idQuant = new HashMap<>();
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
         System.out.println("String label check store id "+ storeScreenLabel);
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
+        idQuant = itemExtractor.idQuants(storeId);
+        System.out.println(idQuant);
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
@@ -327,13 +338,16 @@ public class StoresScreen extends javax.swing.JFrame {
         int storeId;
         int price;
         HashMap<String,Integer> itemList = new HashMap<>();
+        HashMap<Integer,Integer> idQuant = new HashMap<>();
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
         System.out.println("String label check store id "+ storeScreenLabel);
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList);    //Traces to the SignUp Page;
+        idQuant = itemExtractor.idQuants(storeId);
+        System.out.println(idQuant);
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
         is.pack();
         is.setLocationRelativeTo(null);
