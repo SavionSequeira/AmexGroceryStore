@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package carrus;
+import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -150,6 +151,7 @@ public class SqlFunctions {
        
        return storeDist;
    }
+
    Integer itemIdChecker(String itemName){
        Integer itemID=0;
        try{
@@ -162,5 +164,107 @@ public class SqlFunctions {
            
        }
        return itemID;
+   }
+
+   
+   
+   void updateQuantityAdd(int itemNo)
+   {
+       int cartid=1;
+       itemNo =7 ;
+       String query1 = "SELECT quantity_p FROM cart_item WHERE ItemId = ? and CartId = ?";
+       try{
+                 PreparedStatement pstmt = con.prepareStatement(query1); 
+                  pstmt.setInt(1, itemNo);
+                  pstmt.setInt(2, cartid);
+                  
+                  rs = pstmt.executeQuery();
+                  //  rs = stmt.executeQuery("SELECT quantity_p FROM cart_item WHERE ItemId ="+itemNo);
+                  if(rs.next()==false)
+                   {
+                       System.out.println("First time insertion");
+                       String query = " insert into cart_item(CartId, ItemId, quantity_p)" + " values (?, ?, ?)";
+                             PreparedStatement preparedStmt = con.prepareStatement(query);
+                             preparedStmt.setInt(1, cartid);
+                             preparedStmt.setInt(2, itemNo);
+                             preparedStmt.setInt(3, 1);
+                             preparedStmt.execute();
+                  }
+                   else
+                   {
+                       
+                   
+                            System.out.println("First time update"); 
+                            int quan = rs.getInt(1);
+                            quan++;
+                          //   String query = " insert into cart_item(CartId, ItemId, quantity_p)" + " values (?, ?, ?)";
+                             String sql = "UPDATE cart_item " + "SET quantity_p = ? WHERE ItemId = ? and CartId = ?";
+                             PreparedStatement preparedStmt = con.prepareStatement(sql);
+                             preparedStmt.setInt(1, quan);
+                             preparedStmt.setInt(2, itemNo);
+                             preparedStmt.setInt(3, cartid);
+                             preparedStmt.execute();
+                            
+                       
+                   }
+       }
+       catch(Exception e)
+       {
+           System.err.println("Got an exception!");
+      System.err.println(e.getMessage());
+       }
+   }
+   
+   void updateQuantitySub(int itemNo)
+   {
+       int cartid=1;
+       itemNo =7 ;
+       String query1 = "SELECT quantity_p FROM cart_item WHERE ItemId = ? and CartId = ?";
+       try{
+                 PreparedStatement pstmt = con.prepareStatement(query1); 
+                  pstmt.setInt(1, itemNo);
+                  pstmt.setInt(2, cartid);
+                  
+                  rs = pstmt.executeQuery();
+                  //  rs = stmt.executeQuery("SELECT quantity_p FROM cart_item WHERE ItemId ="+itemNo);
+                  if(rs.next()==false)
+                   {
+                       System.out.println("Item Deleted");
+                   
+                  }
+                   else
+                   {
+                       
+                   
+                            System.out.println("First time update Sub"); 
+                            int quan = rs.getInt(1);
+                            quan--;
+                            if(quan==0)
+                            {
+                               String sql = "Delete from cart_item " + "WHERE ItemId = ? and CartId = ?";
+                               PreparedStatement preparedStmt = con.prepareStatement(sql);
+                               preparedStmt.setInt(1, itemNo);
+                               preparedStmt.setInt(2, cartid);
+                               preparedStmt.execute();
+                            }
+                            else
+                            {
+                             String sql = "UPDATE cart_item " + "SET quantity_p = ? WHERE ItemId = ? and CartId = ?";
+                             PreparedStatement preparedStmt = con.prepareStatement(sql);
+                             preparedStmt.setInt(1, quan);
+                             preparedStmt.setInt(2, itemNo);
+                             preparedStmt.setInt(3, cartid);
+                             preparedStmt.execute();
+                            }
+                            
+                       
+                   }
+       }
+       catch(Exception e)
+       {
+           System.err.println("Got an exception!");
+      System.err.println(e.getMessage());
+       }
+
    }
 }

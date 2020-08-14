@@ -33,6 +33,7 @@ public class ItemScreen extends javax.swing.JFrame {
      * Creates new form ItemScreen
      */
     int i = 1;
+    static int cartIdNumber = 0;
     static int totalPrice=0;
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemLabel = new HashMap<>();
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemQuantModifier= new HashMap<>();

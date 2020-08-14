@@ -258,6 +258,7 @@ public class StoresScreen extends javax.swing.JFrame {
        // System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
+        itemExtractor.updateQuantitySub(7);
         System.out.println(idQuant);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
@@ -298,6 +299,7 @@ public class StoresScreen extends javax.swing.JFrame {
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
+        itemExtractor.updateQuantityAdd(7);
         System.out.println(idQuant);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
