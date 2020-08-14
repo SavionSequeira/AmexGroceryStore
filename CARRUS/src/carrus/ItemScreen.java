@@ -46,6 +46,17 @@ public class ItemScreen extends javax.swing.JFrame {
     //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
     public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop) {
         initComponents();
+        
+        String firstItemFunc=firstItem;
+        int firstPriceFunc = firstPrice;
+        String storeNameFunc = storeName;
+        HashMap<String,Integer> itemInShopFunc = itemInShop;
+        
+           generateLabels(firstItemFunc,firstPriceFunc,storeNameFunc,itemInShopFunc);
+    }
+    
+void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
+        {
         itemScreenStoreNameLabel.setText(storeName);
         grid = new GridBagConstraints();
         itemList.setLayout(new GridBagLayout());
@@ -133,7 +144,7 @@ public class ItemScreen extends javax.swing.JFrame {
             i++;
         }
         System.out.println(itemPrice);
-    }
+        }
     class YourMouseListener extends MouseAdapter{
    javax.swing.JLabel actionLabel;
    int quantNum;
@@ -142,6 +153,7 @@ public class ItemScreen extends javax.swing.JFrame {
        this.actionLabel = actionLabel;
        quantNum = i;
    }
+   @Override
    public void mousePressed(MouseEvent entered){
        if(actionLabel.getText().equals("+")){
           quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
@@ -276,7 +288,7 @@ public class ItemScreen extends javax.swing.JFrame {
         itemScreenStoreNameLabel.setForeground(new java.awt.Color(255, 255, 255));
         itemScreenStoreNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         itemScreenStoreNameLabel.setText("Store Name");
-        getContentPane().add(itemScreenStoreNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 140, 70));
+        getContentPane().add(itemScreenStoreNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 190, 70));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
