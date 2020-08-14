@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.LinkedHashMap;
 public class StoresScreen extends javax.swing.JFrame {
 
     private String item;
@@ -319,7 +320,7 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-         idQuant = itemExtractor.idQuants(storeId);
+        idQuant = itemExtractor.idQuants(storeId);
         System.out.println(idQuant);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;
@@ -343,7 +344,7 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-         idQuant = itemExtractor.idQuants(storeId);
+        idQuant = itemExtractor.idQuants(storeId);
         System.out.println(idQuant);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
         is.setVisible(true);   //Sets Visibility after method is called;

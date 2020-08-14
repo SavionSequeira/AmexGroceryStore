@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
 public class SqlFunctions {
     private Connection con;
     private Statement stmt;
@@ -148,5 +149,18 @@ public class SqlFunctions {
    {
        
        return storeDist;
+   }
+   Integer itemIdChecker(String itemName){
+       Integer itemID=0;
+       try{
+           rs = stmt.executeQuery("Select item_no from item where item_name='"+itemName+"'");
+           rs.next();
+           itemID = rs.getInt(1);
+
+       }
+       catch(Exception e){
+           
+       }
+       return itemID;
    }
 }
