@@ -66,6 +66,8 @@ public class SqlFunctions {
     }
    HashMap itemDisplay(int storeNo){
        HashMap<String,Integer> itemList = new HashMap<>();
+ 
+       
        try{
            
            rs = stmt.executeQuery("Select item_name,price from item where item_no in (select item_no from shop_item where ShopID="+storeNo+")");
@@ -76,8 +78,27 @@ public class SqlFunctions {
        }
        catch(Exception e){
        }
+       
     //   System.out.println(itemList);
        return itemList;
+   }
+   
+   HashMap idQuants(int storeNo)
+   {
+        HashMap<Integer,Integer> idQuant = new HashMap<>();
+        try{
+           
+           rs = stmt.executeQuery("select item_no, quantity from shop_item where ShopId ="+storeNo);
+           while(rs.next()){
+               idQuant.put(rs.getInt(1),rs.getInt(2));
+           }     
+           
+       }
+       catch(Exception e){
+       }
+       
+    //   System.out.println(itemList);
+       return idQuant;
    }
    
    int getStoreId(String storeLabel)

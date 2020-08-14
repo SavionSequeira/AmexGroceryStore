@@ -44,7 +44,7 @@ public class ItemScreen extends javax.swing.JFrame {
     javax.swing.JLabel itemListerQuant;
    
     //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
-    public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop) {
+    public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop,HashMap<Integer,Integer> idQuant) {
         initComponents();
         
         String firstItemFunc=firstItem;
@@ -52,8 +52,9 @@ public class ItemScreen extends javax.swing.JFrame {
         String storeNameFunc = storeName;
         HashMap<String,Integer> itemInShopFunc = itemInShop;
         
-           generateLabels(firstItemFunc,firstPriceFunc,storeNameFunc,itemInShopFunc);
+        generateLabels(firstItemFunc,firstPriceFunc,storeNameFunc,itemInShopFunc);
     }
+ 
     
 void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
         {
