@@ -10,9 +10,15 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class SqlFunctions {
     static int cartid=1;
@@ -20,6 +26,8 @@ public class SqlFunctions {
     private Statement stmt;
     private ResultSet rs;
     static HashMap<String,Integer> storeDist = new HashMap<>();
+    static HashMap<String, Integer> sortedStoreDist = new LinkedHashMap<String, Integer>(); 
+
     public SqlFunctions(){
     con= SqlSingletonConnection.getConnection();
         try{
@@ -65,8 +73,32 @@ public class SqlFunctions {
             }
            
         }
-       
-       //  System.out.println(storeDist);
+        sortHashMapValues(true);
+         System.out.println("Store Dist check "+storeDist);
+    }
+    
+    void sortHashMapValues(boolean order)
+    {
+        
+//convert HashMap into List   
+            List<Entry<String, Integer>> list = new LinkedList<>(storeDist.entrySet());  
+//sorting the list elements  
+            Collections.sort(list, (Entry<String, Integer> o1, Entry<String, Integer> o2) -> {
+                if (order)
+                {
+//compare two object and return an integer
+                    return o1.getValue().compareTo(o2.getValue());
+                }
+                else
+                {
+                    return o2.getValue().compareTo(o1.getValue());
+                }
+            });
+            
+           list.forEach((aa) -> {
+               sortedStoreDist.put(aa.getKey(), aa.getValue());
+        }); 
+           System.out.println("Sorted Store Distance check" +sortedStoreDist);
     }
    HashMap itemDisplay(int storeNo){
        HashMap<String,Integer> itemList = new HashMap<>();
@@ -151,7 +183,7 @@ public class SqlFunctions {
    HashMap setMapStoreScreen()
    {
        
-       return storeDist;
+       return sortedStoreDist;
    }
 
    Integer itemIdChecker(String itemName){
