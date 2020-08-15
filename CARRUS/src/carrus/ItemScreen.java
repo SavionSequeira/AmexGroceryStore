@@ -399,7 +399,7 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
         // TODO add your handling code here:
         generateBill();
         updateCartNumber();
-        PayScreen ps = new PayScreen();    //Traces to the SignUp Page;
+        PayScreen ps = new PayScreen(totalPrice);    //Traces to the SignUp Page;
         ps.setVisible(true);   //Sets Visibility after method is called;
         ps.pack();
         ps.setLocationRelativeTo(null);
