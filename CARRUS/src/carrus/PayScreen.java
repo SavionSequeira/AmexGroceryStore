@@ -9,6 +9,9 @@ public class PayScreen extends javax.swing.JFrame {
    static String paymentOption ="";
     public PayScreen() {
         initComponents();
+        jp2.setVisible(true);
+        jp1.setVisible(false);
+        jp3.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -847,6 +850,7 @@ public class PayScreen extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PayScreen().setVisible(true);
+                 
             }
         });
     }
