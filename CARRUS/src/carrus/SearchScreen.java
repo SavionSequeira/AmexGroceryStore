@@ -497,7 +497,7 @@ public class SearchScreen extends javax.swing.JFrame {
             listSelectionModel.addListSelectionListener(new SharedListSelectionHandler());
             searchTable.setSelectionModel(listSelectionModel);
             searchTable.setBackground(new Color(255, 255, 255));
-            //searchTable.setEnabled(false);
+        
             jScrollPane1.setViewportView(searchTable);
             jScrollPane1.getViewport().setBackground(new Color(64,71,109));
             listSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

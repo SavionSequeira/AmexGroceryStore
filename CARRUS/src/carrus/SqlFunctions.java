@@ -319,7 +319,7 @@ public class SqlFunctions {
                 PreparedStatement preparedStmt1 = con.prepareStatement(sql);
                 preparedStmt1.execute();
                   
-             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?,?,?,?,?,?,?,?,?)";
+             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID,email_id)" + " values (?,?,?,?,?,?,?,?,?,?)";
                              PreparedStatement preparedStmt = con.prepareStatement(query1);
                              preparedStmt.setInt(1, cartid);
                              preparedStmt.setString(2, "In progress");
@@ -330,6 +330,7 @@ public class SqlFunctions {
                              preparedStmt.setDouble(7, 100.0);
                              preparedStmt.setInt(8, 0);
                              preparedStmt.setInt(9, 2);
+                              preparedStmt.setString(10, "abcd@gmail.com");
                              preparedStmt.execute();
                               System.out.println("new Cart added");
                 
@@ -345,7 +346,7 @@ public class SqlFunctions {
                 try{
            
                   
-             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?, ?, ?,?,?,?,?,?,?)";
+             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID,email_id)" + " values (?, ?, ?,?,?,?,?,?,?,?)";
                              PreparedStatement preparedStmt = con.prepareStatement(query1);
                              preparedStmt.setInt(1, cartid);
                              preparedStmt.setString(2, "In prog");
@@ -356,6 +357,7 @@ public class SqlFunctions {
                              preparedStmt.setDouble(7, 100.0);
                              preparedStmt.setInt(8, 0);
                              preparedStmt.setInt(9, 2);
+                             preparedStmt.setString(10, "abcd@gmail.com");
                              preparedStmt.execute();
                 
            }
@@ -373,11 +375,44 @@ public class SqlFunctions {
             PreparedStatement preparedStmt = con.prepareStatement(sql);
       preparedStmt.setString(1, paymentOption);
       preparedStmt.setInt(2, cartid);
-      rs1 = preparedStmt.executeQuery();
+      preparedStmt.execute();
        } catch (Exception e) {
+           System.out.println(e);
        }
      
 
+   }
+   void updateEmailId(String emailId)
+   {
+
+      String sql = "UPDATE cart " + "SET email_id = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setString(1, emailId);
+      preparedStmt.setInt(2, cartid);
+      preparedStmt.execute();
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+     
+
+   
+   }
+      void updatePhoneNo(String phoneNo)
+   {
+
+      String sql = "UPDATE cart " + "SET custphone = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setString(1, phoneNo);
+      preparedStmt.setInt(2, cartid);
+      preparedStmt.execute();
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+     
+
+   
    }
    void updateQuantityItemTable()
    {

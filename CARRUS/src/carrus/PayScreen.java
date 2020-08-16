@@ -32,8 +32,8 @@ public class PayScreen extends javax.swing.JFrame {
         payScreenPaytmLogo = new javax.swing.JLabel();
         payScreenTotalLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        phoneNoLabelPaymentScreen = new javax.swing.JTextField();
+        emailIdLabelPaymentScreen = new javax.swing.JTextField();
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
@@ -247,17 +247,17 @@ public class PayScreen extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(64, 71, 109));
 
-        jTextField1.setBackground(new java.awt.Color(64, 71, 109));
-        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Phone No :");
-        jTextField1.setBorder(null);
+        phoneNoLabelPaymentScreen.setBackground(new java.awt.Color(64, 71, 109));
+        phoneNoLabelPaymentScreen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        phoneNoLabelPaymentScreen.setForeground(new java.awt.Color(255, 255, 255));
+        phoneNoLabelPaymentScreen.setText("Phone No :");
+        phoneNoLabelPaymentScreen.setBorder(null);
 
-        jTextField2.setBackground(new java.awt.Color(64, 71, 109));
-        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("Email ID");
-        jTextField2.setBorder(null);
+        emailIdLabelPaymentScreen.setBackground(new java.awt.Color(64, 71, 109));
+        emailIdLabelPaymentScreen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        emailIdLabelPaymentScreen.setForeground(new java.awt.Color(255, 255, 255));
+        emailIdLabelPaymentScreen.setText("Email ID");
+        emailIdLabelPaymentScreen.setBorder(null);
 
         jButton1.setText("Submit");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -273,11 +273,11 @@ public class PayScreen extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(emailIdLabelPaymentScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                     .addComponent(jSeparator13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(phoneNoLabelPaymentScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                     .addComponent(jSeparator14))
                 .addGap(68, 68, 68)
                 .addComponent(jButton1)
@@ -288,8 +288,8 @@ public class PayScreen extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailIdLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNoLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,6 +760,7 @@ public class PayScreen extends javax.swing.JFrame {
         jLabel5.setForeground(new Color(64,71,109));
         jp1.setVisible(false);
         jp2.setVisible(false);
+        
         paymentOption= "Paytm";
     }//GEN-LAST:event_paytmTabMouseClicked
 
@@ -813,9 +814,14 @@ public class PayScreen extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
+         String emailId = emailIdLabelPaymentScreen.getText();
+        String phoneNo = phoneNoLabelPaymentScreen.getText();
           SqlFunctions ss = new SqlFunctions();
         ss.updateQuantityItemTable();
         ss.updatePaymentOption(paymentOption);
+        ss.updateEmailId(emailId);
+        ss.updatePhoneNo(phoneNo);
+       
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -875,6 +881,7 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JLabel debitPanelMasterCardLogo1;
     private javax.swing.JLabel debitPanelRupayCardLogo1;
     private javax.swing.JLabel debitPanelVisaCardLogo1;
+    private javax.swing.JTextField emailIdLabelPaymentScreen;
     private javax.swing.JLabel googlePayPanelGoogleLogo;
     private javax.swing.JPanel googlePayTab;
     private javax.swing.JButton jButton1;
@@ -904,8 +911,6 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel jp1;
     private javax.swing.JPanel jp2;
     private javax.swing.JPanel jp3;
@@ -916,5 +921,6 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JLabel payScreenVisaLogo;
     private javax.swing.JLabel paytmPanelPaytmLogo;
     private javax.swing.JPanel paytmTab;
+    private javax.swing.JTextField phoneNoLabelPaymentScreen;
     // End of variables declaration//GEN-END:variables
 }
