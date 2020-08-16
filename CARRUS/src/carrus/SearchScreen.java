@@ -11,11 +11,14 @@ import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 public class SearchScreen extends javax.swing.JFrame {
 
      ShortestPath s = new ShortestPath();
     Object[][] resultSet;
-    String[] colHeads = {"Let me guess......."};
+    String[] colHeads = {""};
+    ListSelectionModel listSelectionModel;
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
@@ -23,6 +26,7 @@ public class SearchScreen extends javax.swing.JFrame {
     static String text;
     public SearchScreen() {
         initComponents();
+        setScrollPaneBackground();
         this.setLocationRelativeTo(null); //Sets the screen in the center
     }
     public String getString()
@@ -45,7 +49,6 @@ public class SearchScreen extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         SearchItem_TextField = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         Search_Screen_NextButton = new javax.swing.JLabel();
         searchScreenAdSpace = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -136,13 +139,12 @@ public class SearchScreen extends javax.swing.JFrame {
                 .addComponent(jLabel3))
         );
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 71, 109)));
+
         searchTable.setBackground(new java.awt.Color(64, 71, 109));
         searchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 ""
@@ -242,7 +244,6 @@ public class SearchScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SearchItem_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -273,11 +274,9 @@ public class SearchScreen extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(SearchItem_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Search_Screen_NextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(searchScreenAdSpace, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,8 +464,13 @@ public class SearchScreen extends javax.swing.JFrame {
 
     private void SearchItem_TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchItem_TextFieldKeyReleased
         // TODO add your handling code here:
+        String searchKey = SearchItem_TextField.getText();
+        if(searchKey.equals(""))
+            {
+            searchTable.setVisible(false);
+            }
+        else{
           try {
-            String searchKey = SearchItem_TextField.getText();
             con= SqlSingletonConnection.getConnection();
           //  java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/amex","root", "root@0412");
             stmt=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
@@ -487,11 +491,16 @@ public class SearchScreen extends javax.swing.JFrame {
          	                  row++;
 		            }
 		            
-		            searchTable = new JTable(resultSet,colHeads);
-		    	   searchTable.setEnabled(false);
-                           searchTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-		    	jScrollPane1.setViewportView(searchTable);
-                        
+		           
+            searchTable = new JTable(resultSet,colHeads);
+            listSelectionModel = searchTable.getSelectionModel();
+            listSelectionModel.addListSelectionListener(new SharedListSelectionHandler());
+            searchTable.setSelectionModel(listSelectionModel);
+            searchTable.setBackground(new Color(255, 255, 255));
+            //searchTable.setEnabled(false);
+            jScrollPane1.setViewportView(searchTable);
+            jScrollPane1.getViewport().setBackground(new Color(64,71,109));
+            listSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
             
            
@@ -500,6 +509,7 @@ public class SearchScreen extends javax.swing.JFrame {
             // TODO add your handling code here:
         } catch (SQLException ex) {
             Logger.getLogger(SearchScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
 
     }//GEN-LAST:event_SearchItem_TextFieldKeyReleased
@@ -537,7 +547,10 @@ public class SearchScreen extends javax.swing.JFrame {
     private void searchScreenCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchScreenCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchScreenCheckBox1ActionPerformed
-
+void setScrollPaneBackground()
+{
+    jScrollPane1.getViewport().setBackground(new Color(64,71,109));
+}
     /**
      * @param args the command line arguments
      */
@@ -572,6 +585,28 @@ public class SearchScreen extends javax.swing.JFrame {
             }
         });
     }
+    
+class SharedListSelectionHandler implements ListSelectionListener {
+public void valueChanged(ListSelectionEvent e) {
+ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+
+int firstIndex = e.getFirstIndex();
+boolean isAdjusting = e.getValueIsAdjusting();
+
+
+if (lsm.isSelectionEmpty()) {
+System.out.println(" none");
+} else {
+// Find out which indexes are selected.
+
+System.out.println(" " +firstIndex);
+String tableSelection;
+tableSelection = searchTable.getModel().getValueAt(firstIndex,0).toString();
+SearchItem_TextField.setText(tableSelection);
+}
+}
+
+} 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SearchItem_TextField;
@@ -585,7 +620,6 @@ public class SearchScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel searchScreenAdSpace;
     private javax.swing.JCheckBox searchScreenCheckBox1;
     private javax.swing.JCheckBox searchScreenCheckBox2;

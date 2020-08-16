@@ -345,14 +345,14 @@ public class SqlFunctions {
                 try{
            
                   
-             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?, ?, ?,?,?,?,?,?,?,?)";
+             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?, ?, ?,?,?,?,?,?,?)";
                              PreparedStatement preparedStmt = con.prepareStatement(query1);
                              preparedStmt.setInt(1, cartid);
-                             preparedStmt.setString(2, "In progress");
+                             preparedStmt.setString(2, "In prog");
                              preparedStmt.setString(3, "9999999999");
                              preparedStmt.setTimestamp(4, sqlTime);
                              preparedStmt.setInt(5, 56094);
-                             preparedStmt.setString(6, "Yet to Decide");
+                             preparedStmt.setString(6, "Yet");
                              preparedStmt.setDouble(7, 100.0);
                              preparedStmt.setInt(8, 0);
                              preparedStmt.setInt(9, 2);
@@ -361,7 +361,7 @@ public class SqlFunctions {
            }
            catch(Exception e)
            {
-               
+               System.out.println("Cart Table Error"+e);
            }
        }
    }
