@@ -394,9 +394,9 @@ public class SqlFunctions {
                     String sql = "UPDATE shop_item " + "SET quantity = ? WHERE item_no = ? and ShopID = ?";
         
                     PreparedStatement preparedStmt1 = con.prepareStatement(sql);
-                    preparedStmt.setInt(1, updatedQuantity);
-                    preparedStmt.setInt(2, selectedItem);
-                    preparedStmt.setInt(3, storeId);
+                    preparedStmt1.setInt(1, updatedQuantity);
+                    preparedStmt1.setInt(2, selectedItem);
+                    preparedStmt1.setInt(3, storeId);
                     preparedStmt1.execute();
 
                 }
