@@ -336,11 +336,12 @@ public class SearchScreen extends javax.swing.JFrame {
     private void Search_Screen_NextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_Screen_NextButtonMouseClicked
         // TODO add your handling code here:
         String text = getString();
+        System.out.println("Empty test   "+text);
         s.setString(text);
         s.runFunctions();
         SqlFunctions ss1 = new SqlFunctions();
         ss1.UpdateCartTable();
-        if(kioskCheck && !"".equals(text))
+        if(kioskCheck && (!"".equals(text) || !"Search for an item  Ex : RedBuLL".equals(text)))
         {
         StoresScreen ss = new StoresScreen(text);    //Traces to the SignUp Page;
         ss.setVisible(true);   //Sets Visibility after method is called;

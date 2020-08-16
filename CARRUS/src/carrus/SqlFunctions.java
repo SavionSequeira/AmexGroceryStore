@@ -410,9 +410,6 @@ public class SqlFunctions {
        } catch (Exception e) {
            System.out.println(e);
        }
-     
-
-   
    }
    void updateQuantityItemTable()
    {
