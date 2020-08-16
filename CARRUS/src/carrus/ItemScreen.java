@@ -398,7 +398,7 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
     private void itemScreenPayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemScreenPayButtonMouseClicked
         // TODO add your handling code here:
         generateBill();
-        updateCartNumber();
+        
         PayScreen ps = new PayScreen(totalPrice);    //Traces to the SignUp Page;
         ps.setVisible(true);   //Sets Visibility after method is called;
         ps.pack();
@@ -407,11 +407,7 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
         ps.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
         this.dispose(); //collapses the login page
     }//GEN-LAST:event_itemScreenPayButtonMouseClicked
-void updateCartNumber()
-{
-    SqlFunctions ss = new SqlFunctions();
-    ss.cartid++;
-}
+
     /**
      * @param args the command line arguments
      */

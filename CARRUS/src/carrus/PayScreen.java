@@ -30,6 +30,7 @@ public class PayScreen extends javax.swing.JFrame {
         payScreenGoogleLogo = new javax.swing.JLabel();
         payScreenVisaLogo = new javax.swing.JLabel();
         payScreenPaytmLogo = new javax.swing.JLabel();
+        submiteButtonPaymentScreen = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jp1 = new javax.swing.JPanel();
         debitPanelExpiryDateLabel = new javax.swing.JLabel();
@@ -194,6 +195,15 @@ public class PayScreen extends javax.swing.JFrame {
 
         payScreenPaytmLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/paytm1_50px.png"))); // NOI18N
 
+        submiteButtonPaymentScreen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        submiteButtonPaymentScreen.setForeground(new java.awt.Color(64, 71, 109));
+        submiteButtonPaymentScreen.setText("Submit");
+        submiteButtonPaymentScreen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                submiteButtonPaymentScreenMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -208,14 +218,19 @@ public class PayScreen extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(payScreenTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(payScreenVisaLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(payScreenGoogleLogo)
-                        .addGap(30, 30, 30)
-                        .addComponent(payScreenPaytmLogo)
+                        .addComponent(payScreenTotalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(submiteButtonPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(payScreenVisaLogo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(payScreenGoogleLogo)
+                                .addGap(30, 30, 30)
+                                .addComponent(payScreenPaytmLogo)))
                         .addGap(30, 30, 30))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -235,7 +250,9 @@ public class PayScreen extends javax.swing.JFrame {
                     .addComponent(payScreenGoogleLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(payScreenVisaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(payScreenPaytmLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 125, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(submiteButtonPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         jPanel3.setBackground(new java.awt.Color(64, 71, 109));
@@ -704,6 +721,18 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_googlePayPanelAmountTextFieldActionPerformed
 
+    private void submiteButtonPaymentScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submiteButtonPaymentScreenMouseClicked
+        // TODO add your handling code here:
+        
+        SqlFunctions ss = new SqlFunctions();
+        ss.updateQuantityItemTable();
+    }//GEN-LAST:event_submiteButtonPaymentScreenMouseClicked
+
+    void updateCartNumber()
+{
+    SqlFunctions ss = new SqlFunctions();
+    ss.cartid++;
+}
     public void setColour(JPanel p)
 {
     p.setBackground(new Color(64,71,109)); 
@@ -796,5 +825,6 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JTextField paytmPanelMobileTextField;
     private javax.swing.JLabel paytmPanelPaytmLogo;
     private javax.swing.JPanel paytmTab;
+    private javax.swing.JLabel submiteButtonPaymentScreen;
     // End of variables declaration//GEN-END:variables
 }
