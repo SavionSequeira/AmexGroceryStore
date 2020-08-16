@@ -399,12 +399,12 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
         // TODO add your handling code here:
         generateBill();
         
-        PayScreen ps = new PayScreen(totalPrice);    //Traces to the SignUp Page;
-        ps.setVisible(true);   //Sets Visibility after method is called;
-        ps.pack();
-        ps.setLocationRelativeTo(null);
+        PayScreen tl = new PayScreen();    //Traces to the SignUp Page;
+        tl.setVisible(true);   //Sets Visibility after method is called;
+        tl.pack();
+        tl.setLocationRelativeTo(null);
         //ps.jp2.setVisible(true);
-        ps.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
+        tl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
         this.dispose(); //collapses the login page
     }//GEN-LAST:event_itemScreenPayButtonMouseClicked
 

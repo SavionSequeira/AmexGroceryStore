@@ -43,6 +43,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
         Welcome_Screen_Text.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         Welcome_Screen_Text.setForeground(new java.awt.Color(255, 255, 255));
+        Welcome_Screen_Text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Welcome_Screen_Text.setText("Let's Begin The Journey");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -71,7 +72,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
                 .addComponent(Welcome_Screen_Logo)
                 .addGap(18, 18, 18)
                 .addComponent(Welcome_Screen_StartButton)
-                .addGap(35, 35, 35)
+                .addGap(37, 37, 37)
                 .addComponent(Welcome_Screen_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
