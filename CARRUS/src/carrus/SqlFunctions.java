@@ -458,5 +458,28 @@ public class SqlFunctions {
            System.out.println(e);
        }
    }
+   void updateCartTotal(int totalPrice){
+      String sql = "UPDATE cart " + "SET total_payment = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setInt(1, totalPrice);
+      preparedStmt.setInt(2, cartid);
+      preparedStmt.execute();
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+   }
+    void updateCartStatus(String status){
+      String sql = "UPDATE cart " + "SET status = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setString(1, status);
+      preparedStmt.setInt(2, cartid);
+      preparedStmt.execute();
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+   }
+      
  
 }

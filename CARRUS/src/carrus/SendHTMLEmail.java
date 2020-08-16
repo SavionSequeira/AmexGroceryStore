@@ -22,7 +22,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class SendHTMLEmail {
-       SendHTMLEmail(String bill) {
+       SendHTMLEmail(String Recepient,String bill) {
 
      Properties properties = new Properties();
      properties.put("mail.smtp.auth","true");
@@ -34,8 +34,8 @@ public class SendHTMLEmail {
 properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
 
-     final String username = "vishv1098@gmail.com";//
-     final String password = "vamsivishnu0410";
+     final String username = "carrus.kiosk@gmail.com";//
+     final String password = "carrus2020";
      try{
      Session session = Session.getDefaultInstance(properties, 
                           new Authenticator(){
@@ -47,9 +47,9 @@ properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
      Message msg = new MimeMessage(session);
 
   // -- Set the FROM and TO fields --
-     msg.setFrom(new InternetAddress("vishv1098@gmail.com"));
+     msg.setFrom(new InternetAddress("carrus.kiosk@gmail.com"));
      msg.setRecipient(Message.RecipientType.TO, 
-                      new InternetAddress("vishv1098@gmail.com"));
+                      new InternetAddress(Recepient));
      msg.setSubject("Hello");
      msg.setText("How are you");
      msg.setContent(

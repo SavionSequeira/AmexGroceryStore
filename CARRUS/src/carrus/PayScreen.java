@@ -5,15 +5,21 @@ import javax.swing.JPanel;
 
 
 public class PayScreen extends javax.swing.JFrame {
-
+    String bill;
+    int totalPrice;
    static String paymentOption ="";
-    public PayScreen() {
+    public PayScreen(int totalPrice,String bill) {
+        this.bill = bill;
+        this.totalPrice = totalPrice;
         initComponents();
+        payScreenTotalLabel.setText("Total : "+totalPrice+"₹");
         jp2.setVisible(true);
         jp1.setVisible(false);
         jp3.setVisible(false);
     }
-
+    void emailSender(String Recepient){
+        new SendHTMLEmail(Recepient,bill);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -816,24 +822,26 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
          String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
-          SqlFunctions ss = new SqlFunctions();
+        SqlFunctions ss = new SqlFunctions();
         ss.updateQuantityItemTable();
         ss.updatePaymentOption(paymentOption);
         ss.updateEmailId(emailId);
         ss.updatePhoneNo(phoneNo);
-       
+        ss.updateCartTotal(totalPrice);
+        ss.updateCartStatus("Paid");
+       emailSender(emailId);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+   /* public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
+        /*try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -853,13 +861,13 @@ public class PayScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+       /* java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PayScreen().setVisible(true);
                  
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel debitCardTab;

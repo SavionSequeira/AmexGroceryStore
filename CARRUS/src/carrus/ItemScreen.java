@@ -399,8 +399,8 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
     private void itemScreenPayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemScreenPayButtonMouseClicked
         // TODO add your handling code here:
         generateBill();
-        SendHTMLEmail emailSender = new SendHTMLEmail(bill);
-        PayScreen tl = new PayScreen();    //Traces to the SignUp Page;
+        
+        PayScreen tl = new PayScreen(totalPrice,bill);    //Traces to the SignUp Page;
         tl.setVisible(true);   //Sets Visibility after method is called;
         tl.pack();
         tl.setLocationRelativeTo(null);
