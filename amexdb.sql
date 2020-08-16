@@ -24,14 +24,15 @@ DROP TABLE IF EXISTS `cart`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart` (
   `cartid` int NOT NULL,
-  `status` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `custphone` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `timestamp` time DEFAULT NULL,
   `otp` int DEFAULT NULL,
-  `payment_option` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `payment_option` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `total_payment` float DEFAULT NULL,
   `ShopID` int DEFAULT NULL,
   `KioskID` int DEFAULT NULL,
+  `email_id` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`cartid`),
   KEY `ShopID` (`ShopID`),
   KEY `KioskID` (`KioskID`),
@@ -175,7 +176,7 @@ CREATE TABLE `shop_item` (
 
 LOCK TABLES `shop_item` WRITE;
 /*!40000 ALTER TABLE `shop_item` DISABLE KEYS */;
-INSERT INTO `shop_item` VALUES (0,2,10),(0,5,4),(0,7,12),(0,9,18),(0,11,25),(0,13,6),(0,15,7),(1,1,45),(1,2,23),(1,3,77),(1,4,11),(1,5,55),(3,2,34),(3,4,25),(3,17,67),(3,19,89),(3,20,12),(5,1,33),(5,5,34),(5,6,65),(5,7,88),(5,8,20),(5,9,100),(5,11,7),(5,12,44),(5,13,11),(6,2,50),(6,3,58),(6,4,15),(6,7,13),(6,9,66),(6,10,11),(6,11,25),(7,5,3),(7,7,13),(7,9,93),(7,10,10),(7,14,12),(7,18,17),(7,20,16);
+INSERT INTO `shop_item` VALUES (0,2,7),(0,5,4),(0,7,107),(0,9,18),(0,11,25),(0,13,6),(0,15,7),(1,1,45),(1,2,23),(1,3,77),(1,4,11),(1,5,55),(3,2,34),(3,4,25),(3,17,67),(3,19,89),(3,20,12),(5,1,33),(5,5,34),(5,6,65),(5,7,88),(5,8,20),(5,9,100),(5,11,7),(5,12,44),(5,13,11),(6,2,50),(6,3,58),(6,4,15),(6,7,13),(6,9,66),(6,10,11),(6,11,25),(7,5,3),(7,7,13),(7,9,93),(7,10,10),(7,14,12),(7,18,17),(7,20,16);
 /*!40000 ALTER TABLE `shop_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -188,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-12 12:00:16
+-- Dump completed on 2020-08-16 22:08:23

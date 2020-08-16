@@ -22,9 +22,11 @@ import java.util.Map.Entry;
 
 public class SqlFunctions {
     static int cartid=1;
+    static boolean firstCart;
+    static int storeId;
     private Connection con;
     private Statement stmt;
-    private ResultSet rs;
+    private ResultSet rs,rs1;
     static HashMap<String,Integer> storeDist = new HashMap<>();
     static HashMap<String, Integer> sortedStoreDist = new LinkedHashMap<String, Integer>(); 
 
@@ -148,6 +150,7 @@ public class SqlFunctions {
            {
              System.out.println(rs.getInt(1));
              storeNo=rs.getInt(1);
+             storeId=storeNo;
           //   System.out.println("Store no: "+storeNo);
            }
        }
@@ -303,63 +306,157 @@ public class SqlFunctions {
    
    void UpdateCartTable()
    {
-       boolean firstCart =true;
+       firstCart =true;
        java.util.Date date=new java.util.Date();
         java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());
+        System.out.println("Cart function called");
        if(firstCart)
        {
            firstCart = false;
-           
+             System.out.println("Inside if Cart function called");
            try{
                String sql = "Delete from cart";
                 PreparedStatement preparedStmt1 = con.prepareStatement(sql);
                 preparedStmt1.execute();
                   
-             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?, ?, ?,?,?,?,?,?,?,?)";
+             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID,email_id)" + " values (?,?,?,?,?,?,?,?,?,?)";
                              PreparedStatement preparedStmt = con.prepareStatement(query1);
                              preparedStmt.setInt(1, cartid);
                              preparedStmt.setString(2, "In progress");
                              preparedStmt.setString(3, "9999999999");
                              preparedStmt.setTimestamp(4, sqlTime);
                              preparedStmt.setInt(5, 56094);
-                             preparedStmt.setString(6, "Yet to Decide");
+                             preparedStmt.setString(6, "Yet to decide");
                              preparedStmt.setDouble(7, 100.0);
                              preparedStmt.setInt(8, 0);
                              preparedStmt.setInt(9, 2);
+                              preparedStmt.setString(10, "abcd@gmail.com");
                              preparedStmt.execute();
+                              System.out.println("new Cart added");
                 
            }
            catch(Exception e)
            {
-               
+               System.out.println(e);
            }
      
        }
-       else
+       else if(!firstCart)
        {
                 try{
            
                   
-             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID)" + " values (?, ?, ?,?,?,?,?,?,?,?)";
+             String query1 = " insert into cart(cartId,status ,custphone,timestamp,otp,payment_option,total_payment,ShopID,KioskID,email_id)" + " values (?, ?, ?,?,?,?,?,?,?,?)";
                              PreparedStatement preparedStmt = con.prepareStatement(query1);
                              preparedStmt.setInt(1, cartid);
-                             preparedStmt.setString(2, "In progress");
+                             preparedStmt.setString(2, "In prog");
                              preparedStmt.setString(3, "9999999999");
                              preparedStmt.setTimestamp(4, sqlTime);
                              preparedStmt.setInt(5, 56094);
-                             preparedStmt.setString(6, "Yet to Decide");
+                             preparedStmt.setString(6, "Yet");
                              preparedStmt.setDouble(7, 100.0);
                              preparedStmt.setInt(8, 0);
                              preparedStmt.setInt(9, 2);
+                             preparedStmt.setString(10, "abcd@gmail.com");
                              preparedStmt.execute();
                 
            }
            catch(Exception e)
            {
-               
+               System.out.println("Cart Table Error"+e);
            }
        }
    }
    
+   void updatePaymentOption(String paymentOption)
+   {
+      String sql = "UPDATE cart " + "SET payment_option = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setString(1, paymentOption);
+      preparedStmt.setInt(2, cartid);
+      preparedStmt.execute();
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+     
+
+   }
+   void updateEmailId(String emailId)
+   {
+
+      String sql = "UPDATE cart " + "SET email_id = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setString(1, emailId);
+      preparedStmt.setInt(2, cartid);
+      preparedStmt.execute();
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+     
+
+   
+   }
+      void updatePhoneNo(String phoneNo)
+   {
+
+      String sql = "UPDATE cart " + "SET custphone = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setString(1, phoneNo);
+      preparedStmt.setInt(2, cartid);
+      preparedStmt.execute();
+       } catch (Exception e) {
+           System.out.println(e);
+       }
+     
+
+   
+   }
+   void updateQuantityItemTable()
+   {
+        try
+       {
+           rs = stmt.executeQuery("Select ItemId,quantity_p from cart_item where CartId ="+cartid);
+            while(rs.next())
+           {
+                int selectedItem = rs.getInt(1);
+                int selectedQuantity = rs.getInt(2);
+                
+                String query1 = "SELECT quantity FROM shop_item WHERE item_no = ? and ShopId = ?";
+                
+               
+                PreparedStatement preparedStmt = con.prepareStatement(query1);
+                preparedStmt.setInt(1, selectedItem);
+                preparedStmt.setInt(2, storeId);
+                rs1 = preparedStmt.executeQuery();
+                
+                while(rs1.next())
+                {
+                    int setQuantity = rs1.getInt(1);
+                   
+                    int updatedQuantity = setQuantity - selectedQuantity;
+                    System.out.println("Updated quantity : " + updatedQuantity);
+                    String sql = "UPDATE shop_item " + "SET quantity = ? WHERE item_no = ? and ShopID = ?";
+        
+                    PreparedStatement preparedStmt1 = con.prepareStatement(sql);
+                    preparedStmt1.setInt(1, updatedQuantity);
+                    preparedStmt1.setInt(2, selectedItem);
+                    preparedStmt1.setInt(3, storeId);
+                    preparedStmt1.execute();
+
+                }
+              
+                
+
+ 
+           }
+       }
+       catch(Exception e)
+       {
+           System.out.println(e);
+       }
+   }
  
 }

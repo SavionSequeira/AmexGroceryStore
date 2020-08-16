@@ -43,6 +43,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
         Welcome_Screen_Text.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         Welcome_Screen_Text.setForeground(new java.awt.Color(255, 255, 255));
+        Welcome_Screen_Text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Welcome_Screen_Text.setText("Let's Begin The Journey");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -58,22 +59,22 @@ public class WelcomeScreen extends javax.swing.JFrame {
                         .addGap(245, 245, 245))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(192, 192, 192)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Welcome_Screen_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Welcome_Screen_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Welcome_Screen_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 195, Short.MAX_VALUE))))
+                        .addGap(0, 156, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Welcome_Screen_Wallpaper, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(Welcome_Screen_Wallpaper, javax.swing.GroupLayout.PREFERRED_SIZE, 560, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addComponent(Welcome_Screen_Logo)
                 .addGap(18, 18, 18)
                 .addComponent(Welcome_Screen_StartButton)
-                .addGap(39, 39, 39)
+                .addGap(37, 37, 37)
                 .addComponent(Welcome_Screen_Text, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -6,74 +6,84 @@ import javax.swing.JPanel;
 
 public class PayScreen extends javax.swing.JFrame {
 
-   
-    public PayScreen(int totalPrice) {
+   static String paymentOption ="";
+    public PayScreen() {
         initComponents();
-        payScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+        jp2.setVisible(true);
+        jp1.setVisible(false);
+        jp3.setVisible(false);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel5 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
         payScreenPayementLabel = new javax.swing.JLabel();
         debitCardTab = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        googlePayTab = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        paytmTab = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        payScreenTotalLabel = new javax.swing.JLabel();
-        payScreenGoogleLogo = new javax.swing.JLabel();
+        googlePayTab = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        paytmTab = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         payScreenVisaLogo = new javax.swing.JLabel();
+        payScreenGoogleLogo = new javax.swing.JLabel();
         payScreenPaytmLogo = new javax.swing.JLabel();
+        payScreenTotalLabel = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        phoneNoLabelPaymentScreen = new javax.swing.JTextField();
+        emailIdLabelPaymentScreen = new javax.swing.JTextField();
+        jSeparator13 = new javax.swing.JSeparator();
+        jSeparator14 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jp1 = new javax.swing.JPanel();
-        debitPanelExpiryDateLabel = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         debitPanelCardNumberTextField1 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         debitPanelCardNumberTextField2 = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         debitPanelCardNumberTextField3 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        debitPanelCardNumberTextField4 = new javax.swing.JTextField();
+        googlePayPanelGoogleLogo = new javax.swing.JLabel();
+        jp2 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        debitPanelCardLabel1 = new javax.swing.JLabel();
+        debitPanelMasterCardLogo1 = new javax.swing.JLabel();
+        debitPanelVisaCardLogo1 = new javax.swing.JLabel();
+        debitPanelRupayCardLogo1 = new javax.swing.JLabel();
+        debitPanelCardNumberTextField5 = new javax.swing.JTextField();
+        debitPanelCardNumberTextField6 = new javax.swing.JTextField();
+        debitPanelCardNumberTextField7 = new javax.swing.JTextField();
+        debitPanelCardNumberTextField8 = new javax.swing.JTextField();
+        debitPanelExpiryDateLabel1 = new javax.swing.JLabel();
+        debitPanelCVVLabel1 = new javax.swing.JLabel();
+        debitPanelCVVTextField1 = new javax.swing.JPasswordField();
+        debitPanelExpiryTextField1 = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        debitPanelCardLabel = new javax.swing.JLabel();
-        debitPanelCVVLabel = new javax.swing.JLabel();
-        debitPanelExpiryTextField = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
-        debitPanelCVVTextField = new javax.swing.JPasswordField();
-        debitPanelMasterCardLogo = new javax.swing.JLabel();
-        debitPanelVisaCardLogo = new javax.swing.JLabel();
-        debitPanelRupayCardLogo = new javax.swing.JLabel();
-        jp2 = new javax.swing.JPanel();
-        googlePayPanelUPiTextField = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
-        googlePayPanelUpiPinTextField = new javax.swing.JPasswordField();
         jSeparator8 = new javax.swing.JSeparator();
-        googlePayPanelUpiPinLabel = new javax.swing.JLabel();
-        googlePayPanelGoogleLogo = new javax.swing.JLabel();
-        googlePayPanelGooglePayLabel = new javax.swing.JLabel();
-        googlePayPanelAmountTextField = new javax.swing.JTextField();
-        jSeparator12 = new javax.swing.JSeparator();
-        jp3 = new javax.swing.JPanel();
-        paytmPanelMobileTextField = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
-        paytmPanelAmountTextField = new javax.swing.JTextField();
-        jSeparator10 = new javax.swing.JSeparator();
-        paytmPanelCommentTextfFeld = new javax.swing.JTextField();
-        jSeparator11 = new javax.swing.JSeparator();
+        jp3 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        debitPanelCardNumberTextField9 = new javax.swing.JTextField();
+        debitPanelCardNumberTextField10 = new javax.swing.JTextField();
+        debitPanelCardNumberTextField11 = new javax.swing.JTextField();
         paytmPanelPaytmLogo = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        jSeparator11 = new javax.swing.JSeparator();
+        jSeparator12 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(64, 71, 109));
+        jPanel5.setBackground(new java.awt.Color(64, 71, 109));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         payScreenPayementLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
         payScreenPayementLabel.setForeground(new java.awt.Color(64, 71, 109));
@@ -93,9 +103,9 @@ public class PayScreen extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(64, 71, 109));
-        jLabel2.setText("Debit/Credit");
+        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(64, 71, 109));
+        jLabel4.setText("Debit/Credit");
 
         javax.swing.GroupLayout debitCardTabLayout = new javax.swing.GroupLayout(debitCardTab);
         debitCardTab.setLayout(debitCardTabLayout);
@@ -103,14 +113,14 @@ public class PayScreen extends javax.swing.JFrame {
             debitCardTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(debitCardTabLayout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel4)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         debitCardTabLayout.setVerticalGroup(
             debitCardTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(debitCardTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -127,25 +137,25 @@ public class PayScreen extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(64, 71, 109));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("GooglePay");
+        jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(64, 71, 109));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("GooglePay");
 
         javax.swing.GroupLayout googlePayTabLayout = new javax.swing.GroupLayout(googlePayTab);
         googlePayTab.setLayout(googlePayTabLayout);
         googlePayTabLayout.setHorizontalGroup(
             googlePayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(googlePayTabLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         googlePayTabLayout.setVerticalGroup(
             googlePayTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(googlePayTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -162,10 +172,10 @@ public class PayScreen extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(64, 71, 109));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Paytm");
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(64, 71, 109));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Paytm");
 
         javax.swing.GroupLayout paytmTabLayout = new javax.swing.GroupLayout(paytmTab);
         paytmTab.setLayout(paytmTabLayout);
@@ -173,56 +183,53 @@ public class PayScreen extends javax.swing.JFrame {
             paytmTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paytmTabLayout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         paytmTabLayout.setVerticalGroup(
             paytmTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paytmTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        payScreenVisaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/visa1_50px.png"))); // NOI18N
+
+        payScreenGoogleLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/google_50px.png"))); // NOI18N
+
+        payScreenPaytmLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/paytm1_50px.png"))); // NOI18N
 
         payScreenTotalLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         payScreenTotalLabel.setForeground(new java.awt.Color(64, 71, 109));
         payScreenTotalLabel.setText("Total");
 
-        payScreenGoogleLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/google_50px.png"))); // NOI18N
-
-        payScreenVisaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/visa1_50px.png"))); // NOI18N
-
-        payScreenPaytmLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/paytm1_50px.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(payScreenPayementLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(debitCardTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(googlePayTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(paytmTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(payScreenPayementLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(payScreenTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(payScreenVisaLogo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(payScreenGoogleLogo)
-                        .addGap(30, 30, 30)
-                        .addComponent(payScreenPaytmLogo)
-                        .addGap(30, 30, 30))))
+                        .addGap(46, 46, 46)
+                        .addComponent(payScreenPaytmLogo))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(payScreenTotalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(payScreenPayementLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(78, 78, 78)
+                .addGap(61, 61, 61)
                 .addComponent(debitCardTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(googlePayTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,333 +237,404 @@ public class PayScreen extends javax.swing.JFrame {
                 .addComponent(paytmTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(payScreenTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(payScreenGoogleLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(payScreenVisaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(payScreenPaytmLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 125, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(64, 71, 109));
-        jPanel3.setForeground(new java.awt.Color(64, 71, 109));
+        jPanel2.setBackground(new java.awt.Color(64, 71, 109));
 
-        jp1.setBackground(new java.awt.Color(64, 71, 109));
+        phoneNoLabelPaymentScreen.setBackground(new java.awt.Color(64, 71, 109));
+        phoneNoLabelPaymentScreen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        phoneNoLabelPaymentScreen.setForeground(new java.awt.Color(255, 255, 255));
+        phoneNoLabelPaymentScreen.setText("Phone No :");
+        phoneNoLabelPaymentScreen.setBorder(null);
 
-        debitPanelExpiryDateLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        debitPanelExpiryDateLabel.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelExpiryDateLabel.setText("EXPIRY DATE");
+        emailIdLabelPaymentScreen.setBackground(new java.awt.Color(64, 71, 109));
+        emailIdLabelPaymentScreen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        emailIdLabelPaymentScreen.setForeground(new java.awt.Color(255, 255, 255));
+        emailIdLabelPaymentScreen.setText("Email ID");
+        emailIdLabelPaymentScreen.setBorder(null);
+
+        jButton1.setText("Submit");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(emailIdLabelPaymentScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(jSeparator13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(phoneNoLabelPaymentScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(jSeparator14))
+                .addGap(68, 68, 68)
+                .addComponent(jButton1)
+                .addGap(74, 74, 74))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailIdLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneNoLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        jp1.setLayout(new java.awt.CardLayout());
+
+        jPanel9.setBackground(new java.awt.Color(64, 71, 109));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Pay");
 
         debitPanelCardNumberTextField1.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelCardNumberTextField1.setText("XXXX");
+        debitPanelCardNumberTextField1.setText("Enter UPI ID");
         debitPanelCardNumberTextField1.setBorder(null);
 
         debitPanelCardNumberTextField2.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelCardNumberTextField2.setText("XXXX");
+        debitPanelCardNumberTextField2.setText("Enter Amount");
         debitPanelCardNumberTextField2.setBorder(null);
+        debitPanelCardNumberTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debitPanelCardNumberTextField2ActionPerformed(evt);
+            }
+        });
 
         debitPanelCardNumberTextField3.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField3.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelCardNumberTextField3.setText("XXXX");
+        debitPanelCardNumberTextField3.setText("***");
         debitPanelCardNumberTextField3.setBorder(null);
-
-        debitPanelCardNumberTextField4.setBackground(new java.awt.Color(64, 71, 109));
-        debitPanelCardNumberTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        debitPanelCardNumberTextField4.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelCardNumberTextField4.setText("XXXX");
-        debitPanelCardNumberTextField4.setBorder(null);
-
-        debitPanelCardLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        debitPanelCardLabel.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelCardLabel.setText("CARD NUMBER");
-
-        debitPanelCVVLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        debitPanelCVVLabel.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelCVVLabel.setText("CVV");
-
-        debitPanelExpiryTextField.setBackground(new java.awt.Color(64, 71, 109));
-        debitPanelExpiryTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        debitPanelExpiryTextField.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelExpiryTextField.setText("MM/YY");
-        debitPanelExpiryTextField.setBorder(null);
-
-        debitPanelCVVTextField.setBackground(new java.awt.Color(64, 71, 109));
-        debitPanelCVVTextField.setForeground(new java.awt.Color(255, 255, 255));
-        debitPanelCVVTextField.setText("***");
-        debitPanelCVVTextField.setBorder(null);
-
-        debitPanelMasterCardLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/mastercard.png"))); // NOI18N
-
-        debitPanelVisaCardLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/credit-card-visa.png"))); // NOI18N
-
-        debitPanelRupayCardLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        debitPanelRupayCardLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/rupay (1).png"))); // NOI18N
-
-        javax.swing.GroupLayout jp1Layout = new javax.swing.GroupLayout(jp1);
-        jp1.setLayout(jp1Layout);
-        jp1Layout.setHorizontalGroup(
-            jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp1Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp1Layout.createSequentialGroup()
-                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(debitPanelCardNumberTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(debitPanelCardNumberTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(debitPanelCardNumberTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(debitPanelExpiryDateLabel)
-                            .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(debitPanelExpiryTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                                .addComponent(jSeparator5)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(debitPanelCVVLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(debitPanelCardNumberTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(debitPanelCVVTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addContainerGap(371, Short.MAX_VALUE))
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(debitPanelCardLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(debitPanelMasterCardLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(debitPanelVisaCardLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(debitPanelRupayCardLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jp1Layout.setVerticalGroup(
-            jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp1Layout.createSequentialGroup()
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp1Layout.createSequentialGroup()
-                                .addGap(154, 154, 154)
-                                .addComponent(debitPanelCardLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(debitPanelRupayCardLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp1Layout.createSequentialGroup()
-                        .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(debitPanelMasterCardLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(debitPanelVisaCardLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)))
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(debitPanelCardNumberTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(debitPanelCardNumberTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(debitPanelCardNumberTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(debitPanelCardNumberTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44)
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(debitPanelExpiryDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(debitPanelCVVLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jp1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addComponent(debitPanelExpiryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp1Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(debitPanelCVVTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-
-        jp2.setBackground(new java.awt.Color(64, 71, 109));
-
-        googlePayPanelUPiTextField.setBackground(new java.awt.Color(64, 71, 109));
-        googlePayPanelUPiTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        googlePayPanelUPiTextField.setForeground(new java.awt.Color(255, 255, 255));
-        googlePayPanelUPiTextField.setText("Enter UPI ID");
-        googlePayPanelUPiTextField.setBorder(null);
-        googlePayPanelUPiTextField.addActionListener(new java.awt.event.ActionListener() {
+        debitPanelCardNumberTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                googlePayPanelUPiTextFieldActionPerformed(evt);
+                debitPanelCardNumberTextField3ActionPerformed(evt);
             }
         });
 
-        googlePayPanelUpiPinTextField.setBackground(new java.awt.Color(64, 71, 109));
-        googlePayPanelUpiPinTextField.setForeground(new java.awt.Color(255, 255, 255));
-        googlePayPanelUpiPinTextField.setText("****");
-        googlePayPanelUpiPinTextField.setBorder(null);
-
-        googlePayPanelUpiPinLabel.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
-        googlePayPanelUpiPinLabel.setForeground(new java.awt.Color(255, 255, 255));
-        googlePayPanelUpiPinLabel.setText("UPI PIN");
+        jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("UPI PIN");
 
         googlePayPanelGoogleLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/google1_50px.png"))); // NOI18N
 
-        googlePayPanelGooglePayLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 40)); // NOI18N
-        googlePayPanelGooglePayLabel.setForeground(new java.awt.Color(255, 255, 255));
-        googlePayPanelGooglePayLabel.setText("Pay");
-
-        googlePayPanelAmountTextField.setBackground(new java.awt.Color(64, 71, 109));
-        googlePayPanelAmountTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        googlePayPanelAmountTextField.setForeground(new java.awt.Color(255, 255, 255));
-        googlePayPanelAmountTextField.setText("Amount :");
-        googlePayPanelAmountTextField.setBorder(null);
-        googlePayPanelAmountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                googlePayPanelAmountTextFieldActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp2Layout = new javax.swing.GroupLayout(jp2);
-        jp2.setLayout(jp2Layout);
-        jp2Layout.setHorizontalGroup(
-            jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp2Layout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addGroup(jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(296, 296, 296)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(debitPanelCardNumberTextField1)
+                            .addComponent(debitPanelCardNumberTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                            .addComponent(jSeparator1)
+                            .addComponent(jSeparator2)
+                            .addComponent(jSeparator3)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(debitPanelCardNumberTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(370, 370, 370)
                         .addComponent(googlePayPanelGoogleLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(googlePayPanelGooglePayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(googlePayPanelUpiPinLabel)
-                    .addGroup(jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(googlePayPanelUpiPinTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
-                    .addGroup(jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(googlePayPanelAmountTextField)
-                            .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(googlePayPanelUPiTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                            .addComponent(jSeparator7))))
-                .addContainerGap(297, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
-        jp2Layout.setVerticalGroup(
-            jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp2Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(jp2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(googlePayPanelGoogleLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(googlePayPanelGooglePayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addComponent(googlePayPanelUPiTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(googlePayPanelAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap(72, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(googlePayPanelGoogleLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(googlePayPanelUpiPinLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(debitPanelCardNumberTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(googlePayPanelUpiPinTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(debitPanelCardNumberTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(debitPanelCardNumberTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
-        jp3.setBackground(new java.awt.Color(64, 71, 109));
+        jp1.add(jPanel9, "card2");
 
-        paytmPanelMobileTextField.setBackground(new java.awt.Color(64, 71, 109));
-        paytmPanelMobileTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        paytmPanelMobileTextField.setForeground(new java.awt.Color(255, 255, 255));
-        paytmPanelMobileTextField.setText("Mobile Number");
-        paytmPanelMobileTextField.setBorder(null);
-        paytmPanelMobileTextField.addActionListener(new java.awt.event.ActionListener() {
+        jp2.setLayout(new java.awt.CardLayout());
+
+        jPanel10.setBackground(new java.awt.Color(64, 71, 109));
+
+        debitPanelCardLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 36)); // NOI18N
+        debitPanelCardLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardLabel1.setText("CARD NUMBER");
+
+        debitPanelMasterCardLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/mastercard.png"))); // NOI18N
+
+        debitPanelVisaCardLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/credit-card-visa.png"))); // NOI18N
+
+        debitPanelRupayCardLogo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        debitPanelRupayCardLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/rupay (1).png"))); // NOI18N
+
+        debitPanelCardNumberTextField5.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCardNumberTextField5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelCardNumberTextField5.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardNumberTextField5.setText("XXXX");
+        debitPanelCardNumberTextField5.setBorder(null);
+
+        debitPanelCardNumberTextField6.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCardNumberTextField6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelCardNumberTextField6.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardNumberTextField6.setText("XXXX");
+        debitPanelCardNumberTextField6.setBorder(null);
+        debitPanelCardNumberTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paytmPanelMobileTextFieldActionPerformed(evt);
+                debitPanelCardNumberTextField6ActionPerformed(evt);
             }
         });
 
-        paytmPanelAmountTextField.setBackground(new java.awt.Color(64, 71, 109));
-        paytmPanelAmountTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        paytmPanelAmountTextField.setForeground(new java.awt.Color(255, 255, 255));
-        paytmPanelAmountTextField.setText("Amount : ₹");
-        paytmPanelAmountTextField.setBorder(null);
-        paytmPanelAmountTextField.addActionListener(new java.awt.event.ActionListener() {
+        debitPanelCardNumberTextField7.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCardNumberTextField7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelCardNumberTextField7.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardNumberTextField7.setText("XXXX");
+        debitPanelCardNumberTextField7.setBorder(null);
+        debitPanelCardNumberTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paytmPanelAmountTextFieldActionPerformed(evt);
+                debitPanelCardNumberTextField7ActionPerformed(evt);
             }
         });
 
-        paytmPanelCommentTextfFeld.setBackground(new java.awt.Color(64, 71, 109));
-        paytmPanelCommentTextfFeld.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        paytmPanelCommentTextfFeld.setForeground(new java.awt.Color(255, 255, 255));
-        paytmPanelCommentTextfFeld.setText("What is it for?(Optional)");
-        paytmPanelCommentTextfFeld.setBorder(null);
-        paytmPanelCommentTextfFeld.addActionListener(new java.awt.event.ActionListener() {
+        debitPanelCardNumberTextField8.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCardNumberTextField8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelCardNumberTextField8.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardNumberTextField8.setText("XXXX");
+        debitPanelCardNumberTextField8.setBorder(null);
+        debitPanelCardNumberTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paytmPanelCommentTextfFeldActionPerformed(evt);
+                debitPanelCardNumberTextField8ActionPerformed(evt);
+            }
+        });
+
+        debitPanelExpiryDateLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        debitPanelExpiryDateLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelExpiryDateLabel1.setText("EXPIRY DATE");
+
+        debitPanelCVVLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
+        debitPanelCVVLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCVVLabel1.setText("CVV");
+
+        debitPanelCVVTextField1.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCVVTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCVVTextField1.setText("***");
+        debitPanelCVVTextField1.setBorder(null);
+        debitPanelCVVTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debitPanelCVVTextField1ActionPerformed(evt);
+            }
+        });
+
+        debitPanelExpiryTextField1.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelExpiryTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelExpiryTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelExpiryTextField1.setText("MM/YY");
+        debitPanelExpiryTextField1.setBorder(null);
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(223, 223, 223)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(jSeparator4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator9)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(225, 225, 225)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                            .addComponent(debitPanelCardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(debitPanelMasterCardLogo1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(debitPanelVisaCardLogo1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(debitPanelRupayCardLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel10Layout.createSequentialGroup()
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel10Layout.createSequentialGroup()
+                                    .addComponent(debitPanelCardNumberTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(debitPanelCardNumberTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(debitPanelCardNumberTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(debitPanelExpiryDateLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(debitPanelExpiryTextField1)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(debitPanelCVVLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(debitPanelCVVTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(debitPanelCardNumberTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(225, Short.MAX_VALUE)))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
+                    .addComponent(jSeparator5)
+                    .addComponent(jSeparator6)
+                    .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(98, 98, 98)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(101, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(119, 119, 119)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(debitPanelCardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(debitPanelMasterCardLogo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(debitPanelVisaCardLogo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(debitPanelRupayCardLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(57, 57, 57)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(debitPanelCardNumberTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(debitPanelCardNumberTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(debitPanelCardNumberTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(debitPanelCardNumberTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(30, 30, 30)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(debitPanelExpiryDateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(debitPanelCVVLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(debitPanelExpiryTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(debitPanelCVVTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(120, Short.MAX_VALUE)))
+        );
+
+        jp2.add(jPanel10, "card2");
+
+        jp3.setLayout(new java.awt.CardLayout());
+
+        jPanel11.setBackground(new java.awt.Color(64, 71, 109));
+
+        debitPanelCardNumberTextField9.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCardNumberTextField9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelCardNumberTextField9.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardNumberTextField9.setText("Mobile Number");
+        debitPanelCardNumberTextField9.setBorder(null);
+        debitPanelCardNumberTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debitPanelCardNumberTextField9ActionPerformed(evt);
+            }
+        });
+
+        debitPanelCardNumberTextField10.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCardNumberTextField10.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelCardNumberTextField10.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardNumberTextField10.setText("Amount");
+        debitPanelCardNumberTextField10.setBorder(null);
+        debitPanelCardNumberTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debitPanelCardNumberTextField10ActionPerformed(evt);
+            }
+        });
+
+        debitPanelCardNumberTextField11.setBackground(new java.awt.Color(64, 71, 109));
+        debitPanelCardNumberTextField11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        debitPanelCardNumberTextField11.setForeground(new java.awt.Color(255, 255, 255));
+        debitPanelCardNumberTextField11.setText("Comments");
+        debitPanelCardNumberTextField11.setBorder(null);
+        debitPanelCardNumberTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debitPanelCardNumberTextField11ActionPerformed(evt);
             }
         });
 
         paytmPanelPaytmLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/paytm_90px.png"))); // NOI18N
 
-        javax.swing.GroupLayout jp3Layout = new javax.swing.GroupLayout(jp3);
-        jp3.setLayout(jp3Layout);
-        jp3Layout.setHorizontalGroup(
-            jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp3Layout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addGroup(jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(paytmPanelCommentTextfFeld)
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(paytmPanelAmountTextField)
-                        .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(paytmPanelMobileTextField)
-                        .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(paytmPanelPaytmLogo))
-                .addContainerGap(297, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator10)
+                    .addComponent(paytmPanelPaytmLogo)
+                    .addComponent(debitPanelCardNumberTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                    .addComponent(debitPanelCardNumberTextField10)
+                    .addComponent(debitPanelCardNumberTextField11)
+                    .addComponent(jSeparator11)
+                    .addComponent(jSeparator12))
+                .addContainerGap(292, Short.MAX_VALUE))
         );
-        jp3Layout.setVerticalGroup(
-            jp3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp3Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(101, 101, 101)
                 .addComponent(paytmPanelPaytmLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(paytmPanelMobileTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(debitPanelCardNumberTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(paytmPanelAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(paytmPanelCommentTextfFeld, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(debitPanelCardNumberTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(debitPanelCardNumberTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
+
+        jp3.add(jPanel11, "card2");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -564,147 +642,53 @@ public class PayScreen extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jp3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jp1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jp3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jp1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jp1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void debitCardTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseEntered
-
-        /*setColour(tab1);
-        jLabel2.setForeground(Color.white); */
-    }//GEN-LAST:event_debitCardTabMouseEntered
-
-    private void googlePayTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseEntered
-        
-      /*  setColour(tab2);
-        jLabel3.setForeground(Color.white); */
-    }//GEN-LAST:event_googlePayTabMouseEntered
-
-    private void paytmTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseEntered
-        
-        /*setColour(tab3);
-        jLabel4.setForeground(Color.white);*/
-    }//GEN-LAST:event_paytmTabMouseEntered
-
-    private void debitCardTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseExited
-        
-      /*  resetColour(tab1);
-        jLabel2.setForeground(new Color(64,71,109)); */
-    }//GEN-LAST:event_debitCardTabMouseExited
-
-    private void googlePayTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseExited
-       
-       /*  resetColour(tab2);
-        jLabel3.setForeground(new Color(64,71,109)); */
-    }//GEN-LAST:event_googlePayTabMouseExited
-
-    private void paytmTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseExited
-        
-       /* resetColour(tab3);
-        jLabel4.setForeground(new Color(64,71,109)); */
-    }//GEN-LAST:event_paytmTabMouseExited
- 
-    private void debitCardTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseClicked
-        // TODO add your handling code here:
-        jp1.setVisible(true);
-        setColour(debitCardTab);
-        jLabel2.setForeground(Color.white);
-        resetColour(googlePayTab);
-        jLabel3.setForeground(new Color(64,71,109));
-        resetColour(paytmTab);
-        jLabel4.setForeground(new Color(64,71,109));
-        jp2.setVisible(false);
-        jp3.setVisible(false);
-    }//GEN-LAST:event_debitCardTabMouseClicked
-
-    private void googlePayTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseClicked
-        // TODO add your handling code here:
-        jp2.setVisible(true);
-        jp1.setVisible(true);
-        setColour(googlePayTab);
-        jLabel3.setForeground(Color.white);
-        resetColour(debitCardTab);
-        jLabel2.setForeground(new Color(64,71,109));
-        resetColour(paytmTab);
-        jLabel4.setForeground(new Color(64,71,109));
-        jp1.setVisible(false);
-        jp3.setVisible(false);
-    }//GEN-LAST:event_googlePayTabMouseClicked
-
-    private void paytmTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseClicked
-        // TODO add your handling code here:
-        jp3.setVisible(true);
-        setColour(paytmTab);
-        jLabel4.setForeground(Color.white);
-        resetColour(debitCardTab);
-        jLabel2.setForeground(new Color(64,71,109));
-        resetColour(googlePayTab);
-        jLabel3.setForeground(new Color(64,71,109));
-        jp1.setVisible(false);
-        jp2.setVisible(false);
-    }//GEN-LAST:event_paytmTabMouseClicked
-
-    private void googlePayPanelUPiTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_googlePayPanelUPiTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_googlePayPanelUPiTextFieldActionPerformed
-
-    private void paytmPanelMobileTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paytmPanelMobileTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_paytmPanelMobileTextFieldActionPerformed
-
-    private void paytmPanelAmountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paytmPanelAmountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_paytmPanelAmountTextFieldActionPerformed
-
-    private void paytmPanelCommentTextfFeldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paytmPanelCommentTextfFeldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_paytmPanelCommentTextfFeldActionPerformed
-
-    private void googlePayPanelAmountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_googlePayPanelAmountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_googlePayPanelAmountTextFieldActionPerformed
-
-    public void setColour(JPanel p)
+   public void setColour(JPanel p)
 {
     p.setBackground(new Color(64,71,109)); 
 }  
@@ -712,13 +696,144 @@ public class PayScreen extends javax.swing.JFrame {
 {
     p1.setBackground(new Color(255,255,255)); 
 } 
- /*  public static void main(String args[]) {
+    private void debitCardTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseClicked
+        // TODO add your handling code here:
+        jp2.setVisible(true);
+       setColour(debitCardTab);
+       jLabel4.setForeground(Color.white);
+       resetColour(googlePayTab);
+       jLabel5.setForeground(new Color(64,71,109));
+       resetColour(paytmTab);
+       jLabel6.setForeground(new Color(64,71,109));
+        jp1.setVisible(false);
+        jp3.setVisible(false);
+        paymentOption= "Debit/Credit Card";
+    }//GEN-LAST:event_debitCardTabMouseClicked
+
+    private void debitCardTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseEntered
+
+        /*setColour(tab1);
+        jLabel2.setForeground(Color.white); */
+    }//GEN-LAST:event_debitCardTabMouseEntered
+
+    private void debitCardTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseExited
+
+        /*  resetColour(tab1);
+        jLabel2.setForeground(new Color(64,71,109)); */
+    }//GEN-LAST:event_debitCardTabMouseExited
+
+    private void googlePayTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseClicked
+        // TODO add your handling code here:
+        jp1.setVisible(true);
+        //jp1.setVisible(true);
+        setColour(googlePayTab);
+        jLabel5.setForeground(Color.white);
+        resetColour(debitCardTab);
+        jLabel4.setForeground(new Color(64,71,109));
+        resetColour(paytmTab);
+        jLabel6.setForeground(new Color(64,71,109));
+        jp2.setVisible(false);
+        jp3.setVisible(false);
+        paymentOption= "Google Pay";
+    }//GEN-LAST:event_googlePayTabMouseClicked
+
+    private void googlePayTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseEntered
+
+        /*  setColour(tab2);
+        jLabel3.setForeground(Color.white); */
+    }//GEN-LAST:event_googlePayTabMouseEntered
+
+    private void googlePayTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseExited
+
+        /*  resetColour(tab2);
+        jLabel3.setForeground(new Color(64,71,109)); */
+    }//GEN-LAST:event_googlePayTabMouseExited
+
+    private void paytmTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseClicked
+        // TODO add your handling code here:
+        jp3.setVisible(true);
+        setColour(paytmTab);
+        jLabel6.setForeground(Color.white);
+        resetColour(debitCardTab);
+        jLabel4.setForeground(new Color(64,71,109));
+        resetColour(googlePayTab);
+        jLabel5.setForeground(new Color(64,71,109));
+        jp1.setVisible(false);
+        jp2.setVisible(false);
+        
+        paymentOption= "Paytm";
+    }//GEN-LAST:event_paytmTabMouseClicked
+
+    private void paytmTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseEntered
+
+        /*setColour(tab3);
+        jLabel4.setForeground(Color.white);*/
+    }//GEN-LAST:event_paytmTabMouseEntered
+
+    private void paytmTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseExited
+
+        /* resetColour(tab3);
+        jLabel4.setForeground(new Color(64,71,109)); */
+    }//GEN-LAST:event_paytmTabMouseExited
+
+    private void debitPanelCardNumberTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField6ActionPerformed
+
+    private void debitPanelCardNumberTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField7ActionPerformed
+
+    private void debitPanelCardNumberTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField8ActionPerformed
+
+    private void debitPanelCVVTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCVVTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCVVTextField1ActionPerformed
+
+    private void debitPanelCardNumberTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField10ActionPerformed
+
+    private void debitPanelCardNumberTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField11ActionPerformed
+
+    private void debitPanelCardNumberTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField3ActionPerformed
+
+    private void debitPanelCardNumberTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField2ActionPerformed
+
+    private void debitPanelCardNumberTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debitPanelCardNumberTextField9ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+         String emailId = emailIdLabelPaymentScreen.getText();
+        String phoneNo = phoneNoLabelPaymentScreen.getText();
+          SqlFunctions ss = new SqlFunctions();
+        ss.updateQuantityItemTable();
+        ss.updatePaymentOption(paymentOption);
+        ss.updateEmailId(emailId);
+        ss.updatePhoneNo(phoneNo);
+       
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-      /*  try {
+        try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -735,46 +850,59 @@ public class PayScreen extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(PayScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PayScreen().setVisible(true);
+                 
             }
         });
-    }*/
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel debitCardTab;
-    private javax.swing.JLabel debitPanelCVVLabel;
-    private javax.swing.JPasswordField debitPanelCVVTextField;
-    private javax.swing.JLabel debitPanelCardLabel;
+    private javax.swing.JLabel debitPanelCVVLabel1;
+    private javax.swing.JPasswordField debitPanelCVVTextField1;
+    private javax.swing.JLabel debitPanelCardLabel1;
     private javax.swing.JTextField debitPanelCardNumberTextField1;
+    private javax.swing.JTextField debitPanelCardNumberTextField10;
+    private javax.swing.JTextField debitPanelCardNumberTextField11;
     private javax.swing.JTextField debitPanelCardNumberTextField2;
     private javax.swing.JTextField debitPanelCardNumberTextField3;
-    private javax.swing.JTextField debitPanelCardNumberTextField4;
-    private javax.swing.JLabel debitPanelExpiryDateLabel;
-    private javax.swing.JTextField debitPanelExpiryTextField;
-    private javax.swing.JLabel debitPanelMasterCardLogo;
-    private javax.swing.JLabel debitPanelRupayCardLogo;
-    private javax.swing.JLabel debitPanelVisaCardLogo;
-    private javax.swing.JTextField googlePayPanelAmountTextField;
+    private javax.swing.JTextField debitPanelCardNumberTextField5;
+    private javax.swing.JTextField debitPanelCardNumberTextField6;
+    private javax.swing.JTextField debitPanelCardNumberTextField7;
+    private javax.swing.JTextField debitPanelCardNumberTextField8;
+    private javax.swing.JTextField debitPanelCardNumberTextField9;
+    private javax.swing.JLabel debitPanelExpiryDateLabel1;
+    private javax.swing.JTextField debitPanelExpiryTextField1;
+    private javax.swing.JLabel debitPanelMasterCardLogo1;
+    private javax.swing.JLabel debitPanelRupayCardLogo1;
+    private javax.swing.JLabel debitPanelVisaCardLogo1;
+    private javax.swing.JTextField emailIdLabelPaymentScreen;
     private javax.swing.JLabel googlePayPanelGoogleLogo;
-    private javax.swing.JLabel googlePayPanelGooglePayLabel;
-    private javax.swing.JTextField googlePayPanelUPiTextField;
-    private javax.swing.JLabel googlePayPanelUpiPinLabel;
-    private javax.swing.JPasswordField googlePayPanelUpiPinTextField;
     private javax.swing.JPanel googlePayTab;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -791,10 +919,8 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JLabel payScreenPaytmLogo;
     private javax.swing.JLabel payScreenTotalLabel;
     private javax.swing.JLabel payScreenVisaLogo;
-    private javax.swing.JTextField paytmPanelAmountTextField;
-    private javax.swing.JTextField paytmPanelCommentTextfFeld;
-    private javax.swing.JTextField paytmPanelMobileTextField;
     private javax.swing.JLabel paytmPanelPaytmLogo;
     private javax.swing.JPanel paytmTab;
+    private javax.swing.JTextField phoneNoLabelPaymentScreen;
     // End of variables declaration//GEN-END:variables
 }
