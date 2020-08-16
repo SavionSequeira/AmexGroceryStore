@@ -366,7 +366,19 @@ public class SqlFunctions {
        }
    }
    
-   
+   void updatePaymentOption(String paymentOption)
+   {
+      String sql = "UPDATE cart " + "SET payment_option = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+      preparedStmt.setString(1, paymentOption);
+      preparedStmt.setInt(2, cartid);
+      rs1 = preparedStmt.executeQuery();
+       } catch (Exception e) {
+       }
+     
+
+   }
    void updateQuantityItemTable()
    {
         try

@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 public class PayScreen extends javax.swing.JFrame {
 
-   
+   static String paymentOption ="";
     public PayScreen() {
         initComponents();
     }
@@ -704,6 +704,7 @@ public class PayScreen extends javax.swing.JFrame {
        jLabel6.setForeground(new Color(64,71,109));
         jp1.setVisible(false);
         jp3.setVisible(false);
+        paymentOption= "Debit/Credit Card";
     }//GEN-LAST:event_debitCardTabMouseClicked
 
     private void debitCardTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseEntered
@@ -730,6 +731,7 @@ public class PayScreen extends javax.swing.JFrame {
         jLabel6.setForeground(new Color(64,71,109));
         jp2.setVisible(false);
         jp3.setVisible(false);
+        paymentOption= "Google Pay";
     }//GEN-LAST:event_googlePayTabMouseClicked
 
     private void googlePayTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseEntered
@@ -755,6 +757,7 @@ public class PayScreen extends javax.swing.JFrame {
         jLabel5.setForeground(new Color(64,71,109));
         jp1.setVisible(false);
         jp2.setVisible(false);
+        paymentOption= "Paytm";
     }//GEN-LAST:event_paytmTabMouseClicked
 
     private void paytmTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseEntered
@@ -809,6 +812,7 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
           SqlFunctions ss = new SqlFunctions();
         ss.updateQuantityItemTable();
+        ss.updatePaymentOption(paymentOption);
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
