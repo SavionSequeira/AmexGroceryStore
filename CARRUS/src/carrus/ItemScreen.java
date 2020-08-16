@@ -47,6 +47,7 @@ public class ItemScreen extends javax.swing.JFrame {
     ArrayList<Integer> itemIDOrdered = new ArrayList<>();
     ArrayList<Integer> itemQuantOrdered = new ArrayList<>();
     SqlFunctions sqlFunc;
+    String bill;
     //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
     public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop,HashMap<Integer,Integer> idQuant) {
         initComponents();
@@ -85,18 +86,18 @@ public class ItemScreen extends javax.swing.JFrame {
  }
 void generateBill(){
     int cnt = 1;
-    System.out.println("Item    Quantity    Price");
+    bill=("Item\tQuantity\tPrice<br>");
     if(Integer.parseInt(itemQuant.get(0).getText())>0){
-            System.out.println(fixedItem.getText()+"    "+itemQuant.get(0).getText()+"    "+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText()));     
+           bill+= fixedItem.getText()+"\t"+itemQuant.get(0).getText()+"\t"+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText())+"<br>";     
     }
     for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
         if(Integer.parseInt(itemQuant.get(cnt).getText())>0){
-            System.out.println(iter.getKey().getText()+"  "+itemQuant.get(cnt).getText()+"  "+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText()));
+            bill+= iter.getKey().getText()+"\t"+itemQuant.get(cnt).getText()+"\t"+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText())+"<br>";
             
         }
         cnt++;
     }
-    
+    System.out.print(bill);
 }
     
 void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
@@ -400,6 +401,8 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
         generateBill();
         updateCartNumber();
         PayScreen ps = new PayScreen(totalPrice);    //Traces to the SignUp Page;
+        SendHTMLEmail emailSender = new SendHTMLEmail(bill);
+        
         ps.setVisible(true);   //Sets Visibility after method is called;
         ps.pack();
         ps.setLocationRelativeTo(null);
