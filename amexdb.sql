@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: localhost    Database: amex
 -- ------------------------------------------------------
--- Server version	8.0.19
+-- Server version	8.0.21
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,15 +24,15 @@ DROP TABLE IF EXISTS `cart`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart` (
   `cartid` int NOT NULL,
-  `status` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `custphone` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `custphone` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `timestamp` time DEFAULT NULL,
   `otp` int DEFAULT NULL,
-  `payment_option` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `payment_option` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `total_payment` float DEFAULT NULL,
   `ShopID` int DEFAULT NULL,
   `KioskID` int DEFAULT NULL,
-  `email_id` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`cartid`),
   KEY `ShopID` (`ShopID`),
   KEY `KioskID` (`KioskID`),
@@ -189,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-16 22:08:23
+-- Dump completed on 2020-08-17 19:28:41

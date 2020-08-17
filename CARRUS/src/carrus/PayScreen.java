@@ -45,9 +45,24 @@ public class PayScreen extends javax.swing.JFrame {
         jSeparator11.setBackground(Color.white);
         jSeparator11.setForeground(Color.white);
         jSeparator12.setBackground(Color.white);
-        jSeparator12.setForeground(Color.white);           
+        jSeparator12.setForeground(Color.white); 
+        jSeparator13.setBackground(Color.white);
+        jSeparator13.setForeground(Color.white);
+        jSeparator14.setBackground(Color.white);
+        jSeparator14.setForeground(Color.white);
     }
     boolean detailChecker(){
+        int flag = 0;
+        if(emailIdLabelPaymentScreen.getText().equals("Email ID") || emailIdLabelPaymentScreen.getText().equals("")){
+            jSeparator13.setBackground(Color.red);
+            jSeparator13.setForeground(Color.red);
+            flag = 1;
+        }
+        if(phoneNoLabelPaymentScreen.getText().equals("Phone No :") || phoneNoLabelPaymentScreen.getText().equals("")){
+            jSeparator14.setBackground(Color.red);
+            jSeparator14.setForeground(Color.red);
+            flag=1;
+        }
         switch (paymentOption) {
             case "Debit/Credit Card":
                 System.out.println(paymentOption);
@@ -63,54 +78,60 @@ public class PayScreen extends javax.swing.JFrame {
                     jSeparator5.setForeground(Color.red);
                     jSeparator6.setForeground(Color.red);
                     jSeparator7.setForeground(Color.red);
+                    flag = 1;
                 }   if(debitPanelExpiryTextField1.getText().equals("")||debitPanelExpiryTextField1.getText().equals("MM/YY")){
                     jSeparator8.setBackground(Color.red);
                     jSeparator8.setForeground(Color.red);
+                    flag = 1;
                 }   if(debitPanelCVVTextField1.getPassword().equals("")||debitPanelCVVTextField1.getPassword().equals("***")){
                     jSeparator9.setBackground(Color.red);
                     jSeparator9.setForeground(Color.red);
+                    flag = 1;
                 }
-                else{
-                    return true;
-                }   break;
+               break;
             case "Google Pay":
                 System.out.println(paymentOption);
                 if(debitPanelCardNumberTextField1.getText().equals("Enter UPI ID")||
                         debitPanelCardNumberTextField1.getText().equals("")){
                     jSeparator1.setBackground(Color.red);
                     jSeparator1.setForeground(Color.red);
+                    flag = 1;
                 }   if(debitPanelCardNumberTextField2.getText().equals("Enter Amount")||
                         debitPanelCardNumberTextField2.getText().equals("")){
                     jSeparator2.setBackground(Color.red);
                     jSeparator2.setForeground(Color.red);
+                    flag = 1;
                 }   if(debitPanelCardNumberTextField3.getText().equals("***")||
                         debitPanelCardNumberTextField3.getText().equals("")){
                     jSeparator3.setBackground(Color.red);
                     jSeparator3.setForeground(Color.red);
+                    flag = 1;
                 }
-                else{
-                    return true;
-                }   break;
+                 break;
             case "Paytm":
                 System.out.println(paymentOption);
                 if(debitPanelCardNumberTextField9.getText().equals("Mobile Number")||
                         debitPanelCardNumberTextField9.getText().equals("")){
                     jSeparator10.setBackground(Color.red);
                     jSeparator10.setForeground(Color.red);
+                    flag = 1;
                 }   if(debitPanelCardNumberTextField10.getText().equals("Amount")||
                         debitPanelCardNumberTextField10.getText().equals("")){
                     jSeparator11.setBackground(Color.red);
                     jSeparator11.setForeground(Color.red);
+                    flag = 1;
                 }   if(debitPanelCardNumberTextField11.getText().equals("Comments")||
                         debitPanelCardNumberTextField11.getText().equals("")){
                     jSeparator12.setBackground(Color.red);
                     jSeparator12.setForeground(Color.red);
+                    flag = 1;
                 }
-                else{
-                    return true;
-                }   break;
+                break;
             default:
                 break;
+        }
+        if(flag==0){
+            return true;
         }
         return false;
     }
@@ -342,6 +363,11 @@ public class PayScreen extends javax.swing.JFrame {
         phoneNoLabelPaymentScreen.setForeground(new java.awt.Color(255, 255, 255));
         phoneNoLabelPaymentScreen.setText("Phone No :");
         phoneNoLabelPaymentScreen.setBorder(null);
+        phoneNoLabelPaymentScreen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneNoLabelPaymentScreenActionPerformed(evt);
+            }
+        });
 
         emailIdLabelPaymentScreen.setBackground(new java.awt.Color(64, 71, 109));
         emailIdLabelPaymentScreen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
@@ -803,17 +829,21 @@ public class PayScreen extends javax.swing.JFrame {
         String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
         SqlFunctions ss = new SqlFunctions();
-        ss.updateQuantityItemTable();
-        ss.updatePaymentOption(paymentOption);
-        ss.updateEmailId(emailId);
-        ss.updatePhoneNo(phoneNo);
-        ss.updateCartTotal(totalPrice);
-        ss.updateCartStatus("Paid");
         separatorResetter();
         if(detailChecker()==true){
+            ss.updateQuantityItemTable();
+            ss.updatePaymentOption(paymentOption);
+            ss.updateEmailId(emailId);
+            ss.updatePhoneNo(phoneNo);
+            ss.updateCartTotal(totalPrice);
+            ss.updateCartStatus("Paid");
             emailSender(emailId);
         }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void phoneNoLabelPaymentScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNoLabelPaymentScreenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneNoLabelPaymentScreenActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel debitCardTab;
