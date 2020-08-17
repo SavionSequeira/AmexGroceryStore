@@ -249,7 +249,7 @@ public class ItemScreen extends javax.swing.JFrame {
         itemScreenPayButton.setBackground(new java.awt.Color(34, 167, 240));
         itemScreenPayButton.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         itemScreenPayButton.setForeground(new java.awt.Color(255, 255, 255));
-        itemScreenPayButton.setText("Pay");
+        itemScreenPayButton.setText("Continue");
         itemScreenPayButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 itemScreenPayButtonMouseClicked(evt);
@@ -264,8 +264,8 @@ public class ItemScreen extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(itemScreenTotalLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(itemScreenPayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
+                .addComponent(itemScreenPayButton)
+                .addGap(89, 89, 89))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
