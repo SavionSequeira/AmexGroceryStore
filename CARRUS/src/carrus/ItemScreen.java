@@ -87,7 +87,7 @@ public class ItemScreen extends javax.swing.JFrame {
            fixedItem.setText(firstItem.toUpperCase());
            fixedItem.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
            fixedItem.setForeground(Color.white);
-           fixedPrice.setText(firstPrice+"₹");
+           fixedPrice.setText("₹"+firstPrice);
            fixedPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
            fixedPrice.setForeground(Color.white);
            itemPrice.add(firstPrice);
@@ -120,7 +120,7 @@ public class ItemScreen extends javax.swing.JFrame {
                         itemListerName.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
                         itemListerName.setForeground(Color.white);
                         itemListerPrice = new javax.swing.JLabel();
-                        itemListerPrice.setText(Integer.toString(iter.getValue())+"₹");
+                        itemListerPrice.setText("₹"+Integer.toString(iter.getValue()));
                         itemListerPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
                         itemListerPrice.setForeground(Color.white);
                         itemLabel.put(itemListerName,itemListerPrice);
@@ -184,7 +184,7 @@ public class ItemScreen extends javax.swing.JFrame {
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
             sqlFunc.updateQuantityAdd(itemIDOrdered.get(quantNum));
             totalPrice = totalPrice+itemPrice.get(quantNum);
-            itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+            itemScreenTotalLabel.setText("Total : "+"₹"+totalPrice);
            }
           else{
               System.out.println("No more available");
@@ -195,7 +195,7 @@ public class ItemScreen extends javax.swing.JFrame {
           if(quantChange>-1){
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
             totalPrice = totalPrice-itemPrice.get(quantNum);
-            itemScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+            itemScreenTotalLabel.setText("Total : "+"₹"+totalPrice);
             sqlFunc.updateQuantitySub(itemIDOrdered.get(quantNum));
           }
           else{
@@ -244,7 +244,7 @@ public class ItemScreen extends javax.swing.JFrame {
 
         itemScreenTotalLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         itemScreenTotalLabel.setForeground(new java.awt.Color(255, 255, 255));
-        itemScreenTotalLabel.setText("Total : 0₹");
+        itemScreenTotalLabel.setText("Total : ₹0");
 
         itemScreenPayButton.setBackground(new java.awt.Color(34, 167, 240));
         itemScreenPayButton.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N

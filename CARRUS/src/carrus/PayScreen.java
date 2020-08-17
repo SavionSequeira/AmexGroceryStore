@@ -13,7 +13,7 @@ public class PayScreen extends javax.swing.JFrame {
         this.bill = bill;
         this.totalPrice = totalPrice;
         initComponents();
-        payScreenTotalLabel.setText("Total : "+totalPrice+"₹");
+        payScreenTotalLabel.setText("Total : "+"₹"+totalPrice);
         jp2.setVisible(true);
         jp1.setVisible(false);
         jp3.setVisible(false);

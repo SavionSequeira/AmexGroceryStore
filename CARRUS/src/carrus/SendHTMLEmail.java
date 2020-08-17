@@ -209,7 +209,7 @@ public class SendHTMLEmail {
    "                         </tr> \n" +
    "                         <tr style=\"border-collapse:collapse\"> \n" +
    "                          <td style=\"padding:0;Margin:0;font-size:18px;line-height:36px\">&nbsp; &nbsp; &nbsp; &nbsp;Total:</td> \n" +
-   "                          <td style=\"padding:0;Margin:0;text-align:right;font-size:18px;line-height:36px\">"+totalPrice+" &#8377;</td> \n" +
+   "                          <td style=\"padding:0;Margin:0;text-align:right;font-size:18px;line-height:36px\"> &#8377;"+ totalPrice+"</td> \n" +
    "                         </tr> \n" +
    "                       </table></td> \n" +
    "                     </tr> \n" +

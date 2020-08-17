@@ -130,7 +130,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Total : 0&#x20b9;"/>
+                <Property name="text" type="java.lang.String" value="Total : &#x20b9;0"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="itemScreenPayButton">
