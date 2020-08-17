@@ -88,11 +88,11 @@ void generateBill(){
     int cnt = 1;
     bill=("Item\tQuantity\tPrice<br>");
     if(Integer.parseInt(itemQuant.get(0).getText())>0){
-           bill+= fixedItem.getText()+"\t"+itemQuant.get(0).getText()+"\t"+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText())+"<br>";     
+           bill+= fixedItem.getText()+"&#9;"+itemQuant.get(0).getText()+"&#9;"+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText())+"<br>";     
     }
     for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
         if(Integer.parseInt(itemQuant.get(cnt).getText())>0){
-            bill+= iter.getKey().getText()+"\t"+itemQuant.get(cnt).getText()+"\t"+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText())+"<br>";
+            bill+= iter.getKey().getText()+"&#9;"+itemQuant.get(cnt).getText()+"&#9;"+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText())+"<br>";
             
         }
         cnt++;

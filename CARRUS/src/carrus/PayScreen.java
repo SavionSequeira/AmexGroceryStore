@@ -20,7 +20,7 @@ public class PayScreen extends javax.swing.JFrame {
         jLabel4.setForeground(Color.white);
     }
     void emailSender(String Recepient){
-        new SendHTMLEmail(Recepient,bill);
+        new SendHTMLEmail(Recepient,bill,totalPrice);
     }
     void separatorResetter(){
         jSeparator4.setBackground(Color.white);
@@ -73,8 +73,12 @@ public class PayScreen extends javax.swing.JFrame {
                 jSeparator9.setBackground(Color.red);
                 jSeparator9.setForeground(Color.red);
             }
+            else{
+                return true;
+            }
         }
         else if(paymentOption.equals("Google Pay")){
+            System.out.println(paymentOption);
             if(debitPanelCardNumberTextField1.getText().equals("Enter UPI ID")||
                 debitPanelCardNumberTextField1.getText().equals("")){
                 jSeparator1.setBackground(Color.red);
@@ -90,8 +94,12 @@ public class PayScreen extends javax.swing.JFrame {
                 jSeparator3.setBackground(Color.red);
                 jSeparator3.setForeground(Color.red);
             }
+            else{
+                return true;
+            }
         }
         else if(paymentOption.equals("Paytm")){
+            System.out.println(paymentOption);
             if(debitPanelCardNumberTextField9.getText().equals("Mobile Number")||
                 debitPanelCardNumberTextField9.getText().equals("")){
                 jSeparator10.setBackground(Color.red);
@@ -107,11 +115,10 @@ public class PayScreen extends javax.swing.JFrame {
                 jSeparator12.setBackground(Color.red);
                 jSeparator12.setForeground(Color.red);
             }
-        }
-        
-        else{
-            return true;
-        }
+            else{
+                return true;
+            }
+        }  
         return false;
     }
   

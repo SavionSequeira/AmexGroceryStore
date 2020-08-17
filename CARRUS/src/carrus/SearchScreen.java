@@ -365,8 +365,8 @@ public class SearchScreen extends javax.swing.JFrame {
         }
          if(kioskCheck)
          {
-              kiosk1Label.setForeground(Color.black);
-            kiosk2Label.setForeground(Color.black);
+              kiosk1Label.setForeground(Color.white);
+            kiosk2Label.setForeground(Color.white);
          }
         if("Search for Ex: Lays".equals(searchText) || "".equals(searchText))
         {
