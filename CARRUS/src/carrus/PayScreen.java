@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class PayScreen extends javax.swing.JFrame {
     String bill;
     int totalPrice;
-   static String paymentOption ="";
+    static String paymentOption ="";
     public PayScreen(int totalPrice,String bill) {
         this.bill = bill;
         this.totalPrice = totalPrice;
@@ -16,6 +16,8 @@ public class PayScreen extends javax.swing.JFrame {
         jp2.setVisible(true);
         jp1.setVisible(false);
         jp3.setVisible(false);
+        setColour(debitCardTab);
+        jLabel4.setForeground(Color.white);
     }
     void emailSender(String Recepient){
         new SendHTMLEmail(Recepient,bill);
@@ -37,6 +39,7 @@ public class PayScreen extends javax.swing.JFrame {
         payScreenGoogleLogo = new javax.swing.JLabel();
         payScreenPaytmLogo = new javax.swing.JLabel();
         payScreenTotalLabel = new javax.swing.JLabel();
+        payScreenVisaLogo1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         phoneNoLabelPaymentScreen = new javax.swing.JTextField();
         emailIdLabelPaymentScreen = new javax.swing.JTextField();
@@ -75,6 +78,7 @@ public class PayScreen extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
+        debitPanelRupayCardLogo2 = new javax.swing.JLabel();
         jp3 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         debitPanelCardNumberTextField9 = new javax.swing.JTextField();
@@ -200,7 +204,7 @@ public class PayScreen extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        payScreenVisaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/visa1_50px.png"))); // NOI18N
+        payScreenVisaLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/american_express_50px.png"))); // NOI18N
 
         payScreenGoogleLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/google_50px.png"))); // NOI18N
 
@@ -209,6 +213,8 @@ public class PayScreen extends javax.swing.JFrame {
         payScreenTotalLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         payScreenTotalLabel.setForeground(new java.awt.Color(64, 71, 109));
         payScreenTotalLabel.setText("Total");
+
+        payScreenVisaLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/visa1_50px.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -223,8 +229,10 @@ public class PayScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(payScreenVisaLogo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(payScreenVisaLogo1)
+                        .addGap(18, 18, 18)
                         .addComponent(payScreenGoogleLogo)
-                        .addGap(46, 46, 46)
+                        .addGap(18, 18, 18)
                         .addComponent(payScreenPaytmLogo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -247,8 +255,9 @@ public class PayScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(payScreenGoogleLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(payScreenVisaLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(payScreenPaytmLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(payScreenPaytmLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(payScreenVisaLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 159, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(64, 71, 109));
@@ -473,6 +482,9 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelExpiryTextField1.setText("MM/YY");
         debitPanelExpiryTextField1.setBorder(null);
 
+        debitPanelRupayCardLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        debitPanelRupayCardLogo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/american_express_502px.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -480,17 +492,24 @@ public class PayScreen extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(223, 223, 223)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator8, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jSeparator4))
+                    .addComponent(jSeparator8)
+                    .addComponent(jSeparator4)
+                    .addComponent(debitPanelExpiryDateLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator9)
-                    .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jSeparator9)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                    .addComponent(debitPanelCVVLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(233, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(debitPanelRupayCardLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(229, 229, 229))
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel10Layout.createSequentialGroup()
                     .addGap(225, 225, 225)
@@ -511,12 +530,9 @@ public class PayScreen extends javax.swing.JFrame {
                                     .addComponent(debitPanelCardNumberTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(debitPanelCardNumberTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(debitPanelExpiryDateLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(debitPanelExpiryTextField1)))
+                                .addComponent(debitPanelExpiryTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(debitPanelCVVLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(debitPanelCVVTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(debitPanelCardNumberTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addContainerGap(225, Short.MAX_VALUE)))
@@ -524,39 +540,43 @@ public class PayScreen extends javax.swing.JFrame {
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(261, 261, 261)
+                .addGap(124, 124, 124)
+                .addComponent(debitPanelRupayCardLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE)
                     .addComponent(jSeparator5)
                     .addComponent(jSeparator6)
                     .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(98, 98, 98)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(debitPanelExpiryDateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(debitPanelCVVLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(119, 119, 119)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(debitPanelCardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(debitPanelMasterCardLogo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(debitPanelVisaCardLogo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel10Layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(debitPanelRupayCardLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(119, 119, 119)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(debitPanelCardLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(debitPanelMasterCardLogo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(debitPanelVisaCardLogo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addGap(129, 129, 129)
+                            .addComponent(debitPanelRupayCardLogo1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(57, 57, 57)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(debitPanelCardNumberTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(debitPanelCardNumberTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(debitPanelCardNumberTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(debitPanelCardNumberTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(30, 30, 30)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(debitPanelExpiryDateLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(debitPanelCVVLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGap(74, 74, 74)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(debitPanelExpiryTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(debitPanelCVVTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -888,6 +908,7 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JTextField debitPanelExpiryTextField1;
     private javax.swing.JLabel debitPanelMasterCardLogo1;
     private javax.swing.JLabel debitPanelRupayCardLogo1;
+    private javax.swing.JLabel debitPanelRupayCardLogo2;
     private javax.swing.JLabel debitPanelVisaCardLogo1;
     private javax.swing.JTextField emailIdLabelPaymentScreen;
     private javax.swing.JLabel googlePayPanelGoogleLogo;
@@ -927,6 +948,7 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JLabel payScreenPaytmLogo;
     private javax.swing.JLabel payScreenTotalLabel;
     private javax.swing.JLabel payScreenVisaLogo;
+    private javax.swing.JLabel payScreenVisaLogo1;
     private javax.swing.JLabel paytmPanelPaytmLogo;
     private javax.swing.JPanel paytmTab;
     private javax.swing.JTextField phoneNoLabelPaymentScreen;

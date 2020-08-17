@@ -84,8 +84,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="payScreenVisaLogo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="payScreenVisaLogo1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="payScreenGoogleLogo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="payScreenPaytmLogo" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -114,8 +116,9 @@
                           <Component id="payScreenGoogleLogo" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="payScreenVisaLogo" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="payScreenPaytmLogo" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="payScreenVisaLogo1" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="159" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -276,7 +279,7 @@
             <Component class="javax.swing.JLabel" name="payScreenVisaLogo">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/carrus/res/visa1_50px.png"/>
+                  <Image iconType="3" name="/carrus/res/american_express_50px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -303,6 +306,13 @@
                   <Color blue="6d" green="47" red="40" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Total"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="payScreenVisaLogo1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/carrus/res/visa1_50px.png"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -619,19 +629,28 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jSeparator8" pref="100" max="32767" attributes="0"/>
+                                  <Component id="jSeparator8" max="32767" attributes="0"/>
                                   <Component id="jSeparator4" max="32767" attributes="0"/>
+                                  <Component id="debitPanelExpiryDateLabel1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jSeparator5" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jSeparator6" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jSeparator9" max="32767" attributes="0"/>
-                                  <Component id="jSeparator7" pref="91" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jSeparator9" max="32767" attributes="0"/>
+                                      <Component id="jSeparator7" pref="91" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="debitPanelCVVLabel1" min="-2" pref="81" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="239" max="32767" attributes="0"/>
+                              <EmptySpace pref="233" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="debitPanelRupayCardLogo2" min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -655,14 +674,10 @@
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="debitPanelCardNumberTextField7" min="-2" pref="106" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="debitPanelExpiryDateLabel1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="debitPanelExpiryTextField1" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="debitPanelExpiryTextField1" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="debitPanelCVVLabel1" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                                               <Component id="debitPanelCVVTextField1" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
                                               <Component id="debitPanelCardNumberTextField8" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                                           </Group>
@@ -676,32 +691,43 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                              <Component id="debitPanelRupayCardLogo2" min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jSeparator4" pref="10" max="32767" attributes="0"/>
                                   <Component id="jSeparator5" max="32767" attributes="0"/>
                                   <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jSeparator7" alignment="1" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="debitPanelExpiryDateLabel1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="debitPanelCVVLabel1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSeparator8" min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="jSeparator9" min="-2" pref="10" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="101" max="32767" attributes="0"/>
+                              <EmptySpace pref="103" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="debitPanelCardLabel1" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="debitPanelMasterCardLogo1" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
-                                          <Component id="debitPanelVisaCardLogo1" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="debitPanelCardLabel1" alignment="0" min="-2" pref="33" max="-2" attributes="0"/>
+                                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                                  <Component id="debitPanelMasterCardLogo1" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                                                  <Component id="debitPanelVisaCardLogo1" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace pref="6" max="-2" attributes="0"/>
-                                          <Component id="debitPanelRupayCardLogo1" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                                          <Component id="debitPanelRupayCardLogo1" min="-2" pref="23" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -711,12 +737,7 @@
                                       <Component id="debitPanelCardNumberTextField7" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="debitPanelCardNumberTextField8" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="debitPanelExpiryDateLabel1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="debitPanelCVVLabel1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="debitPanelExpiryTextField1" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                                       <Component id="debitPanelCVVTextField1" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
@@ -905,6 +926,14 @@
                     <Component class="javax.swing.JSeparator" name="jSeparator8">
                     </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator9">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="debitPanelRupayCardLogo2">
+                      <Properties>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                          <Image iconType="3" name="/carrus/res/american_express_502px.png"/>
+                        </Property>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
