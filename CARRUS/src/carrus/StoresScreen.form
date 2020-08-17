@@ -197,9 +197,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="storesScreenDistanceLabel1MouseClicked"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -209,10 +206,6 @@
               <Color blue="6d" green="47" red="40" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel3MouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel3MouseExited"/>
-          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -259,9 +252,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="storesScreenDistanceLabel2MouseClicked"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -271,10 +261,6 @@
               <Color blue="6d" green="47" red="40" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel4MouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel4MouseExited"/>
-          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -321,9 +307,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="storesScreenDistanceLabel3MouseClicked"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -333,10 +316,6 @@
               <Color blue="6d" green="47" red="40" type="rgb"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel5MouseEntered"/>
-            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel5MouseExited"/>
-          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -383,9 +362,6 @@
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="storesScreenDistanceLabel4MouseClicked"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

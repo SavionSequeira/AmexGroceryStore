@@ -1,37 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package carrus;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Font;
-import static java.awt.SystemColor.text;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
-import java.util.LinkedHashMap;
-/**
- *
- * @author shrey
- */
-
 public class ItemScreen extends javax.swing.JFrame {
-
-    
     void setStoreLabel(String str)
     {
            itemScreenStoreNameLabel.setText(str);
     }
-    /**
-     * Creates new form ItemScreen
-     */
     int i = 1;
     static int cartIdNumber = 0;
     static int totalPrice=0;
@@ -48,10 +31,8 @@ public class ItemScreen extends javax.swing.JFrame {
     ArrayList<Integer> itemQuantOrdered = new ArrayList<>();
     SqlFunctions sqlFunc;
     String bill;
-    //Iterator<javax.swing.JLabel> itemIter = itemQuant.iterator();
     public ItemScreen(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop,HashMap<Integer,Integer> idQuant) {
         initComponents();
-        
         String firstItemFunc=firstItem;
         int firstPriceFunc = firstPrice;
         String storeNameFunc = storeName;
@@ -59,138 +40,134 @@ public class ItemScreen extends javax.swing.JFrame {
         generateLabels(firstItemFunc,firstPriceFunc,storeNameFunc,itemInShopFunc);
         generateIdQuantOrder(firstItem,idQuant,itemLabel);
     }
- void generateIdQuantOrder(String firstItem,HashMap<Integer,Integer> idQuant,HashMap<javax.swing.JLabel,javax.swing.JLabel> itemInShop){
-     Integer itemID;
-     sqlFunc=new SqlFunctions();
-     itemID = sqlFunc.itemIdChecker(firstItem);
-     for(Map.Entry<Integer,Integer>iter1 : idQuant.entrySet()){
-            if(itemID == iter1.getKey()){
-                itemIDOrdered.add(iter1.getKey());
-                itemQuantOrdered.add(iter1.getValue());
-                
+    void generateIdQuantOrder(String firstItem,HashMap<Integer,Integer> idQuant,HashMap<javax.swing.JLabel,javax.swing.JLabel> itemInShop){
+        Integer itemID;
+        sqlFunc=new SqlFunctions();
+        itemID = sqlFunc.itemIdChecker(firstItem);
+        for(Map.Entry<Integer,Integer>iter1 : idQuant.entrySet()){
+               if(itemID == iter1.getKey()){
+                   itemIDOrdered.add(iter1.getKey());
+                   itemQuantOrdered.add(iter1.getValue());
+               }
+        }
+        for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemInShop.entrySet()){
+            System.out.println(iter.getKey().getText());
+            if(iter.getKey().getText().equalsIgnoreCase(firstItem)){
+                continue;
             }
-     }
-     for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemInShop.entrySet()){
-         System.out.println(iter.getKey().getText());
-         if(iter.getKey().getText().equalsIgnoreCase(firstItem)){
-             continue;
-         }
-         itemID = sqlFunc.itemIdChecker(iter.getKey().getText());
-         for(Map.Entry<Integer,Integer>iter1 : idQuant.entrySet()){
-                if(itemID == iter1.getKey()){
-                    itemIDOrdered.add(iter1.getKey());
-                    itemQuantOrdered.add(iter1.getValue());
-                }
-         }
-     }
- }
-void generateBill(){
-    int cnt = 1;
-    bill=("Item\tQuantity\tPrice<br>");
-    if(Integer.parseInt(itemQuant.get(0).getText())>0){
-           bill+= fixedItem.getText()+"&#9;"+itemQuant.get(0).getText()+"&#9;"+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText())+"<br>";     
-    }
-    for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
-        if(Integer.parseInt(itemQuant.get(cnt).getText())>0){
-            bill+= iter.getKey().getText()+"&#9;"+itemQuant.get(cnt).getText()+"&#9;"+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText())+"<br>";
-            
+            itemID = sqlFunc.itemIdChecker(iter.getKey().getText());
+            for(Map.Entry<Integer,Integer>iter1 : idQuant.entrySet()){
+                   if(itemID == iter1.getKey()){
+                       itemIDOrdered.add(iter1.getKey());
+                       itemQuantOrdered.add(iter1.getValue());
+                   }
+            }
         }
-        cnt++;
     }
-    System.out.print(bill);
-}
-    
-void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
-        {
-        itemScreenStoreNameLabel.setText(storeName);
-        grid = new GridBagConstraints();
-        itemList.setLayout(new GridBagLayout());
-        fixedItem = new javax.swing.JLabel();
-        fixedPrice = new javax.swing.JLabel();
-        fixedItem.setText(firstItem.toUpperCase());
-        fixedItem.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-        fixedItem.setForeground(Color.white);
-        fixedPrice.setText(firstPrice+"₹");
-        fixedPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-        fixedPrice.setForeground(Color.white);
-        itemPrice.add(firstPrice);
-        grid.insets = new Insets(5,5,5,150);
-        grid.gridx=0;
-        grid.gridy=0;
-        itemList.add(fixedItem,grid);
-        grid.gridx=1;
-        grid.gridy=0;
-        itemList.add(fixedPrice,grid);
-        itemListerQuantModifierPlus = new javax.swing.JLabel("+");
-        itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-        itemListerQuantModifierPlus.setForeground(Color.white);
-        itemListerQuantModifierMinus = new javax.swing.JLabel("-");
-        itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-        itemListerQuantModifierMinus.setForeground(Color.white);
-        itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
-        itemListerQuant = new javax.swing.JLabel();
-        itemListerQuant.setText("0");
-        itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-        itemListerQuant.setForeground(Color.white);
-        itemQuant.add(itemListerQuant);
-        for(Map.Entry<String,Integer>iter : itemInShop.entrySet()){
-                if(iter.getKey().equalsIgnoreCase(firstItem)){
-                       continue;
-                }
-                else{
-                itemListerName = new javax.swing.JLabel();
-                itemListerName.setText(iter.getKey());
-                itemListerName.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                itemListerName.setForeground(Color.white);
-                itemListerPrice = new javax.swing.JLabel();
-                itemListerPrice.setText(Integer.toString(iter.getValue())+"₹");
-                itemListerPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                itemListerPrice.setForeground(Color.white);
-                itemLabel.put(itemListerName,itemListerPrice);
-                itemListerQuantModifierPlus = new javax.swing.JLabel("+");
-                itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                itemListerQuantModifierPlus.setForeground(Color.white);
-                itemListerQuantModifierMinus = new javax.swing.JLabel("-");
-                itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                itemListerQuantModifierMinus.setForeground(Color.white);
-                itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
-                itemListerQuant = new javax.swing.JLabel();
-                itemListerQuant.setText("0");
-                itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
-                itemListerQuant.setForeground(Color.white);
-                itemQuant.add(itemListerQuant);
-                }
+   void generateBill(){
+       int cnt = 1;
+       bill=("Item&nbsp;&nbsp;&nbsp;Quantity&nbsp;&nbsp;&nbsp;Price<br>");
+       if(Integer.parseInt(itemQuant.get(0).getText())>0){
+              bill+= fixedItem.getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemQuant.get(0).getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText())+"<br>";     
+       }
+       for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
+           if(Integer.parseInt(itemQuant.get(cnt).getText())>0){
+               bill+= iter.getKey().getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemQuant.get(cnt).getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText())+"<br>";   
+           }
+           cnt++;
+       }
+   }  
+   void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
+   {
+           itemScreenStoreNameLabel.setText(storeName);
+           grid = new GridBagConstraints();
+           itemList.setLayout(new GridBagLayout());
+           fixedItem = new javax.swing.JLabel();
+           fixedPrice = new javax.swing.JLabel();
+           fixedItem.setText(firstItem.toUpperCase());
+           fixedItem.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+           fixedItem.setForeground(Color.white);
+           fixedPrice.setText(firstPrice+"₹");
+           fixedPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+           fixedPrice.setForeground(Color.white);
+           itemPrice.add(firstPrice);
+           grid.insets = new Insets(5,5,5,150);
+           grid.gridx=0;
+           grid.gridy=0;
+           itemList.add(fixedItem,grid);
+           grid.gridx=1;
+           grid.gridy=0;
+           itemList.add(fixedPrice,grid);
+           itemListerQuantModifierPlus = new javax.swing.JLabel("+");
+           itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+           itemListerQuantModifierPlus.setForeground(Color.white);
+           itemListerQuantModifierMinus = new javax.swing.JLabel("-");
+           itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+           itemListerQuantModifierMinus.setForeground(Color.white);
+           itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
+           itemListerQuant = new javax.swing.JLabel();
+           itemListerQuant.setText("0");
+           itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+           itemListerQuant.setForeground(Color.white);
+           itemQuant.add(itemListerQuant);
+           for(Map.Entry<String,Integer>iter : itemInShop.entrySet()){
+                   if(iter.getKey().equalsIgnoreCase(firstItem)){
 
-        }
-        for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
-            grid.gridx=0;
-            grid.gridy=i;
-            itemList.add(iter.getKey(),grid);
-            grid.gridx=1;
-            grid.gridy=i;
-            itemList.add(iter.getValue(),grid);
-            itemPrice.add(Integer.parseInt(iter.getValue().getText().replaceAll("[\\D]", "")));
-            i++;
-        }
-        i = 0;
-        grid.insets = new Insets(5,5,5,5);
-        for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemQuantModifier.entrySet()){
-            grid.gridx=2;
-            grid.gridy=i;
-            itemList.add(iter.getKey(),grid);
-            iter.getKey().addMouseListener(new YourMouseListener(iter.getKey(),i));
-            grid.gridx=3;
-            grid.gridy=i;
-            itemList.add(itemQuant.get(i),grid);
-            grid.gridx=4;
-            grid.gridy=i;
-            itemList.add(iter.getValue(),grid);
-            iter.getValue().addMouseListener(new YourMouseListener(iter.getValue(),i));
-            i++;
-        }
-        System.out.println(itemPrice);
-        }
-    class YourMouseListener extends MouseAdapter{
+                   }
+                   else{
+                        itemListerName = new javax.swing.JLabel();
+                        itemListerName.setText(iter.getKey());
+                        itemListerName.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                        itemListerName.setForeground(Color.white);
+                        itemListerPrice = new javax.swing.JLabel();
+                        itemListerPrice.setText(Integer.toString(iter.getValue())+"₹");
+                        itemListerPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                        itemListerPrice.setForeground(Color.white);
+                        itemLabel.put(itemListerName,itemListerPrice);
+                        itemListerQuantModifierPlus = new javax.swing.JLabel("+");
+                        itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                        itemListerQuantModifierPlus.setForeground(Color.white);
+                        itemListerQuantModifierMinus = new javax.swing.JLabel("-");
+                        itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                        itemListerQuantModifierMinus.setForeground(Color.white);
+                        itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
+                        itemListerQuant = new javax.swing.JLabel();
+                        itemListerQuant.setText("0");
+                        itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
+                        itemListerQuant.setForeground(Color.white);
+                        itemQuant.add(itemListerQuant);
+                   }
+
+           }
+           for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
+               grid.gridx=0;
+               grid.gridy=i;
+               itemList.add(iter.getKey(),grid);
+               grid.gridx=1;
+               grid.gridy=i;
+               itemList.add(iter.getValue(),grid);
+               itemPrice.add(Integer.parseInt(iter.getValue().getText().replaceAll("[\\D]", "")));
+               i++;
+           }
+           i = 0;
+           grid.insets = new Insets(5,5,5,5);
+           for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemQuantModifier.entrySet()){
+               grid.gridx=2;
+               grid.gridy=i;
+               itemList.add(iter.getKey(),grid);
+               iter.getKey().addMouseListener(new YourMouseListener(iter.getKey(),i));
+               grid.gridx=3;
+               grid.gridy=i;
+               itemList.add(itemQuant.get(i),grid);
+               grid.gridx=4;
+               grid.gridy=i;
+               itemList.add(iter.getValue(),grid);
+               iter.getValue().addMouseListener(new YourMouseListener(iter.getValue(),i));
+               i++;
+           }
+          
+    }
+   class YourMouseListener extends MouseAdapter{
    javax.swing.JLabel actionLabel;
    int quantNum;
    int quantChange;
@@ -228,11 +205,7 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
    }
 }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -280,11 +253,6 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
         itemScreenPayButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 itemScreenPayButtonMouseClicked(evt);
-            }
-        });
-        itemScreenPayButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemScreenPayButtonActionPerformed(evt);
             }
         });
 
@@ -355,94 +323,16 @@ void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<Str
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemScreenPayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemScreenPayButtonActionPerformed
-        // TODO add your handling code here:
-       /* Connection conn = null;
-        try{
-            int flag = 1;
-            conn = DriverManager.getConnection(CONN_STRING,USERNAME,PASSWORD);
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from login");
-            while(rs.next())
-            {
-                if(rs.getString(2).equals(jTextField_username.getText()) && rs.getString(3).equals( jPasswordField1.getText()))
-                {
-                    flag = 0;
-                    break;
-                }
-            }
-            if(flag==0)
-            {
-                jLabel6.setText("Login Successful");
-                int response = JOptionPane.showConfirmDialog(this,"Do you want to continue?","Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                if(response==JOptionPane.YES_OPTION)
-                {
-                    System.out.println("Yes Option Selected");
-                    ChatBox cb = new ChatBox();
-                    cb.setVisible(true);
-                    cb.pack();
-                    cb.setLocationRelativeTo(null);
-                    cb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-                    this.dispose();
-                }
-            }
-            else
-            {
-                jLabel6.setText("Login Not Successful");
-            }
-        }catch(SQLException ex){
-            System.err.println(ex);
-        } */
-
-    }//GEN-LAST:event_itemScreenPayButtonActionPerformed
-
     private void itemScreenPayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemScreenPayButtonMouseClicked
         // TODO add your handling code here:
         generateBill();
-        
-        PayScreen tl = new PayScreen(totalPrice,bill);    //Traces to the SignUp Page;
-        tl.setVisible(true);   //Sets Visibility after method is called;
+        PayScreen tl = new PayScreen(totalPrice,bill);    
+        tl.setVisible(true); 
         tl.pack();
         tl.setLocationRelativeTo(null);
-        //ps.jp2.setVisible(true);
-        tl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
+        tl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose(); 
     }//GEN-LAST:event_itemScreenPayButtonMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-   /*public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-      /*  try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ItemScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ItemScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ItemScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ItemScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>*/
-
-        /* Create and display the form */
-      /*  java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ItemScreen().setVisible(true);
-            }
-        });
-    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel itemList;

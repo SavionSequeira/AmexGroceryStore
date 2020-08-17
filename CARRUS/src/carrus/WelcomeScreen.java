@@ -1,18 +1,10 @@
 package carrus;
-import java.awt.Color;
 import javax.swing.JFrame;
-
-
 public class WelcomeScreen extends javax.swing.JFrame {
-
-    
     public WelcomeScreen() {
         initComponents();
-         this.setLocationRelativeTo(null); //Sets the screen in the center
+         this.setLocationRelativeTo(null); 
     }
-
-    
-    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -93,46 +85,13 @@ public class WelcomeScreen extends javax.swing.JFrame {
 
     private void Welcome_Screen_StartButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Welcome_Screen_StartButtonMouseClicked
         // TODO add your handling code here:
-        SearchScreen ss = new SearchScreen();    //Traces to the SignUp Page;
-        ss.setVisible(true);   //Sets Visibility after method is called;
+        SearchScreen ss = new SearchScreen();    
+        ss.setVisible(true);   
         ss.pack();
         ss.setLocationRelativeTo(null);
-        ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
+        ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        this.dispose(); 
     }//GEN-LAST:event_Welcome_Screen_StartButtonMouseClicked
-
-    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(WelcomeScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new WelcomeScreen().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Welcome_Screen_Logo;

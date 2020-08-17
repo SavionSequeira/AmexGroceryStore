@@ -3,9 +3,7 @@ package carrus;
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.LinkedHashMap;
 import javax.swing.JPanel;
 public class StoresScreen extends javax.swing.JFrame {
 
@@ -22,45 +20,33 @@ public class StoresScreen extends javax.swing.JFrame {
     void setLabels()
     {
         SqlFunctions st = new SqlFunctions();
-       
-       HashMap<String,Integer> storeDist = new HashMap<>();
-      
-       storeDist=st.setMapStoreScreen();
-       int shopNum=1;
- 
-          for(Map.Entry<String,Integer>iter : storeDist.entrySet()){
-              
-  
-            
-                //System.out.println("Key : "+mapElement.getKey()+" Value : "+mapElement.getValue());
-              switch(shopNum)
-              {
-                  case 1:
-                      storesScreenStoreLabel1.setText(iter.getKey());
+        HashMap<String,Integer> storeDist;
+        storeDist=st.setMapStoreScreen();
+        int shopNum=1;
+        for(Map.Entry<String,Integer>iter : storeDist.entrySet()){
+          switch(shopNum)
+          {
+              case 1:
+                  storesScreenStoreLabel1.setText(iter.getKey());
                   storesScreenDistanceLabel1.setText(Integer.toString(iter.getValue())+("km"));
-                      break;
-                  case 2:
-                      storesScreenStoreLabel2.setText(iter.getKey());
-                     storesScreenDistanceLabel2.setText(Integer.toString(iter.getValue())+("km"));
-                      break;
-                  case 3:
-                     storesScreenStoreLabel3.setText(iter.getKey());
-                     storesScreenDistanceLabel3.setText(Integer.toString(iter.getValue())+("km"));
-                     break;
-                  case 4:
-                      storesScreenStoreLabel4.setText(iter.getKey());
-                      storesScreenDistanceLabel4.setText(Integer.toString(iter.getValue())+("km"));
-                      break;
-                  default:
-                      System.out.println("Wrong input");
-              }
-              shopNum++;
-            
-        
-           
-        }
-        
-        
+                  break;
+              case 2:
+                  storesScreenStoreLabel2.setText(iter.getKey());
+                  storesScreenDistanceLabel2.setText(Integer.toString(iter.getValue())+("km"));
+                  break;
+              case 3:
+                 storesScreenStoreLabel3.setText(iter.getKey());
+                 storesScreenDistanceLabel3.setText(Integer.toString(iter.getValue())+("km"));
+                 break;
+              case 4:
+                  storesScreenStoreLabel4.setText(iter.getKey());
+                  storesScreenDistanceLabel4.setText(Integer.toString(iter.getValue())+("km"));
+                  break;
+              default:
+                  System.out.println("Wrong input");
+          }
+          shopNum++;
+        }   
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -130,11 +116,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel1.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                storesScreenDistanceLabel1MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -153,14 +134,6 @@ public class StoresScreen extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(64, 71, 109));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel3MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel3MouseExited(evt);
-            }
-        });
 
         storesScreenStoreLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,11 +153,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel2.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                storesScreenDistanceLabel2MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -203,14 +171,6 @@ public class StoresScreen extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(64, 71, 109));
-        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel4MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel4MouseExited(evt);
-            }
-        });
 
         storesScreenStoreLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,11 +190,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel3.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                storesScreenDistanceLabel3MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -253,14 +208,6 @@ public class StoresScreen extends javax.swing.JFrame {
         );
 
         jPanel5.setBackground(new java.awt.Color(64, 71, 109));
-        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jPanel5MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel5MouseExited(evt);
-            }
-        });
 
         storesScreenStoreLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenStoreLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -280,11 +227,6 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         storesScreenDistanceLabel4.setForeground(new java.awt.Color(255, 255, 255));
         storesScreenDistanceLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        storesScreenDistanceLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                storesScreenDistanceLabel4MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -375,77 +317,53 @@ public class StoresScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   public void setColour(JPanel p)
-{
-    p.setBackground(new Color(26,27,65)); 
-}  
+    public void setColour(JPanel p)
+    {
+        p.setBackground(new Color(26,27,65)); 
+    }  
     public void resetColour(JPanel p1)
-{
-    p1.setBackground(new Color(64,71,109)); 
-}
+    {
+        p1.setBackground(new Color(64,71,109)); 
+    }
     private void storesScreenStoreLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel1MouseClicked
         // TODO add your handling code here:
         getStoresScreenStoreLabel(storesScreenStoreLabel1.getText());
         int storeId;
         int price;
-        HashMap<String,Integer> itemList = new HashMap<>();
-        HashMap<Integer,Integer> idQuant = new HashMap<>();
+        HashMap<String,Integer> itemList;
+        HashMap<Integer,Integer> idQuant;
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
-      //  System.out.println("Received price "+ price);
-     //   System.out.println("String label check store id "+ storeScreenLabel);
         storeId = itemExtractor.getStoreId(storeScreenLabel);
-       // System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        idQuant = itemExtractor.idQuants(storeId);
-        
-        System.out.println(idQuant);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
-        is.setVisible(true);   //Sets Visibility after method is called;
+        idQuant = itemExtractor.idQuants(storeId); 
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    
+        is.setVisible(true);  
         is.pack();
         is.setLocationRelativeTo(null);
-        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        this.dispose(); 
         
     }//GEN-LAST:event_storesScreenStoreLabel1MouseClicked
-
-    private void storesScreenDistanceLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_storesScreenDistanceLabel1MouseClicked
-
-    private void storesScreenDistanceLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_storesScreenDistanceLabel2MouseClicked
-
-    private void storesScreenDistanceLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_storesScreenDistanceLabel3MouseClicked
-
-    private void storesScreenDistanceLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenDistanceLabel4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_storesScreenDistanceLabel4MouseClicked
 
     private void storesScreenStoreLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel2MouseClicked
         // TODO add your handling code here:
         getStoresScreenStoreLabel(storesScreenStoreLabel2.getText());
         int storeId;
         int price;
-        HashMap<String,Integer> itemList = new HashMap<>();
-        HashMap<Integer,Integer> idQuant = new HashMap<>();
+        HashMap<String,Integer> itemList;
+        HashMap<Integer,Integer> idQuant;
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
-        System.out.println("String label check store id "+ storeScreenLabel);
         storeId = itemExtractor.getStoreId(storeScreenLabel);
-        System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
-        System.out.println(idQuant);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
-        is.setVisible(true);   //Sets Visibility after method is called;
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    
+        is.setVisible(true);  
         is.pack();
         is.setLocationRelativeTo(null);
-        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        this.dispose(); 
     }//GEN-LAST:event_storesScreenStoreLabel2MouseClicked
 
     private void storesScreenStoreLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel3MouseClicked
@@ -463,12 +381,12 @@ public class StoresScreen extends javax.swing.JFrame {
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
         System.out.println(idQuant);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
-        is.setVisible(true);   //Sets Visibility after method is called;
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    
+        is.setVisible(true);   
         is.pack();
         is.setLocationRelativeTo(null);
-        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        this.dispose();
     }//GEN-LAST:event_storesScreenStoreLabel3MouseClicked
 
     private void storesScreenStoreLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel4MouseClicked
@@ -477,8 +395,8 @@ public class StoresScreen extends javax.swing.JFrame {
         getStoresScreenStoreLabel(storesScreenStoreLabel4.getText());
         int storeId;
         int price;
-        HashMap<String,Integer> itemList = new HashMap<>();
-        HashMap<Integer,Integer> idQuant = new HashMap<>();
+        HashMap<String,Integer> itemList;
+        HashMap<Integer,Integer> idQuant;
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
         System.out.println("String label check store id "+ storeScreenLabel);
@@ -487,12 +405,12 @@ public class StoresScreen extends javax.swing.JFrame {
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
         System.out.println(idQuant);
-        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    //Traces to the SignUp Page;
-        is.setVisible(true);   //Sets Visibility after method is called;
+        ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);   
+        is.setVisible(true);   
         is.pack();
         is.setLocationRelativeTo(null);
-        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
+        is.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        this.dispose(); 
     }//GEN-LAST:event_storesScreenStoreLabel4MouseClicked
 
     private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
@@ -511,37 +429,12 @@ public class StoresScreen extends javax.swing.JFrame {
     private void storesScreenStoreLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel1MouseEntered
         // TODO add your handling code here:
         setColour(jPanel2);
-        
     }//GEN-LAST:event_storesScreenStoreLabel1MouseEntered
 
     private void storesScreenStoreLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel1MouseExited
         // TODO add your handling code here:
         resetColour(jPanel2);
     }//GEN-LAST:event_storesScreenStoreLabel1MouseExited
-
-    private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel3MouseEntered
-
-    private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel3MouseExited
-
-    private void jPanel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel4MouseEntered
-
-    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel4MouseExited
-
-    private void jPanel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel5MouseEntered
-
-    private void jPanel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel5MouseExited
 
     private void storesScreenStoreLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel2MouseEntered
         // TODO add your handling code here:
@@ -575,17 +468,15 @@ public class StoresScreen extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        SearchScreen ss = new SearchScreen(); //Traces to the SignUp Page;
+        SearchScreen ss = new SearchScreen(); 
         SqlFunctions func = new SqlFunctions();
-        System.out.println("Before Clear "+func.storeDist);
         func.storeDist.clear();
         func.sortedStoreDist.clear();
-        System.out.println("After clear "+func.storeDist);
-        ss.setVisible(true);   //Sets Visibility after method is called;
+        ss.setVisible(true);   
         ss.pack();
         ss.setLocationRelativeTo(null);
-        ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
+        ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        this.dispose(); 
     }//GEN-LAST:event_jLabel2MouseClicked
     private void setLabelsBlank()
     {
@@ -604,41 +495,7 @@ public class StoresScreen extends javax.swing.JFrame {
         System.out.println(storeScreenLabel);
         
     }
-    /**
-     * @param args the command line arguments
-     */
-   /*public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-      /*  try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StoresScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StoresScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StoresScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StoresScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StoresScreen().setVisible(true);
-            }
-        });
-    }*/
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Stores_Screen_Animation;
     private javax.swing.JLabel Stores_Screen_Label1;

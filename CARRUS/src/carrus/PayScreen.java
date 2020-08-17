@@ -3,7 +3,6 @@ package carrus;
 import java.awt.Color;
 import javax.swing.JPanel;
 
-
 public class PayScreen extends javax.swing.JFrame {
     String bill;
     int totalPrice;
@@ -46,79 +45,73 @@ public class PayScreen extends javax.swing.JFrame {
         jSeparator11.setBackground(Color.white);
         jSeparator11.setForeground(Color.white);
         jSeparator12.setBackground(Color.white);
-        jSeparator12.setForeground(Color.white);
-                
+        jSeparator12.setForeground(Color.white);           
     }
     boolean detailChecker(){
-        if(paymentOption.equals("Debit/Credit Card")){
-            System.out.println(paymentOption);
-            if((debitPanelCardNumberTextField5.getText().equals("")||debitPanelCardNumberTextField6.getText().equals("")
-                ||debitPanelCardNumberTextField7.getText().equals("")||debitPanelCardNumberTextField8.getText().equals(""))
-                ||(debitPanelCardNumberTextField5.getText().equals("XXXX")||debitPanelCardNumberTextField6.getText().equals("XXXX")
-                ||debitPanelCardNumberTextField7.getText().equals("XXXX")||debitPanelCardNumberTextField8.getText().equals("XXXX"))){
-                jSeparator4.setBackground(Color.red);
-                jSeparator5.setBackground(Color.red);
-                jSeparator6.setBackground(Color.red);
-                jSeparator7.setBackground(Color.red);
-                jSeparator4.setForeground(Color.red);
-                jSeparator5.setForeground(Color.red);
-                jSeparator6.setForeground(Color.red);
-                jSeparator7.setForeground(Color.red);
-            }
-            if(debitPanelExpiryTextField1.getText().equals("")||debitPanelExpiryTextField1.getText().equals("MM/YY")){
-                jSeparator8.setBackground(Color.red);
-                jSeparator8.setForeground(Color.red);
-            }
-            if(debitPanelCVVTextField1.getPassword().equals("")||debitPanelCVVTextField1.getPassword().equals("***")){
-                jSeparator9.setBackground(Color.red);
-                jSeparator9.setForeground(Color.red);
-            }
-            else{
-                return true;
-            }
+        switch (paymentOption) {
+            case "Debit/Credit Card":
+                System.out.println(paymentOption);
+                if((debitPanelCardNumberTextField5.getText().equals("")||debitPanelCardNumberTextField6.getText().equals("")
+                        ||debitPanelCardNumberTextField7.getText().equals("")||debitPanelCardNumberTextField8.getText().equals(""))
+                        ||(debitPanelCardNumberTextField5.getText().equals("XXXX")||debitPanelCardNumberTextField6.getText().equals("XXXX")
+                        ||debitPanelCardNumberTextField7.getText().equals("XXXX")||debitPanelCardNumberTextField8.getText().equals("XXXX"))){
+                    jSeparator4.setBackground(Color.red);
+                    jSeparator5.setBackground(Color.red);
+                    jSeparator6.setBackground(Color.red);
+                    jSeparator7.setBackground(Color.red);
+                    jSeparator4.setForeground(Color.red);
+                    jSeparator5.setForeground(Color.red);
+                    jSeparator6.setForeground(Color.red);
+                    jSeparator7.setForeground(Color.red);
+                }   if(debitPanelExpiryTextField1.getText().equals("")||debitPanelExpiryTextField1.getText().equals("MM/YY")){
+                    jSeparator8.setBackground(Color.red);
+                    jSeparator8.setForeground(Color.red);
+                }   if(debitPanelCVVTextField1.getPassword().equals("")||debitPanelCVVTextField1.getPassword().equals("***")){
+                    jSeparator9.setBackground(Color.red);
+                    jSeparator9.setForeground(Color.red);
+                }
+                else{
+                    return true;
+                }   break;
+            case "Google Pay":
+                System.out.println(paymentOption);
+                if(debitPanelCardNumberTextField1.getText().equals("Enter UPI ID")||
+                        debitPanelCardNumberTextField1.getText().equals("")){
+                    jSeparator1.setBackground(Color.red);
+                    jSeparator1.setForeground(Color.red);
+                }   if(debitPanelCardNumberTextField2.getText().equals("Enter Amount")||
+                        debitPanelCardNumberTextField2.getText().equals("")){
+                    jSeparator2.setBackground(Color.red);
+                    jSeparator2.setForeground(Color.red);
+                }   if(debitPanelCardNumberTextField3.getText().equals("***")||
+                        debitPanelCardNumberTextField3.getText().equals("")){
+                    jSeparator3.setBackground(Color.red);
+                    jSeparator3.setForeground(Color.red);
+                }
+                else{
+                    return true;
+                }   break;
+            case "Paytm":
+                System.out.println(paymentOption);
+                if(debitPanelCardNumberTextField9.getText().equals("Mobile Number")||
+                        debitPanelCardNumberTextField9.getText().equals("")){
+                    jSeparator10.setBackground(Color.red);
+                    jSeparator10.setForeground(Color.red);
+                }   if(debitPanelCardNumberTextField10.getText().equals("Amount")||
+                        debitPanelCardNumberTextField10.getText().equals("")){
+                    jSeparator11.setBackground(Color.red);
+                    jSeparator11.setForeground(Color.red);
+                }   if(debitPanelCardNumberTextField11.getText().equals("Comments")||
+                        debitPanelCardNumberTextField11.getText().equals("")){
+                    jSeparator12.setBackground(Color.red);
+                    jSeparator12.setForeground(Color.red);
+                }
+                else{
+                    return true;
+                }   break;
+            default:
+                break;
         }
-        else if(paymentOption.equals("Google Pay")){
-            System.out.println(paymentOption);
-            if(debitPanelCardNumberTextField1.getText().equals("Enter UPI ID")||
-                debitPanelCardNumberTextField1.getText().equals("")){
-                jSeparator1.setBackground(Color.red);
-                jSeparator1.setForeground(Color.red);
-            }
-            if(debitPanelCardNumberTextField2.getText().equals("Enter Amount")||
-                debitPanelCardNumberTextField2.getText().equals("")){
-                jSeparator2.setBackground(Color.red);
-                jSeparator2.setForeground(Color.red);
-            }
-            if(debitPanelCardNumberTextField3.getText().equals("***")||
-                debitPanelCardNumberTextField3.getText().equals("")){
-                jSeparator3.setBackground(Color.red);
-                jSeparator3.setForeground(Color.red);
-            }
-            else{
-                return true;
-            }
-        }
-        else if(paymentOption.equals("Paytm")){
-            System.out.println(paymentOption);
-            if(debitPanelCardNumberTextField9.getText().equals("Mobile Number")||
-                debitPanelCardNumberTextField9.getText().equals("")){
-                jSeparator10.setBackground(Color.red);
-                jSeparator10.setForeground(Color.red);
-            }
-            if(debitPanelCardNumberTextField10.getText().equals("Amount")||
-                debitPanelCardNumberTextField10.getText().equals("")){
-                jSeparator11.setBackground(Color.red);
-                jSeparator11.setForeground(Color.red);
-            }
-             if(debitPanelCardNumberTextField11.getText().equals("Comments")||
-                    debitPanelCardNumberTextField11.getText().equals("")){
-                jSeparator12.setBackground(Color.red);
-                jSeparator12.setForeground(Color.red);
-            }
-            else{
-                return true;
-            }
-        }  
         return false;
     }
   
@@ -205,12 +198,6 @@ public class PayScreen extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 debitCardTabMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                debitCardTabMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                debitCardTabMouseExited(evt);
-            }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -238,12 +225,6 @@ public class PayScreen extends javax.swing.JFrame {
         googlePayTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 googlePayTabMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                googlePayTabMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                googlePayTabMouseExited(evt);
             }
         });
 
@@ -273,12 +254,6 @@ public class PayScreen extends javax.swing.JFrame {
         paytmTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 paytmTabMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                paytmTabMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                paytmTabMouseExited(evt);
             }
         });
 
@@ -426,33 +401,18 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCardNumberTextField1.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField1.setText("Enter UPI ID");
         debitPanelCardNumberTextField1.setBorder(null);
-        debitPanelCardNumberTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField1ActionPerformed(evt);
-            }
-        });
 
         debitPanelCardNumberTextField2.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField2.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField2.setText("Enter Amount");
         debitPanelCardNumberTextField2.setBorder(null);
-        debitPanelCardNumberTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField2ActionPerformed(evt);
-            }
-        });
 
         debitPanelCardNumberTextField3.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField3.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField3.setText("***");
         debitPanelCardNumberTextField3.setBorder(null);
-        debitPanelCardNumberTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField3ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -535,33 +495,18 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCardNumberTextField6.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField6.setText("XXXX");
         debitPanelCardNumberTextField6.setBorder(null);
-        debitPanelCardNumberTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField6ActionPerformed(evt);
-            }
-        });
 
         debitPanelCardNumberTextField7.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField7.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField7.setText("XXXX");
         debitPanelCardNumberTextField7.setBorder(null);
-        debitPanelCardNumberTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField7ActionPerformed(evt);
-            }
-        });
 
         debitPanelCardNumberTextField8.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField8.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField8.setText("XXXX");
         debitPanelCardNumberTextField8.setBorder(null);
-        debitPanelCardNumberTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField8ActionPerformed(evt);
-            }
-        });
 
         debitPanelExpiryDateLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         debitPanelExpiryDateLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -575,11 +520,6 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCVVTextField1.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCVVTextField1.setText("***");
         debitPanelCVVTextField1.setBorder(null);
-        debitPanelCVVTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCVVTextField1ActionPerformed(evt);
-            }
-        });
 
         debitPanelExpiryTextField1.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelExpiryTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -699,33 +639,18 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCardNumberTextField9.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField9.setText("Mobile Number");
         debitPanelCardNumberTextField9.setBorder(null);
-        debitPanelCardNumberTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField9ActionPerformed(evt);
-            }
-        });
 
         debitPanelCardNumberTextField10.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField10.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField10.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField10.setText("Amount");
         debitPanelCardNumberTextField10.setBorder(null);
-        debitPanelCardNumberTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField10ActionPerformed(evt);
-            }
-        });
 
         debitPanelCardNumberTextField11.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelCardNumberTextField11.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         debitPanelCardNumberTextField11.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCardNumberTextField11.setText("Comments");
         debitPanelCardNumberTextField11.setBorder(null);
-        debitPanelCardNumberTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelCardNumberTextField11ActionPerformed(evt);
-            }
-        });
 
         paytmPanelPaytmLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/paytm_90px.png"))); // NOI18N
 
@@ -831,34 +756,22 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp2.setVisible(true);
-       setColour(debitCardTab);
-       jLabel4.setForeground(Color.white);
-       resetColour(googlePayTab);
-       jLabel5.setForeground(new Color(64,71,109));
-       resetColour(paytmTab);
-       jLabel6.setForeground(new Color(64,71,109));
+        setColour(debitCardTab);
+        jLabel4.setForeground(Color.white);
+        resetColour(googlePayTab);
+        jLabel5.setForeground(new Color(64,71,109));
+        resetColour(paytmTab);
+        jLabel6.setForeground(new Color(64,71,109));
         jp1.setVisible(false);
         jp3.setVisible(false);
         paymentOption= "Debit/Credit Card";
     }//GEN-LAST:event_debitCardTabMouseClicked
 
-    private void debitCardTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseEntered
-
-        /*setColour(tab1);
-        jLabel2.setForeground(Color.white); */
-    }//GEN-LAST:event_debitCardTabMouseEntered
-
-    private void debitCardTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_debitCardTabMouseExited
-
-        /*  resetColour(tab1);
-        jLabel2.setForeground(new Color(64,71,109)); */
-    }//GEN-LAST:event_debitCardTabMouseExited
-
     private void googlePayTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseClicked
         // TODO add your handling code here:
         separatorResetter();
         jp1.setVisible(true);
-        //jp1.setVisible(true);
+       
         setColour(googlePayTab);
         jLabel5.setForeground(Color.white);
         resetColour(debitCardTab);
@@ -869,18 +782,6 @@ public class PayScreen extends javax.swing.JFrame {
         jp3.setVisible(false);
         paymentOption= "Google Pay";
     }//GEN-LAST:event_googlePayTabMouseClicked
-
-    private void googlePayTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseEntered
-
-        /*  setColour(tab2);
-        jLabel3.setForeground(Color.white); */
-    }//GEN-LAST:event_googlePayTabMouseEntered
-
-    private void googlePayTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_googlePayTabMouseExited
-
-        /*  resetColour(tab2);
-        jLabel3.setForeground(new Color(64,71,109)); */
-    }//GEN-LAST:event_googlePayTabMouseExited
 
     private void paytmTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseClicked
         // TODO add your handling code here:
@@ -894,61 +795,12 @@ public class PayScreen extends javax.swing.JFrame {
         jLabel5.setForeground(new Color(64,71,109));
         jp1.setVisible(false);
         jp2.setVisible(false);
-        
         paymentOption= "Paytm";
     }//GEN-LAST:event_paytmTabMouseClicked
 
-    private void paytmTabMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseEntered
-
-        /*setColour(tab3);
-        jLabel4.setForeground(Color.white);*/
-    }//GEN-LAST:event_paytmTabMouseEntered
-
-    private void paytmTabMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paytmTabMouseExited
-
-        /* resetColour(tab3);
-        jLabel4.setForeground(new Color(64,71,109)); */
-    }//GEN-LAST:event_paytmTabMouseExited
-
-    private void debitPanelCardNumberTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField6ActionPerformed
-
-    private void debitPanelCardNumberTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField7ActionPerformed
-
-    private void debitPanelCardNumberTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField8ActionPerformed
-
-    private void debitPanelCVVTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCVVTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCVVTextField1ActionPerformed
-
-    private void debitPanelCardNumberTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField10ActionPerformed
-
-    private void debitPanelCardNumberTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField11ActionPerformed
-
-    private void debitPanelCardNumberTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField3ActionPerformed
-
-    private void debitPanelCardNumberTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField2ActionPerformed
-
-    private void debitPanelCardNumberTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField9ActionPerformed
-
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-         String emailId = emailIdLabelPaymentScreen.getText();
+        String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
         SqlFunctions ss = new SqlFunctions();
         ss.updateQuantityItemTable();
@@ -962,47 +814,6 @@ public class PayScreen extends javax.swing.JFrame {
             emailSender(emailId);
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void debitPanelCardNumberTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelCardNumberTextField1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-   /* public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        /*try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PayScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PayScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PayScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PayScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PayScreen().setVisible(true);
-                 
-            }
-        });
-    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel debitCardTab;

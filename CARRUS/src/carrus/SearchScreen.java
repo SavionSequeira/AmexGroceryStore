@@ -1,4 +1,3 @@
-
 package carrus;
 import javax.swing.*;  
 import java.awt.Color;
@@ -8,15 +7,14 @@ import javax.swing.JPanel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.ResultSet;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-public class SearchScreen extends javax.swing.JFrame {
+public final class SearchScreen extends javax.swing.JFrame {
 
-     ShortestPath s = new ShortestPath();
+    ShortestPath s = new ShortestPath();
     Object[][] resultSet;
     String[] colHeads = {""};
     public ArrayList<Integer> shopId= new ArrayList<>();
@@ -24,20 +22,19 @@ public class SearchScreen extends javax.swing.JFrame {
     private Connection con;
     private Statement stmt;
     private ResultSet rs;
+    int value;
     boolean kioskCheck = false;
     static String text;
-    public SearchScreen() {
+    public SearchScreen() 
+    {
         initComponents();
         setScrollPaneBackground();
-        this.setLocationRelativeTo(null); //Sets the screen in the center
+        this.setLocationRelativeTo(null);
     }
     public String getString()
-    {
-        
+    {  
         text=SearchItem_TextField.getText();
         return text;
-        
-       // System.out.println(text);   
     }
     public String passString()
     {
@@ -82,11 +79,6 @@ public class SearchScreen extends javax.swing.JFrame {
                 SearchItem_TextFieldFocusGained(evt);
             }
         });
-        SearchItem_TextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchItem_TextFieldActionPerformed(evt);
-            }
-        });
         SearchItem_TextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 SearchItem_TextFieldKeyReleased(evt);
@@ -111,20 +103,6 @@ public class SearchScreen extends javax.swing.JFrame {
         kiosk2Label.setForeground(new java.awt.Color(255, 255, 255));
         kiosk2Label.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         kiosk2Label.setText("Kiosk2");
-        kiosk2Label.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kiosk2LabelMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                kiosk2LabelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                kiosk2LabelMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                kiosk2LabelMousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -165,14 +143,6 @@ public class SearchScreen extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 searchTableMouseClicked(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                searchTableMouseReleased(evt);
-            }
-        });
-        searchTable.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchTableKeyReleased(evt);
-            }
         });
         jScrollPane1.setViewportView(searchTable);
 
@@ -189,11 +159,6 @@ public class SearchScreen extends javax.swing.JFrame {
                 searchScreenCheckBox1MouseClicked(evt);
             }
         });
-        searchScreenCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchScreenCheckBox1ActionPerformed(evt);
-            }
-        });
 
         jPanel2.setBackground(new java.awt.Color(64, 71, 109));
 
@@ -202,20 +167,6 @@ public class SearchScreen extends javax.swing.JFrame {
         kiosk1Label.setForeground(new java.awt.Color(255, 255, 255));
         kiosk1Label.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         kiosk1Label.setText("Kiosk1");
-        kiosk1Label.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kiosk1LabelMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                kiosk1LabelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                kiosk1LabelMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                kiosk1LabelMousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -333,13 +284,13 @@ public class SearchScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void setColour(JPanel p)
-{
-    p.setBackground(new Color(0,144,158)); 
-}
+    {
+        p.setBackground(new Color(0,144,158)); 
+    }
     public void resetColour(JPanel p1)
-{
-    p1.setBackground(new Color(64,71,109)); 
-}
+    {
+        p1.setBackground(new Color(64,71,109)); 
+    }
     
     
     
@@ -357,48 +308,48 @@ public class SearchScreen extends javax.swing.JFrame {
         s.setString(text);
         s.runFunctions();
         System.out.println("Search Screen ShopId check "+ shopId);
-         if(!kioskCheck)
+        if(!kioskCheck)
         {
             System.out.println("Please select a kiosk");
             kiosk1Label.setForeground(Color.red);
             kiosk2Label.setForeground(Color.red);
         }
-         if(kioskCheck)
-         {
-              kiosk1Label.setForeground(Color.white);
+        if(kioskCheck)
+        {
+            kiosk1Label.setForeground(Color.white);
             kiosk2Label.setForeground(Color.white);
-         }
+        }
         if("Search for Ex: Lays".equals(searchText) || "".equals(searchText))
         {
             warningMessage.setText("Please enter an item");
         }
         else if(shopId.isEmpty())
         {
-             warningMessage.setText("Item is not available");
+            warningMessage.setText("Item is not available");
         }
         else
         {
-             warningMessage.setText("");
-        SqlFunctions ss1 = new SqlFunctions();
-        ss1.UpdateCartTable();
-        if((kioskCheck && !"Search for Ex: Lays".equals(searchText) )|| (kioskCheck && !"".equals(searchText)))
-        {
-        StoresScreen ss = new StoresScreen(text);    //Traces to the SignUp Page;
-        ss.setVisible(true);   //Sets Visibility after method is called;
-        ss.pack();
-        ss.setLocationRelativeTo(null);
-        ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
-        this.dispose(); //collapses the login page
-        }
+            warningMessage.setText("");
+            SqlFunctions ss1 = new SqlFunctions();
+            ss1.UpdateCartTable();
+            if((kioskCheck && !"Search for Ex: Lays".equals(searchText) )|| (kioskCheck && !"".equals(searchText)))
+            {
+                StoresScreen ss = new StoresScreen(text);    
+                ss.setVisible(true);  
+                ss.pack();
+                ss.setLocationRelativeTo(null);
+                ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+                this.dispose(); 
+            }
      
         }
     }//GEN-LAST:event_Search_Screen_NextButtonMouseClicked
-public void getShopIdList(ArrayList<Integer> shop)
-{
-    System.out.println("passing shop to function "+shopId);
-    shopId=shop;
-    System.out.println("passing shop to function "+shopId);
-}
+    public void getShopIdList(ArrayList<Integer> shop)
+    {
+        System.out.println("passing shop to function "+shopId);
+        shopId=shop;
+        System.out.println("passing shop to function "+shopId);
+    }
     private void searchScreenCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchScreenCheckBox1MouseClicked
         // TODO add your handling code here:
         searchScreenCheckBox1.setSelected(true);
@@ -406,7 +357,7 @@ public void getShopIdList(ArrayList<Integer> shop)
         setColour(jPanel2);
         resetColour(jPanel3);
         kioskCheck=true;
-        int value = 2;
+        value = 2;
         s.setIndex(value);
         
     }//GEN-LAST:event_searchScreenCheckBox1MouseClicked
@@ -418,49 +369,9 @@ public void getShopIdList(ArrayList<Integer> shop)
         setColour(jPanel3);
         resetColour(jPanel2);
         kioskCheck= true;
-        int value = 4;
-         s.setIndex(value);
+        value = 4;
+        s.setIndex(value);
     }//GEN-LAST:event_searchScreenCheckBox2MouseClicked
-
-    private void kiosk1LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk1LabelMouseClicked
-        // TODO add your handling code here:
-        //resetColour(jPanel1);
-        //esetColour(jPanel2);
-    }//GEN-LAST:event_kiosk1LabelMouseClicked
-
-    private void kiosk1LabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk1LabelMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kiosk1LabelMouseEntered
-
-    private void kiosk1LabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk1LabelMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kiosk1LabelMouseExited
-
-    private void kiosk1LabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk1LabelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kiosk1LabelMousePressed
-
-    private void kiosk2LabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk2LabelMouseClicked
-        // TODO add your handling code here:
-        //resetColour(jPanel1);
-        //esetColour(jPanel2);
-    }//GEN-LAST:event_kiosk2LabelMouseClicked
-
-    private void kiosk2LabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk2LabelMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kiosk2LabelMouseEntered
-
-    private void kiosk2LabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk2LabelMouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kiosk2LabelMouseExited
-
-    private void kiosk2LabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_kiosk2LabelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kiosk2LabelMousePressed
-
-    private void searchTableKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchTableKeyReleased
-     
-    }//GEN-LAST:event_searchTableKeyReleased
 
     private void SearchItem_TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchItem_TextFieldKeyReleased
         // TODO add your handling code here:
@@ -469,26 +380,25 @@ public void getShopIdList(ArrayList<Integer> shop)
             {
             searchTable.setVisible(false);
             }
-        else{
-          try {
+        else
+        {
+          try 
+          {
             con= SqlSingletonConnection.getConnection();
-          //  java.sql.Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/amex","root", "root@0412");
             stmt=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
             String sql = "Select item_name from item where item_name like '"+ searchKey +"%'";
             rs=stmt.executeQuery(sql);
-           // DefaultListModel listModel = new DefaultListModel();
                             rs.last();
 		            int r =rs.getRow();
-		          
 		            resultSet = new Object[r][1];
 		            rs.beforeFirst();
 		            int row = 0;
 		            while (rs.next())
                             {
-		            	String temp = rs.getString("item_name");
-                               // rs.updateString( "item_name", pwd );                        
+                                String temp = rs.getString("item_name");
+                                                     
 		               resultSet[row][0] = temp;		                    
-         	                  row++;
+         	               row++;
 		            }
 		            
 		           
@@ -501,16 +411,12 @@ public void getShopIdList(ArrayList<Integer> shop)
             jScrollPane1.setViewportView(searchTable);
             jScrollPane1.getViewport().setBackground(new Color(64,71,109));
             listSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-            
-           
-            
-   
             // TODO add your handling code here:
-        } catch (SQLException ex) {
+        } catch (SQLException ex) 
+        {
             Logger.getLogger(SearchScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+       }
 
     }//GEN-LAST:event_SearchItem_TextFieldKeyReleased
 
@@ -527,79 +433,25 @@ public void getShopIdList(ArrayList<Integer> shop)
         SearchItem_TextField.setText(tableSelection);
        
     }//GEN-LAST:event_searchTableMouseClicked
-
-    private void searchTableMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTableMouseReleased
-    
-    }//GEN-LAST:event_searchTableMouseReleased
-
-    private void SearchItem_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchItem_TextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SearchItem_TextFieldActionPerformed
-
-    private void searchScreenCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchScreenCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchScreenCheckBox1ActionPerformed
-void setScrollPaneBackground()
-{
-    jScrollPane1.getViewport().setBackground(new Color(64,71,109));
-}
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SearchScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SearchScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SearchScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SearchScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SearchScreen().setVisible(true);
-            }
-        });
+    void setScrollPaneBackground()
+    {
+        jScrollPane1.getViewport().setBackground(new Color(64,71,109));
     }
-    
-class SharedListSelectionHandler implements ListSelectionListener {
-public void valueChanged(ListSelectionEvent e) {
-ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+  
+    class SharedListSelectionHandler implements ListSelectionListener {
 
-int firstIndex = e.getFirstIndex();
-boolean isAdjusting = e.getValueIsAdjusting();
-
-
-if (lsm.isSelectionEmpty()) {
-System.out.println(" none");
-} else {
-// Find out which indexes are selected.
-
-System.out.println(" " +firstIndex);
-String tableSelection;
-tableSelection = searchTable.getModel().getValueAt(firstIndex,0).toString();
-SearchItem_TextField.setText(tableSelection);
-searchTable.setVisible(false);
-}
-}
-
-} 
+        public void valueChanged(ListSelectionEvent e) {
+            ListSelectionModel lsm = (ListSelectionModel)e.getSource();
+            int firstIndex = e.getFirstIndex();
+            if (!lsm.isSelectionEmpty()) 
+            {
+                String tableSelection;
+                tableSelection = searchTable.getModel().getValueAt(firstIndex,0).toString();
+                SearchItem_TextField.setText(tableSelection);
+                searchTable.setVisible(false);
+            }
+        }
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SearchItem_TextField;
