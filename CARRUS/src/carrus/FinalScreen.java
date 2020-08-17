@@ -3,9 +3,10 @@ package carrus;
 import javax.swing.JFrame;
 
 public class FinalScreen extends javax.swing.JFrame {
-    public FinalScreen() {
+    public FinalScreen(String emailId,String bill,int totalPrice) {
         initComponents();
         this.setLocationRelativeTo(null);
+        emailSender(emailId,bill,totalPrice);
         /*
          WelcomeScreen ws = new WelcomeScreen();    
          ws.setVisible(true); 
@@ -13,6 +14,9 @@ public class FinalScreen extends javax.swing.JFrame {
          ws.setLocationRelativeTo(null);
          ws.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          this.dispose(); */
+    }
+    void emailSender(String Recepient,String bill,int totalPrice){
+        new SendHTMLEmail(Recepient,bill,totalPrice);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

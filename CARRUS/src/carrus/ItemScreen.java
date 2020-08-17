@@ -66,13 +66,13 @@ public class ItemScreen extends javax.swing.JFrame {
     }
    void generateBill(){
        int cnt = 1;
-       bill=("Item&nbsp;&nbsp;&nbsp;Quantity&nbsp;&nbsp;&nbsp;Price<br>");
+       bill="";
        if(Integer.parseInt(itemQuant.get(0).getText())>0){
-              bill+= fixedItem.getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemQuant.get(0).getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText())+"<br>";     
+              bill+="<p class=\"c\">"+ fixedItem.getText()+" "+itemQuant.get(0).getText()+" "+itemPrice.get(0)*Integer.parseInt(itemQuant.get(0).getText())+"</p>";     
        }
        for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
            if(Integer.parseInt(itemQuant.get(cnt).getText())>0){
-               bill+= iter.getKey().getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemQuant.get(cnt).getText()+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText())+"<br>";   
+               bill+= "<p class=\"c\">"+iter.getKey().getText()+" "+itemQuant.get(cnt).getText()+" "+itemPrice.get(cnt)*Integer.parseInt(itemQuant.get(cnt).getText())+"</p>";   
            }
            cnt++;
        }

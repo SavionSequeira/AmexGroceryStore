@@ -20,9 +20,7 @@ public class PayScreen extends javax.swing.JFrame {
         setColour(debitCardTab);
         jLabel4.setForeground(Color.white);
     }
-    void emailSender(String Recepient){
-        new SendHTMLEmail(Recepient,bill,totalPrice);
-    }
+
     void separatorResetter(){
         jSeparator4.setBackground(Color.white);
         jSeparator5.setBackground(Color.white);
@@ -826,8 +824,7 @@ public class PayScreen extends javax.swing.JFrame {
             ss.updatePhoneNo(phoneNo);
             ss.updateCartTotal(totalPrice);
             ss.updateCartStatus("Paid");
-            emailSender(emailId);
-            FinalScreen fs = new FinalScreen();    
+            FinalScreen fs = new FinalScreen(emailId,bill,totalPrice);    
             fs.setVisible(true); 
             fs.pack();
             fs.setLocationRelativeTo(null);

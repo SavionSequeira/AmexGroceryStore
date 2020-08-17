@@ -91,6 +91,12 @@ public class SendHTMLEmail {
    "	line-height:0;\n" +
    "	mso-hide:all;\n" +
    "}\n" +
+   "p.b {\n"+ 
+   "word-spacing: 30px;"+
+   "}"+ 
+    "p.c {\n"+ 
+   "word-spacing: 45px;"+
+   "}"+ 
    "</style> \n" +
    " </head> \n" +
    " <body style=\"width:100%;font-family:Arial, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0\"> \n" +
