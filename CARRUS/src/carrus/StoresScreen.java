@@ -13,6 +13,7 @@ public class StoresScreen extends javax.swing.JFrame {
     private String storeScreenLabel;
     public StoresScreen(String item) {
         initComponents();
+        setLabelsBlank();
         setLabels();
         this.setLocationRelativeTo(null);
         this.item = item;          //Sets the screen in the center
@@ -574,13 +575,29 @@ public class StoresScreen extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        SearchScreen ss = new SearchScreen();    //Traces to the SignUp Page;
+        SearchScreen ss = new SearchScreen(); //Traces to the SignUp Page;
+        SqlFunctions func = new SqlFunctions();
+        System.out.println("Before Clear "+func.storeDist);
+        func.storeDist.clear();
+        func.sortedStoreDist.clear();
+        System.out.println("After clear "+func.storeDist);
         ss.setVisible(true);   //Sets Visibility after method is called;
         ss.pack();
         ss.setLocationRelativeTo(null);
         ss.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Argument to Collapse Login page
         this.dispose(); //collapses the login page
     }//GEN-LAST:event_jLabel2MouseClicked
+    private void setLabelsBlank()
+    {
+        storesScreenStoreLabel1.setText("");
+        storesScreenStoreLabel2.setText("");
+        storesScreenStoreLabel3.setText("");
+        storesScreenStoreLabel4.setText("");
+        storesScreenDistanceLabel1.setText("");
+        storesScreenDistanceLabel2.setText("");
+        storesScreenDistanceLabel3.setText("");
+        storesScreenDistanceLabel4.setText("");
+    }
     private void getStoresScreenStoreLabel(String str)
     {
         storeScreenLabel = str;
