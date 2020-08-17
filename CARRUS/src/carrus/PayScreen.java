@@ -833,6 +833,7 @@ public class PayScreen extends javax.swing.JFrame {
             fs.setLocationRelativeTo(null);
             fs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
+            
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
