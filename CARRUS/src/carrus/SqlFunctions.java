@@ -27,8 +27,8 @@ public class SqlFunctions {
     private Connection con;
     private Statement stmt;
     private ResultSet rs,rs1;
-    static HashMap<String,Integer> storeDist = new HashMap<>();
-    static HashMap<String, Integer> sortedStoreDist = new LinkedHashMap<String, Integer>(); 
+    public static HashMap<String,Integer> storeDist = new HashMap<>();
+    public static HashMap<String, Integer> sortedStoreDist = new LinkedHashMap<String, Integer>(); 
 
     public SqlFunctions(){
     con= SqlSingletonConnection.getConnection();
@@ -410,9 +410,6 @@ public class SqlFunctions {
        } catch (Exception e) {
            System.out.println(e);
        }
-     
-
-   
    }
    void updateQuantityItemTable()
    {
