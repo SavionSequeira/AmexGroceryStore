@@ -303,7 +303,6 @@ public final class SearchScreen extends javax.swing.JFrame {
         String searchText = getString();
         System.out.println(searchText);
         SqlFunctions shopIdExtractor = new SqlFunctions();
-   
         shopId = shopIdExtractor.itemSearch(text);
         s.setString(text);
         s.runFunctions();
@@ -332,6 +331,7 @@ public final class SearchScreen extends javax.swing.JFrame {
             warningMessage.setText("");
             SqlFunctions ss1 = new SqlFunctions();
             ss1.UpdateCartTable();
+            ss1.updateKioskNo(value);
             if((kioskCheck && !"Search for Ex: Lays".equals(searchText) )|| (kioskCheck && !"".equals(searchText)))
             {
                 StoresScreen ss = new StoresScreen(text);    

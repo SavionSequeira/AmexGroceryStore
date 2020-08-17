@@ -110,6 +110,7 @@ public class SqlFunctions {
    int getStoreId(String storeLabel)
    {
        int storeNo=0;
+       System.out.println("Printing store label "+storeLabel);
        try{
             rs = stmt.executeQuery("Select ShopID from shop where ShopName ='"+storeLabel+"'");
            while(rs.next())
@@ -331,6 +332,32 @@ public class SqlFunctions {
        {
             PreparedStatement preparedStmt = con.prepareStatement(sql);
             preparedStmt.setString(1, phoneNo);
+            preparedStmt.setInt(2, cartid);
+            preparedStmt.execute();
+       } catch (SQLException e) {
+           System.out.println(e);
+       }
+   }
+    void updateKioskNo(int kioskNo)
+   {
+      String sql = "UPDATE cart " + "SET KioskID = ? WHERE cartid = ? ";
+       try 
+       {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+            preparedStmt.setInt(1, kioskNo);
+            preparedStmt.setInt(2, cartid);
+            preparedStmt.execute();
+       } catch (SQLException e) {
+           System.out.println(e);
+       }
+   }
+    void updateStoreId(int sId)
+   {
+      String sql = "UPDATE cart " + "SET ShopID = ? WHERE cartid = ? ";
+       try 
+       {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+            preparedStmt.setInt(1, sId);
             preparedStmt.setInt(2, cartid);
             preparedStmt.execute();
        } catch (SQLException e) {

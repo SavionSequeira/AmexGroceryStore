@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 public class ItemScreen extends javax.swing.JFrame {
     void setStoreLabel(String str)
     {
-           itemScreenStoreNameLabel.setText(str);
+        itemScreenStoreNameLabel.setText(str);
     }
     int i = 1;
     static int cartIdNumber = 0;

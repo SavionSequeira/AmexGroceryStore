@@ -327,7 +327,7 @@ public class StoresScreen extends javax.swing.JFrame {
     }
     private void storesScreenStoreLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel1MouseClicked
         // TODO add your handling code here:
-        getStoresScreenStoreLabel(storesScreenStoreLabel1.getText());
+       getStoresScreenStoreLabel(storesScreenStoreLabel1.getText());
         int storeId;
         int price;
         HashMap<String,Integer> itemList;
@@ -335,8 +335,10 @@ public class StoresScreen extends javax.swing.JFrame {
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
         storeId = itemExtractor.getStoreId(storeScreenLabel);
+        System.out.println("Print Store id for store screen "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
-        idQuant = itemExtractor.idQuants(storeId); 
+        idQuant = itemExtractor.idQuants(storeId);
+        itemExtractor.updateStoreId(storeId);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    
         is.setVisible(true);  
         is.pack();
@@ -358,6 +360,8 @@ public class StoresScreen extends javax.swing.JFrame {
         storeId = itemExtractor.getStoreId(storeScreenLabel);
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
+        itemExtractor.updateStoreId(storeId);
+        System.out.println("Print Store id for store screen "+ storeId);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    
         is.setVisible(true);  
         is.pack();
@@ -368,11 +372,11 @@ public class StoresScreen extends javax.swing.JFrame {
 
     private void storesScreenStoreLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel3MouseClicked
         // TODO add your handling code here:
-        getStoresScreenStoreLabel(storesScreenStoreLabel3.getText());
+     getStoresScreenStoreLabel(storesScreenStoreLabel3.getText());
         int storeId;
         int price;
-        HashMap<String,Integer> itemList = new HashMap<>();
-        HashMap<Integer,Integer> idQuant = new HashMap<>();
+        HashMap<String,Integer> itemList;
+        HashMap<Integer,Integer> idQuant;
         SqlFunctions itemExtractor = new SqlFunctions();
         price = itemExtractor.getPrice();
         System.out.println("String label check store id "+ storeScreenLabel);
@@ -380,6 +384,8 @@ public class StoresScreen extends javax.swing.JFrame {
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
+        itemExtractor.updateStoreId(storeId);
+        System.out.println("Print Store id for store screen "+ storeId);
         System.out.println(idQuant);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);    
         is.setVisible(true);   
@@ -391,7 +397,6 @@ public class StoresScreen extends javax.swing.JFrame {
 
     private void storesScreenStoreLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_storesScreenStoreLabel4MouseClicked
         // TODO add your handling code here:
-        
         getStoresScreenStoreLabel(storesScreenStoreLabel4.getText());
         int storeId;
         int price;
@@ -404,6 +409,8 @@ public class StoresScreen extends javax.swing.JFrame {
         System.out.println("Store id check shop label "+ storeId);
         itemList = itemExtractor.itemDisplay(storeId);
         idQuant = itemExtractor.idQuants(storeId);
+        itemExtractor.updateStoreId(storeId);
+        System.out.println("Print Store id for store screen "+ storeId);
         System.out.println(idQuant);
         ItemScreen is = new ItemScreen(item,price,storeScreenLabel,itemList,idQuant);   
         is.setVisible(true);   
@@ -488,14 +495,13 @@ public class StoresScreen extends javax.swing.JFrame {
         storesScreenDistanceLabel2.setText("");
         storesScreenDistanceLabel3.setText("");
         storesScreenDistanceLabel4.setText("");
-    }
-    private void getStoresScreenStoreLabel(String str)
+    }  
+        private void getStoresScreenStoreLabel(String str)
     {
         storeScreenLabel = str;
         System.out.println(storeScreenLabel);
         
     }
-  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Stores_Screen_Animation;
     private javax.swing.JLabel Stores_Screen_Label1;
