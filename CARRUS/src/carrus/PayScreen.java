@@ -191,6 +191,7 @@ public class PayScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel5.setBackground(new java.awt.Color(64, 71, 109));
 
@@ -875,6 +876,10 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp2.setVisible(true);
+        debitPanelCardNumberTextField1.setText("Enter UPI ID");
+        debitPanelCardNumberTextField3.setText("****");
+        debitPanelCardNumberTextField9.setText("Mobile Number");
+        debitPanelCardNumberTextField11.setText("Comments");
         setColour(debitCardTab);
         jLabel4.setForeground(Color.white);
         resetColour(googlePayTab);
@@ -890,6 +895,13 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp1.setVisible(true);
+        debitPanelCardNumberTextField9.setText("Mobile Number");
+        debitPanelCardNumberTextField11.setText("Comments");
+        debitPanelCardNumberTextField5.setText("XXXX");
+        debitPanelCardNumberTextField6.setText("XXXX");
+        debitPanelCardNumberTextField7.setText("XXXX");
+        debitPanelCardNumberTextField8.setText("XXXX");
+        debitPanelExpiryTextField1.setText("MM/YY");
         setColour(googlePayTab);
         jLabel5.setForeground(Color.white);
         resetColour(debitCardTab);
@@ -905,6 +917,13 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp3.setVisible(true);
+        debitPanelCardNumberTextField1.setText("Enter UPI ID");
+        debitPanelCardNumberTextField3.setText("****");
+        debitPanelCardNumberTextField5.setText("XXXX");
+        debitPanelCardNumberTextField6.setText("XXXX");
+        debitPanelCardNumberTextField7.setText("XXXX");
+        debitPanelCardNumberTextField8.setText("XXXX");
+        debitPanelExpiryTextField1.setText("MM/YY");
         setColour(paytmTab);
         jLabel6.setForeground(Color.white);
         resetColour(debitCardTab);

@@ -15,6 +15,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         Welcome_Screen_Text = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(64, 71, 109));
 
