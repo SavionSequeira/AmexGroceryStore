@@ -2,6 +2,7 @@ package carrus;
 
 import static carrus.ItemScreen.totalPrice;
 import java.awt.Color;
+import java.util.Random;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,6 +10,8 @@ import javax.swing.JPanel;
 public class PayScreen extends javax.swing.JFrame {
     String bill;
     int totalPrice;
+   Random rand = new Random();
+    int resRandom = rand.nextInt((9999 - 100) + 1) + 10;
     static String paymentOption ="Debit/Credit Card";
     public PayScreen(int totalPrice,String bill) {
         this.bill = bill;
@@ -871,7 +874,6 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp1.setVisible(true);
-       
         setColour(googlePayTab);
         jLabel5.setForeground(Color.white);
         resetColour(debitCardTab);
@@ -902,6 +904,7 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
+        System.out.println("Random pin "+resRandom);
         SqlFunctions ss = new SqlFunctions();
         separatorResetter();
         if(detailChecker()==true){
@@ -911,6 +914,7 @@ public class PayScreen extends javax.swing.JFrame {
             ss.updatePhoneNo(phoneNo);
             ss.updateCartTotal(totalPrice);
             ss.updateCartStatus("Paid");
+            ss.updateOtp(resRandom);
             FinalScreen fs = new FinalScreen(emailId,bill,totalPrice);    
             fs.setVisible(true); 
             fs.pack();

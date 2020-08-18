@@ -20,7 +20,6 @@ public class SqlSingletonConnection {
         { 
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection( host, username, password );
-            System.out.println("Connected");
         }
         catch(ClassNotFoundException | SQLException err)
         {
