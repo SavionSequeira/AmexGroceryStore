@@ -325,13 +325,15 @@ public class ItemScreen extends javax.swing.JFrame {
 
     private void itemScreenPayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemScreenPayButtonMouseClicked
         // TODO add your handling code here:
-        generateBill();
-        PayScreen tl = new PayScreen(totalPrice,bill);    
-        tl.setVisible(true); 
-        tl.pack();
-        tl.setLocationRelativeTo(null);
-        tl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose(); 
+        if(totalPrice>0){
+            generateBill();
+            PayScreen tl = new PayScreen(totalPrice,bill);    
+            tl.setVisible(true); 
+            tl.pack();
+            tl.setLocationRelativeTo(null);
+            tl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
     }//GEN-LAST:event_itemScreenPayButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
