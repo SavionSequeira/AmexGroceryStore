@@ -46,18 +46,20 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="Welcome_Screen_Wallpaper" min="-2" pref="629" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="Welcome_Screen_StartButton" min="-2" pref="88" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="245" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Welcome_Screen_Text" min="-2" pref="238" max="-2" attributes="0"/>
-                              <Component id="Welcome_Screen_Logo" min="-2" pref="199" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
+                          <Component id="Welcome_Screen_Logo" min="-2" pref="199" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="195" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                          <Component id="Welcome_Screen_StartButton" min="-2" pref="177" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="Welcome_Screen_Text" min="-2" pref="238" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -71,7 +73,7 @@
                   <Component id="Welcome_Screen_Logo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Welcome_Screen_StartButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="Welcome_Screen_Text" min="-2" pref="29" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -98,10 +100,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="Welcome_Screen_StartButton">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/carrus/res/Start_90px.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Welcome_Screen_StartButtonMouseClicked"/>
