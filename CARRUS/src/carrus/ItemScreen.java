@@ -215,7 +215,6 @@ public class ItemScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         itemScreenTotalLabel = new javax.swing.JLabel();
         itemScreenPayButton = new javax.swing.JButton();
-        itemScreenCarrusLogo = new javax.swing.JLabel();
         itemScreenStoreNameLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -240,16 +239,17 @@ public class ItemScreen extends javax.swing.JFrame {
             .addGap(0, 401, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(20, 40, 80));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         itemScreenTotalLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        itemScreenTotalLabel.setForeground(new java.awt.Color(255, 255, 255));
+        itemScreenTotalLabel.setForeground(new java.awt.Color(67, 71, 109));
         itemScreenTotalLabel.setText("Total : ₹0");
 
-        itemScreenPayButton.setBackground(new java.awt.Color(34, 167, 240));
+        itemScreenPayButton.setBackground(new java.awt.Color(67, 71, 109));
         itemScreenPayButton.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         itemScreenPayButton.setForeground(new java.awt.Color(255, 255, 255));
         itemScreenPayButton.setText("Continue");
+        itemScreenPayButton.setBorder(null);
         itemScreenPayButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 itemScreenPayButtonMouseClicked(evt);
@@ -264,74 +264,78 @@ public class ItemScreen extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(itemScreenTotalLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(itemScreenPayButton)
+                .addComponent(itemScreenPayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(itemScreenTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemScreenPayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(itemScreenPayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
+
+        itemScreenStoreNameLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 28)); // NOI18N
+        itemScreenStoreNameLabel.setForeground(new java.awt.Color(255, 255, 255));
+        itemScreenStoreNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        itemScreenStoreNameLabel.setText("Store Name");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/29d4626c-f7fa-4de2-befb-5bf6d0b1ef01_50x50.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
-                .addComponent(itemList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(itemList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 161, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(itemScreenStoreNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(48, 48, 48))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(itemScreenStoreNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(itemList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 630, 600));
 
-        itemScreenCarrusLogo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        itemScreenCarrusLogo.setForeground(new java.awt.Color(255, 255, 255));
-        itemScreenCarrusLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        itemScreenCarrusLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/29d4626c-f7fa-4de2-befb-5bf6d0b1ef01_200x200.png"))); // NOI18N
-        itemScreenCarrusLogo.setText("jLabel3");
-        getContentPane().add(itemScreenCarrusLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 210, 180));
-
-        itemScreenStoreNameLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        itemScreenStoreNameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        itemScreenStoreNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        itemScreenStoreNameLabel.setText("Store Name");
-        getContentPane().add(itemScreenStoreNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 190, 70));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Seperator");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 120, 30));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/Buy (4).png"))); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carrus/res/robots.gif"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 600));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemScreenPayButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemScreenPayButtonMouseClicked
         // TODO add your handling code here:
-        generateBill();
-        PayScreen tl = new PayScreen(totalPrice,bill);    
-        tl.setVisible(true); 
-        tl.pack();
-        tl.setLocationRelativeTo(null);
-        tl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose(); 
+        if(totalPrice>0){
+            generateBill();
+            PayScreen tl = new PayScreen(totalPrice,bill);    
+            tl.setVisible(true); 
+            tl.pack();
+            tl.setLocationRelativeTo(null);
+            tl.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+        }
     }//GEN-LAST:event_itemScreenPayButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -339,7 +343,6 @@ public class ItemScreen extends javax.swing.JFrame {
     private GridBagConstraints grid;
     private javax.swing.JLabel fixedItem;
     private javax.swing.JLabel fixedPrice;
-    private javax.swing.JLabel itemScreenCarrusLogo;
     private javax.swing.JButton itemScreenPayButton;
     private javax.swing.JLabel itemScreenStoreNameLabel;
     private javax.swing.JLabel itemScreenTotalLabel;

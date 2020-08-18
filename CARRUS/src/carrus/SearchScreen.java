@@ -219,7 +219,7 @@ public final class SearchScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(Search_Screen_Logo)
-                .addGap(39, 39, 39))
+                .addGap(59, 59, 59))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +283,7 @@ public final class SearchScreen extends javax.swing.JFrame {
 
     public void setColour(JPanel p)
     {
-        p.setBackground(new Color(0,144,158)); 
+        p.setBackground(new Color(20,40,80)); 
     }
     public void resetColour(JPanel p1)
     {
