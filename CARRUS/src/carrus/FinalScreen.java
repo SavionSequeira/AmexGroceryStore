@@ -126,6 +126,8 @@ public class FinalScreen extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
+                SqlFunctions ss = new SqlFunctions();
+                ss.cartid+=1;
                 WelcomeScreen ws = new WelcomeScreen();    
                 ws.setVisible(true);  
                 ws.pack();

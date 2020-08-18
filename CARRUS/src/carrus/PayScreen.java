@@ -11,8 +11,9 @@ import javax.swing.JPanel;
 public class PayScreen extends javax.swing.JFrame {
     String bill;
     int totalPrice;
-   Random rand = new Random();
+    Random rand = new Random();
     int resRandom = rand.nextInt((9999 - 100) + 1) + 10;
+    SqlFunctions ss = new SqlFunctions();
     static String paymentOption ="Debit/Credit Card";
     public PayScreen(int totalPrice,String bill) {
         this.bill = bill;
@@ -920,7 +921,7 @@ public class PayScreen extends javax.swing.JFrame {
         String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
         System.out.println("Random pin "+resRandom);
-        SqlFunctions ss = new SqlFunctions();
+        
         separatorResetter();
         if(detailChecker()==true){
             ss.updateQuantityItemTable();
@@ -1221,6 +1222,7 @@ public class PayScreen extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
+                ss.deleteCartItem();
                 WelcomeScreen ws = new WelcomeScreen();    
                 ws.setVisible(true);  
                 ws.pack();
