@@ -11,15 +11,14 @@ public class SqlSingletonConnection {
     //enter your username
     private static String username = "root";
     //enter your password
-
     private static String password ="root";
+
 
     public static Connection getConnection() {
         try
         { 
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection( host, username, password );
-            System.out.println("Connected");
         }
         catch(ClassNotFoundException | SQLException err)
         {

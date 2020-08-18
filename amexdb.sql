@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
 -- Host: localhost    Database: amex
 -- ------------------------------------------------------
--- Server version	8.0.21
+-- Server version	8.0.19
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `cart`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart` (
   `cartid` int NOT NULL,
-  `status` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `custphone` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `timestamp` time DEFAULT NULL,
   `otp` int DEFAULT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE `cart` (
   `total_payment` float DEFAULT NULL,
   `ShopID` int DEFAULT NULL,
   `KioskID` int DEFAULT NULL,
-  `email_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email_id` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`cartid`),
   KEY `ShopID` (`ShopID`),
   KEY `KioskID` (`KioskID`),
@@ -98,7 +98,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (1,'Coca Cola',40),(2,'Lays',20),(3,'Cadbury',100),(4,'Tropicana',20),(5,'Heinz',45),(6,'Maggi',35),(7,'Oreo',70),(8,'Kellogs',100),(9,'Quaker Oats',70),(10,'Pringles',100),(11,'Cavins',30),(12,'Kwality Walls',20),(13,'Cup Noodles',50),(14,'Sprite',25),(15,'Hide and Seek',40),(16,'Bread',40),(17,'Milk',25),(18,'Snickers',45),(19,'Jim Jam',25),(20,'Pasta',40);
+INSERT INTO `item` VALUES (1,'CocaCola',40),(2,'Lays',20),(3,'Cadbury',100),(4,'Tropicana',20),(5,'Heinz',45),(6,'Maggi',35),(7,'Oreo',70),(8,'Kellogs',100),(9,'QuakerOats',70),(10,'Pringles',100),(11,'Cavins',30),(12,'KwalityWalls',20),(13,'CupNoodles',50),(14,'Sprite',25),(15,'Hide&Seek',40),(16,'Bread',40),(17,'Milk',25),(18,'Snickers',45),(19,'JimJam',25),(20,'Pasta',40),(21,'RedBull',100),(22,'AmericanGarden',200),(23,'Oil',250),(24,'Kurkure',20),(25,'Hersheys',35),(26,'JollyRancher',10),(27,'Monster',100),(28,'Nestle',50),(29,'Cake',25),(30,'Bounty',30);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `shop_item` (
 
 LOCK TABLES `shop_item` WRITE;
 /*!40000 ALTER TABLE `shop_item` DISABLE KEYS */;
-INSERT INTO `shop_item` VALUES (0,2,7),(0,5,4),(0,7,107),(0,9,18),(0,11,25),(0,13,6),(0,15,7),(1,1,45),(1,2,23),(1,3,77),(1,4,11),(1,5,55),(3,2,34),(3,4,25),(3,17,67),(3,19,89),(3,20,12),(5,1,33),(5,5,34),(5,6,65),(5,7,88),(5,8,20),(5,9,100),(5,11,7),(5,12,44),(5,13,11),(6,2,50),(6,3,58),(6,4,15),(6,7,13),(6,9,66),(6,10,11),(6,11,25),(7,5,3),(7,7,13),(7,9,93),(7,10,10),(7,14,12),(7,18,17),(7,20,16);
+INSERT INTO `shop_item` VALUES (0,2,7),(0,5,3),(0,7,103),(0,9,17),(0,11,25),(0,13,5),(0,15,4),(0,21,20),(0,23,10),(0,29,40),(1,1,45),(1,2,23),(1,3,77),(1,4,11),(1,5,55),(1,22,5),(1,24,9),(1,26,19),(3,2,34),(3,4,25),(3,17,67),(3,19,89),(3,20,12),(3,26,40),(3,27,25),(3,30,40),(5,1,32),(5,5,34),(5,6,64),(5,7,88),(5,8,20),(5,9,100),(5,11,6),(5,12,44),(5,13,11),(5,21,9),(5,22,11),(5,23,10),(6,2,50),(6,3,58),(6,4,15),(6,7,11),(6,9,64),(6,10,10),(6,11,25),(6,24,35),(6,27,10),(6,29,15),(7,5,3),(7,7,13),(7,9,93),(7,10,10),(7,14,12),(7,18,17),(7,20,16),(7,21,3),(7,28,17),(7,30,40);
 /*!40000 ALTER TABLE `shop_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -189,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-17 19:28:41
+-- Dump completed on 2020-08-18 14:50:11

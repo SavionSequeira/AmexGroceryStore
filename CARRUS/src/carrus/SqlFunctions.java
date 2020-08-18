@@ -408,6 +408,17 @@ public class SqlFunctions {
            System.out.println(e);
        }
    }
+    void updateOtp(int otp){
+      String sql = "UPDATE cart " + "SET otp = ? WHERE cartid = ? ";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+            preparedStmt.setInt(1, otp);
+            preparedStmt.setInt(2, cartid);
+            preparedStmt.execute();
+       } catch (SQLException e) {
+           System.out.println(e);
+       }
+   }
     void updateCartStatus(String status){
       String sql = "UPDATE cart " + "SET status = ? WHERE cartid = ? ";
        try {

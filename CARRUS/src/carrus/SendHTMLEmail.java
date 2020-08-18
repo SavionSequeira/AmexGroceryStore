@@ -10,7 +10,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 public class SendHTMLEmail {
-    SendHTMLEmail(String Recepient,String bill,int totalPrice) {
+    SendHTMLEmail(String Recepient,String bill,int totalPrice,int otp) {
         Properties properties = new Properties();
         properties.put("mail.smtp.auth","true");
         properties.put("mail.smtp.starttls.enable","true");
@@ -211,7 +211,7 @@ public class SendHTMLEmail {
    "                         </tr> \n" +
    "                         <tr style=\"border-collapse:collapse\"> \n" +
    "                          <td style=\"padding:0;Margin:0\"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OTP</strong></td> \n" +
-   "                          <td style=\"padding:0;Margin:0;text-align:right\"><b>1234</b></td> \n" +
+   "                          <td style=\"padding:0;Margin:0;text-align:right\"><b>"+otp+"</b></td> \n" +
    "                         </tr> \n" +
    "                         <tr style=\"border-collapse:collapse\"> \n" +
    "                          <td style=\"padding:0;Margin:0;font-size:18px;line-height:36px\">&nbsp; &nbsp; &nbsp; &nbsp;Total:</td> \n" +

@@ -5,10 +5,10 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 public class FinalScreen extends javax.swing.JFrame {
-    public FinalScreen(String emailId,String bill,int totalPrice) {
+    public FinalScreen(String emailId,String bill,int totalPrice,int otp) {
             initComponents();
             this.setLocationRelativeTo(null);
-            emailSender(emailId,bill,totalPrice);
+            emailSender(emailId,bill,totalPrice,otp);
      
          /*   WelcomeScreen ws = new WelcomeScreen();
             ws.setVisible(true);
@@ -18,8 +18,8 @@ public class FinalScreen extends javax.swing.JFrame {
             this.dispose();*/
 
     }
-    void emailSender(String Recepient,String bill,int totalPrice){
-        new SendHTMLEmail(Recepient,bill,totalPrice);
+    void emailSender(String Recepient,String bill,int totalPrice,int otp){
+        new SendHTMLEmail(Recepient,bill,totalPrice,otp);
         
         
     }
