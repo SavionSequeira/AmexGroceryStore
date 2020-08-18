@@ -182,7 +182,7 @@ public class SendHTMLEmail {
    "                  <td valign=\"top\" align=\"center\" style=\"padding:0;Margin:0;width:580px\"> \n" +
    "                   <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" role=\"presentation\" style=\"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px\"> \n" +
    "                     <tr style=\"border-collapse:collapse\"> \n" +
-   "                      <td align=\"center\" style=\"padding:0;Margin:0\"><h2 style=\"Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:24px;font-style:normal;font-weight:normal;color:#191919\">"+bill+"</h2></td> \n" +
+   "                      <td align=\"center\" style=\"padding:0;Margin:0\"><h2 style=\"Margin:0;line-height:29px;mso-line-height-rule:exactly;font-family:Arial, sans-serif;font-size:18px;font-style:normal;font-weight:normal;color:#191919\">"+bill+"</h2></td> \n" +
    "                     </tr> \n" +
    "                   </table></td> \n" +
    "                 </tr> \n" +

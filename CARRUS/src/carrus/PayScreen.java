@@ -84,7 +84,7 @@ public class PayScreen extends javax.swing.JFrame {
                     jSeparator8.setBackground(Color.red);
                     jSeparator8.setForeground(Color.red);
                     flag = 1;
-                }   if(debitPanelCVVTextField1.getPassword().equals("")||debitPanelCVVTextField1.getPassword().equals("***")){
+                }   if(debitPanelCVVTextField1.getText().equals("")||debitPanelCVVTextField1.getText().equals("***")){
                     jSeparator9.setBackground(Color.red);
                     jSeparator9.setForeground(Color.red);
                     flag = 1;
@@ -97,12 +97,7 @@ public class PayScreen extends javax.swing.JFrame {
                     jSeparator1.setBackground(Color.red);
                     jSeparator1.setForeground(Color.red);
                     flag = 1;
-                }  /* if(debitPanelCardNumberTextField2.getText().equals("Enter Amount")||
-                        debitPanelCardNumberTextField2.getText().equals("")){
-                    jSeparator2.setBackground(Color.red);
-                    jSeparator2.setForeground(Color.red);
-                    flag = 1;
-                } */  if(debitPanelCardNumberTextField3.getText().equals("***")||
+                }  if(debitPanelCardNumberTextField3.getText().equals("****")||
                         debitPanelCardNumberTextField3.getText().equals("")){
                     jSeparator3.setBackground(Color.red);
                     jSeparator3.setForeground(Color.red);
@@ -116,17 +111,7 @@ public class PayScreen extends javax.swing.JFrame {
                     jSeparator10.setBackground(Color.red);
                     jSeparator10.setForeground(Color.red);
                     flag = 1;
-                }  /* if(debitPanelCardNumberTextField10.getText().equals("Amount")||
-                        debitPanelCardNumberTextField10.getText().equals("")){
-                    jSeparator11.setBackground(Color.red);
-                    jSeparator11.setForeground(Color.red);
-                    flag = 1;
-                }  */ if(debitPanelCardNumberTextField11.getText().equals("Comments")||
-                        debitPanelCardNumberTextField11.getText().equals("")){
-                    jSeparator12.setBackground(Color.red);
-                    jSeparator12.setForeground(Color.red);
-                    flag = 1;
-                }
+                }  
                 break;
             default:
                 break;
@@ -911,12 +896,14 @@ public class PayScreen extends javax.swing.JFrame {
             ss.updatePhoneNo(phoneNo);
             ss.updateCartTotal(totalPrice);
             ss.updateCartStatus("Paid");
+            
             FinalScreen fs = new FinalScreen(emailId,bill,totalPrice);    
             fs.setVisible(true); 
             fs.pack();
             fs.setLocationRelativeTo(null);
             fs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
+            
             
         }
     }//GEN-LAST:event_jButton1MouseClicked

@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 public class ItemScreen extends javax.swing.JFrame {
+    Color buttonColor = new Color(67,71,109); 
     void setStoreLabel(String str)
     {
         itemScreenStoreNameLabel.setText(str);
@@ -37,8 +38,12 @@ public class ItemScreen extends javax.swing.JFrame {
         int firstPriceFunc = firstPrice;
         String storeNameFunc = storeName;
         HashMap<String,Integer> itemInShopFunc = itemInShop;
+        itemScreenPayButton.setBackground(Color.gray);
+        itemScreenPayButton.setForeground(Color.white);
+        itemScreenPayButton.setEnabled(false);
         generateLabels(firstItemFunc,firstPriceFunc,storeNameFunc,itemInShopFunc);
         generateIdQuantOrder(firstItem,idQuant,itemLabel);
+        quantityChecker();
     }
     void generateIdQuantOrder(String firstItem,HashMap<Integer,Integer> idQuant,HashMap<javax.swing.JLabel,javax.swing.JLabel> itemInShop){
         Integer itemID;
@@ -139,6 +144,7 @@ public class ItemScreen extends javax.swing.JFrame {
                    }
 
            }
+           i=1;
            for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
                grid.gridx=0;
                grid.gridy=i;
@@ -167,6 +173,17 @@ public class ItemScreen extends javax.swing.JFrame {
            }
           
     }
+   void quantityChecker(){
+       int cnt=0;
+            for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemQuantModifier.entrySet()){
+             if(itemQuantOrdered.get(cnt)==0){
+                iter.getKey().setForeground(Color.gray);
+                iter.getValue().setForeground(Color.gray);
+                itemQuant.get(cnt).setForeground(Color.gray);
+             }
+             cnt++;
+           }
+   }
    class YourMouseListener extends MouseAdapter{
    javax.swing.JLabel actionLabel;
    int quantNum;
@@ -174,20 +191,23 @@ public class ItemScreen extends javax.swing.JFrame {
    YourMouseListener(javax.swing.JLabel actionLabel,int i){
        this.actionLabel = actionLabel;
        quantNum = i;
+
    }
    @Override
    public void mousePressed(MouseEvent entered){
        if(actionLabel.getText().equals("+")){
-          
-          if(quantChange<itemQuantOrdered.get(quantNum)){
-            quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
+          quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())+1;
+          if(quantChange<=itemQuantOrdered.get(quantNum)){
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
             sqlFunc.updateQuantityAdd(itemIDOrdered.get(quantNum));
             totalPrice = totalPrice+itemPrice.get(quantNum);
             itemScreenTotalLabel.setText("Total : "+"₹"+totalPrice);
            }
           else{
-              System.out.println("No more available");
+              itemQuant.get(quantNum).setForeground(Color.red);
+          }
+          if(quantChange==itemQuantOrdered.get(quantNum)){
+              itemQuant.get(quantNum).setForeground(Color.red);
           }
        }
        else{
@@ -197,12 +217,24 @@ public class ItemScreen extends javax.swing.JFrame {
             totalPrice = totalPrice-itemPrice.get(quantNum);
             itemScreenTotalLabel.setText("Total : "+"₹"+totalPrice);
             sqlFunc.updateQuantitySub(itemIDOrdered.get(quantNum));
+            itemQuant.get(quantNum).setForeground(Color.white);
           }
           else{
             quantChange=0;
           }
        }
+       if(totalPrice>0){
+           itemScreenPayButton.setBackground(buttonColor);
+           itemScreenPayButton.setForeground(Color.white);
+        }
+        else{
+           itemScreenPayButton.setBackground(Color.gray);
+           itemScreenPayButton.setForeground(Color.white);
+           itemScreenPayButton.setEnabled(false);
+           
+        }
    }
+
 }
 
    

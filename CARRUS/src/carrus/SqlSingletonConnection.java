@@ -12,7 +12,7 @@ public class SqlSingletonConnection {
     private static String username = "root";
     //enter your password
 
-    private static String password ="1234";
+    private static String password ="root";
 
     public static Connection getConnection() {
         try
