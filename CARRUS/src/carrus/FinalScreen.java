@@ -7,13 +7,6 @@ public class FinalScreen extends javax.swing.JFrame {
             initComponents();
             this.setLocationRelativeTo(null);
             emailSender(emailId,bill,totalPrice,otp);
-            WelcomeScreen ws = new WelcomeScreen();
-            ws.setVisible(true);
-            ws.pack();
-            ws.setLocationRelativeTo(null);
-            ws.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-            this.dispose();
-
     }
     void emailSender(String Recepient,String bill,int totalPrice,int otp){
         new SendHTMLEmail(Recepient,bill,totalPrice,otp);
