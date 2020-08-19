@@ -916,7 +916,7 @@ public class PayScreen extends javax.swing.JFrame {
         paymentOption= "Paytm";
     }//GEN-LAST:event_paytmTabMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {                                      
         // TODO add your handling code here:
         String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
@@ -924,32 +924,35 @@ public class PayScreen extends javax.swing.JFrame {
      
         separatorResetter();
         if(detailChecker()==true){
-        Thread t1 = new Thread(() -> 
-        {
+            Thread t1 = new Thread(() -> 
+            {
                 jButton1.setEnabled(false);
                 jButton2.setEnabled(false);
-        });
+            });
            
-        Thread t2 = new Thread(() -> 
-        {
-            ss.updateQuantityItemTable();
-            ss.updatePaymentOption(paymentOption);
-            ss.updateEmailId(emailId);
-            ss.updatePhoneNo(phoneNo);
-            ss.updateCartTotal(totalPrice);
-            ss.updateCartStatus("Paid");
-            ss.updateOtp(resRandom);   
-            FinalScreen fs = new FinalScreen(emailId,bill,totalPrice,resRandom);    
-            fs.setVisible(true); 
-            fs.pack();
-            fs.setLocationRelativeTo(null);
-            fs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-        });
+            Thread t2 = new Thread(() -> 
+            {
+                ss.updateQuantityItemTable();
+                ss.updatePaymentOption(paymentOption);
+                ss.updateEmailId(emailId);
+                ss.updatePhoneNo(phoneNo);
+                ss.updateCartTotal(totalPrice);
+                ss.updateCartStatus("Paid");
+                ss.updateOtp(resRandom);   
+                FinalScreen fs = new FinalScreen(emailId,bill,totalPrice,resRandom);    
+                fs.setVisible(true); 
+                fs.pack();
+                fs.setLocationRelativeTo(null);
+                fs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+             });
             t1.start();
             t2.start();
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
+	}
+    }
+    
+
+  
 
     private void debitPanelCardNumberTextField9FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField9FocusGained
         // TODO add your handling code here:

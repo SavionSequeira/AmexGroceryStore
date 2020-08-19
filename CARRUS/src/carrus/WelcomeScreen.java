@@ -37,7 +37,7 @@ public class WelcomeScreen extends javax.swing.JFrame {
         Welcome_Screen_Text.setFont(new java.awt.Font("Berlin Sans FB", 0, 18)); // NOI18N
         Welcome_Screen_Text.setForeground(new java.awt.Color(255, 255, 255));
         Welcome_Screen_Text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Welcome_Screen_Text.setText("Let's Begin The Journey");
+        Welcome_Screen_Text.setText("Shopping Made Easy");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

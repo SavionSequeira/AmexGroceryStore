@@ -381,6 +381,10 @@ public class SqlFunctions {
                 {
                     int setQuantity = rs1.getInt(1);
                     int updatedQuantity = setQuantity - selectedQuantity;
+                    if(updatedQuantity < 0)
+                    {
+                        updatedQuantity = 0;
+                    }
                     System.out.println("Updated quantity : " + updatedQuantity);
                     String sql = "UPDATE shop_item " + "SET quantity = ? WHERE item_no = ? and ShopID = ?";
                     PreparedStatement preparedStmt1 = con.prepareStatement(sql);
