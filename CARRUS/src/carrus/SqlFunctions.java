@@ -435,6 +435,7 @@ public class SqlFunctions {
    }
    void deleteCartItem(){
        String sql = "DELETE from cart_item where CartID = ?";
+       firstCart =true;
        try {
             PreparedStatement preparedStmt = con.prepareStatement(sql);
             preparedStmt.setInt(1, cartid);
