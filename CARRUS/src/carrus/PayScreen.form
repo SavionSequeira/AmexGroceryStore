@@ -372,7 +372,6 @@
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="phoneNoLabelPaymentScreenFocusGained"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneNoLabelPaymentScreenActionPerformed"/>
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneNoLabelPaymentScreenKeyPressed"/>
               </Events>
             </Component>
@@ -560,7 +559,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField1FocusGained"/>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField1FocusLost"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="debitPanelCardNumberTextField3">
@@ -581,7 +579,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField3FocusGained"/>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField3FocusLost"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="debitPanelCardNumberTextField3KeyPressed"/>
                       </Events>
                     </Component>
@@ -912,7 +909,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelExpiryTextField1FocusGained"/>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="debitPanelExpiryTextField1ActionPerformed"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="debitPanelExpiryTextField1KeyPressed"/>
                       </Events>
                     </Component>
@@ -1006,7 +1002,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField9FocusGained"/>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField9FocusLost"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="debitPanelCardNumberTextField9KeyPressed"/>
                       </Events>
                     </Component>
@@ -1028,7 +1023,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField11FocusGained"/>
-                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="debitPanelCardNumberTextField11FocusLost"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="paytmPanelPaytmLogo">

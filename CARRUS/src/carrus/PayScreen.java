@@ -8,6 +8,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
+
 public class PayScreen extends javax.swing.JFrame {
     String bill;
     int totalPrice;
@@ -122,6 +124,7 @@ public class PayScreen extends javax.swing.JFrame {
                 break;
         }
         if(flag==0){
+  
             return true;
         }
         return false;
@@ -351,11 +354,6 @@ public class PayScreen extends javax.swing.JFrame {
                 phoneNoLabelPaymentScreenFocusGained(evt);
             }
         });
-        phoneNoLabelPaymentScreen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneNoLabelPaymentScreenActionPerformed(evt);
-            }
-        });
         phoneNoLabelPaymentScreen.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 phoneNoLabelPaymentScreenKeyPressed(evt);
@@ -445,9 +443,6 @@ public class PayScreen extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 debitPanelCardNumberTextField1FocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                debitPanelCardNumberTextField1FocusLost(evt);
-            }
         });
 
         debitPanelCardNumberTextField3.setBackground(new java.awt.Color(64, 71, 109));
@@ -458,9 +453,6 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCardNumberTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 debitPanelCardNumberTextField3FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                debitPanelCardNumberTextField3FocusLost(evt);
             }
         });
         debitPanelCardNumberTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -634,11 +626,6 @@ public class PayScreen extends javax.swing.JFrame {
                 debitPanelExpiryTextField1FocusGained(evt);
             }
         });
-        debitPanelExpiryTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                debitPanelExpiryTextField1ActionPerformed(evt);
-            }
-        });
         debitPanelExpiryTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 debitPanelExpiryTextField1KeyPressed(evt);
@@ -746,9 +733,6 @@ public class PayScreen extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 debitPanelCardNumberTextField9FocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                debitPanelCardNumberTextField9FocusLost(evt);
-            }
         });
         debitPanelCardNumberTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -764,9 +748,6 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCardNumberTextField11.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 debitPanelCardNumberTextField11FocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                debitPanelCardNumberTextField11FocusLost(evt);
             }
         });
 
@@ -940,34 +921,35 @@ public class PayScreen extends javax.swing.JFrame {
         String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
         System.out.println("Random pin "+resRandom);
-        
+     
         separatorResetter();
         if(detailChecker()==true){
+        Thread t1 = new Thread(() -> 
+        {
+                jButton1.setEnabled(false);
+                jButton2.setEnabled(false);
+        });
+           
+        Thread t2 = new Thread(() -> 
+        {
             ss.updateQuantityItemTable();
             ss.updatePaymentOption(paymentOption);
             ss.updateEmailId(emailId);
             ss.updatePhoneNo(phoneNo);
             ss.updateCartTotal(totalPrice);
             ss.updateCartStatus("Paid");
-            ss.updateOtp(resRandom);
+            ss.updateOtp(resRandom);   
             FinalScreen fs = new FinalScreen(emailId,bill,totalPrice,resRandom);    
             fs.setVisible(true); 
             fs.pack();
             fs.setLocationRelativeTo(null);
             fs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
-            
-            
+        });
+            t1.start();
+            t2.start();
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void phoneNoLabelPaymentScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNoLabelPaymentScreenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneNoLabelPaymentScreenActionPerformed
-
-    private void debitPanelExpiryTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debitPanelExpiryTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_debitPanelExpiryTextField1ActionPerformed
 
     private void debitPanelCardNumberTextField9FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField9FocusGained
         // TODO add your handling code here:
@@ -980,16 +962,6 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCardNumberTextField11.setText("");
     }//GEN-LAST:event_debitPanelCardNumberTextField11FocusGained
 
-    private void debitPanelCardNumberTextField9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField9FocusLost
-        // TODO add your handling code here:
-       // debitPanelCardNumberTextField9.setText("Mobile Number");
-    }//GEN-LAST:event_debitPanelCardNumberTextField9FocusLost
-
-    private void debitPanelCardNumberTextField11FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField11FocusLost
-        // TODO add your handling code here:
-        // debitPanelCardNumberTextField11.setText("Comments if any?");
-    }//GEN-LAST:event_debitPanelCardNumberTextField11FocusLost
-
     private void debitPanelCardNumberTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField1FocusGained
         // TODO add your handling code here:
         debitPanelCardNumberTextField1.setText("");
@@ -999,16 +971,6 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         debitPanelCardNumberTextField3.setText("");
     }//GEN-LAST:event_debitPanelCardNumberTextField3FocusGained
-
-    private void debitPanelCardNumberTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField1FocusLost
-        // TODO add your handling code here:
-        //debitPanelCardNumberTextField1.setText("Enter UPI ID");
-    }//GEN-LAST:event_debitPanelCardNumberTextField1FocusLost
-
-    private void debitPanelCardNumberTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField3FocusLost
-        // TODO add your handling code here:
-       // debitPanelCardNumberTextField3.setText("****");
-    }//GEN-LAST:event_debitPanelCardNumberTextField3FocusLost
 
     private void debitPanelCardNumberTextField5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCardNumberTextField5FocusGained
         // TODO add your handling code here:
