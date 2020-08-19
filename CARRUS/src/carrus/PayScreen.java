@@ -943,6 +943,7 @@ public class PayScreen extends javax.swing.JFrame {
         
         separatorResetter();
         if(detailChecker()==true){
+            setProcess();
             ss.updateQuantityItemTable();
             ss.updatePaymentOption(paymentOption);
             ss.updateEmailId(emailId);
@@ -958,7 +959,10 @@ public class PayScreen extends javax.swing.JFrame {
             this.dispose();       
         }
     }//GEN-LAST:event_jButton1MouseClicked
-
+void setProcess()
+{
+    jButton1.setText("Processing");
+}
     private void phoneNoLabelPaymentScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNoLabelPaymentScreenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_phoneNoLabelPaymentScreenActionPerformed

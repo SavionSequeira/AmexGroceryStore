@@ -119,7 +119,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Let&apos;s Begin The Journey"/>
+            <Property name="text" type="java.lang.String" value="Shopping Made Easy"/>
           </Properties>
         </Component>
       </SubComponents>
