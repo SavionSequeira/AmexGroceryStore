@@ -1,6 +1,7 @@
 package carrus;
 
 import static carrus.ItemScreen.totalPrice;
+import static carrus.SearchScreen.text;
 import java.awt.Color;
 import java.util.Random;
 import java.awt.event.KeyEvent;
@@ -10,8 +11,9 @@ import javax.swing.JPanel;
 public class PayScreen extends javax.swing.JFrame {
     String bill;
     int totalPrice;
-   Random rand = new Random();
+    Random rand = new Random();
     int resRandom = rand.nextInt((9999 - 100) + 1) + 10;
+    SqlFunctions ss = new SqlFunctions();
     static String paymentOption ="Debit/Credit Card";
     public PayScreen(int totalPrice,String bill) {
         this.bill = bill;
@@ -148,6 +150,7 @@ public class PayScreen extends javax.swing.JFrame {
         jSeparator13 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jp1 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -188,6 +191,7 @@ public class PayScreen extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel5.setBackground(new java.awt.Color(64, 71, 109));
 
@@ -352,6 +356,11 @@ public class PayScreen extends javax.swing.JFrame {
                 phoneNoLabelPaymentScreenActionPerformed(evt);
             }
         });
+        phoneNoLabelPaymentScreen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                phoneNoLabelPaymentScreenKeyPressed(evt);
+            }
+        });
 
         emailIdLabelPaymentScreen.setBackground(new java.awt.Color(64, 71, 109));
         emailIdLabelPaymentScreen.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
@@ -374,6 +383,15 @@ public class PayScreen extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(67, 71, 109));
+        jButton2.setText("Cancel");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -383,22 +401,26 @@ public class PayScreen extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(emailIdLabelPaymentScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                     .addComponent(jSeparator13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(phoneNoLabelPaymentScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                    .addComponent(jSeparator14))
-                .addGap(47, 47, 47)
+                    .addComponent(phoneNoLabelPaymentScreen)
+                    .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailIdLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(phoneNoLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(emailIdLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(phoneNoLabelPaymentScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -591,6 +613,16 @@ public class PayScreen extends javax.swing.JFrame {
         debitPanelCVVTextField1.setForeground(new java.awt.Color(255, 255, 255));
         debitPanelCVVTextField1.setText("***");
         debitPanelCVVTextField1.setBorder(null);
+        debitPanelCVVTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                debitPanelCVVTextField1FocusGained(evt);
+            }
+        });
+        debitPanelCVVTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                debitPanelCVVTextField1KeyPressed(evt);
+            }
+        });
 
         debitPanelExpiryTextField1.setBackground(new java.awt.Color(64, 71, 109));
         debitPanelExpiryTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
@@ -844,6 +876,10 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp2.setVisible(true);
+        debitPanelCardNumberTextField1.setText("Enter UPI ID");
+        debitPanelCardNumberTextField3.setText("****");
+        debitPanelCardNumberTextField9.setText("Mobile Number");
+        debitPanelCardNumberTextField11.setText("Comments");
         setColour(debitCardTab);
         jLabel4.setForeground(Color.white);
         resetColour(googlePayTab);
@@ -859,6 +895,13 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp1.setVisible(true);
+        debitPanelCardNumberTextField9.setText("Mobile Number");
+        debitPanelCardNumberTextField11.setText("Comments");
+        debitPanelCardNumberTextField5.setText("XXXX");
+        debitPanelCardNumberTextField6.setText("XXXX");
+        debitPanelCardNumberTextField7.setText("XXXX");
+        debitPanelCardNumberTextField8.setText("XXXX");
+        debitPanelExpiryTextField1.setText("MM/YY");
         setColour(googlePayTab);
         jLabel5.setForeground(Color.white);
         resetColour(debitCardTab);
@@ -874,6 +917,13 @@ public class PayScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         separatorResetter();
         jp3.setVisible(true);
+        debitPanelCardNumberTextField1.setText("Enter UPI ID");
+        debitPanelCardNumberTextField3.setText("****");
+        debitPanelCardNumberTextField5.setText("XXXX");
+        debitPanelCardNumberTextField6.setText("XXXX");
+        debitPanelCardNumberTextField7.setText("XXXX");
+        debitPanelCardNumberTextField8.setText("XXXX");
+        debitPanelExpiryTextField1.setText("MM/YY");
         setColour(paytmTab);
         jLabel6.setForeground(Color.white);
         resetColour(debitCardTab);
@@ -890,7 +940,7 @@ public class PayScreen extends javax.swing.JFrame {
         String emailId = emailIdLabelPaymentScreen.getText();
         String phoneNo = phoneNoLabelPaymentScreen.getText();
         System.out.println("Random pin "+resRandom);
-        SqlFunctions ss = new SqlFunctions();
+        
         separatorResetter();
         if(detailChecker()==true){
             ss.updateQuantityItemTable();
@@ -1140,6 +1190,64 @@ public class PayScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_debitPanelCardNumberTextField9KeyPressed
 
+    private void debitPanelCVVTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_debitPanelCVVTextField1FocusGained
+        // TODO add your handling code here:
+        debitPanelCVVTextField1.setText("");
+    }//GEN-LAST:event_debitPanelCVVTextField1FocusGained
+
+    private void debitPanelCVVTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_debitPanelCVVTextField1KeyPressed
+        // TODO add your handling code here:
+              String pin8 =  debitPanelCVVTextField1.getText();
+        int len8 = pin8.length();
+        char h = evt.getKeyChar();
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(len8 < 3){
+                debitPanelCVVTextField1.setEditable(true);
+            }else{
+                debitPanelCVVTextField1.setEditable(false);
+            }
+        }else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE ||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE ){
+               debitPanelCVVTextField1.setEditable(true);
+            }else{
+                 debitPanelCVVTextField1.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_debitPanelCVVTextField1KeyPressed
+
+    private void phoneNoLabelPaymentScreenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNoLabelPaymentScreenKeyPressed
+        // TODO add your handling code here:
+        String pin9 =  phoneNoLabelPaymentScreen.getText();
+        int len9 = pin9.length();
+        char i = evt.getKeyChar();
+        
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(len9 < 10){
+                phoneNoLabelPaymentScreen.setEditable(true);
+            }else{
+                phoneNoLabelPaymentScreen.setEditable(false);
+            }
+        }else{
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE ||evt.getExtendedKeyCode()==KeyEvent.VK_DELETE ){
+               phoneNoLabelPaymentScreen.setEditable(true);
+            }else{
+                 phoneNoLabelPaymentScreen.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_phoneNoLabelPaymentScreenKeyPressed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+                ss.deleteCartItem();
+                WelcomeScreen ws = new WelcomeScreen();    
+                ws.setVisible(true);  
+                ws.pack();
+                ws.setLocationRelativeTo(null);
+                ws.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+                this.dispose(); 
+    }//GEN-LAST:event_jButton2MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel debitCardTab;
     private javax.swing.JLabel debitPanelCVVLabel1;
@@ -1161,6 +1269,7 @@ public class PayScreen extends javax.swing.JFrame {
     private javax.swing.JLabel googlePayPanelGoogleLogo;
     private javax.swing.JPanel googlePayTab;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

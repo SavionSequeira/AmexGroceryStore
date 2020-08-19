@@ -16,7 +16,7 @@ import java.util.Map.Entry;
 
 public class SqlFunctions {
     static int cartid=1;
-    static boolean firstCart;
+    static boolean firstCart=true;
     static int storeId;
     private Connection con;
     private Statement stmt;
@@ -242,7 +242,6 @@ public class SqlFunctions {
    }
    void UpdateCartTable()
    {
-       firstCart =true;
        java.util.Date date=new java.util.Date();
        java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());
        System.out.println("Cart function called");
@@ -430,6 +429,14 @@ public class SqlFunctions {
            System.out.println(e);
        }
    }
-      
- 
+   void deleteCartItem(){
+       String sql = "DELETE from cart_item where CartID = ?";
+       try {
+            PreparedStatement preparedStmt = con.prepareStatement(sql);
+            preparedStmt.setInt(1, cartid);
+            preparedStmt.execute();
+       } catch (SQLException e) {
+           System.out.println(e);
+       }
+   }
 }

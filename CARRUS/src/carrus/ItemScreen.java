@@ -21,6 +21,8 @@ public class ItemScreen extends javax.swing.JFrame {
     static int totalPrice=0;
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemLabel = new HashMap<>();
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemQuantModifier= new HashMap<>();
+    ArrayList<javax.swing.JLabel> itemQuantPlus=new ArrayList<>();
+    ArrayList<javax.swing.JLabel> itemQuantMinus = new ArrayList<>();
     ArrayList<javax.swing.JLabel> itemQuant = new ArrayList<>();
     ArrayList<Integer> itemPrice = new ArrayList<>();
     javax.swing.JLabel itemListerName;
@@ -106,10 +108,11 @@ public class ItemScreen extends javax.swing.JFrame {
            itemListerQuantModifierPlus = new javax.swing.JLabel("+");
            itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
            itemListerQuantModifierPlus.setForeground(Color.white);
+           itemQuantPlus.add(itemListerQuantModifierPlus);
            itemListerQuantModifierMinus = new javax.swing.JLabel("-");
            itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
            itemListerQuantModifierMinus.setForeground(Color.white);
-           itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
+           itemQuantMinus.add(itemListerQuantModifierMinus);
            itemListerQuant = new javax.swing.JLabel();
            itemListerQuant.setText("0");
            itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
@@ -132,10 +135,11 @@ public class ItemScreen extends javax.swing.JFrame {
                         itemListerQuantModifierPlus = new javax.swing.JLabel("+");
                         itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
                         itemListerQuantModifierPlus.setForeground(Color.white);
+                        itemQuantPlus.add(itemListerQuantModifierPlus);
                         itemListerQuantModifierMinus = new javax.swing.JLabel("-");
                         itemListerQuantModifierMinus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
                         itemListerQuantModifierMinus.setForeground(Color.white);
-                        itemQuantModifier.put(itemListerQuantModifierPlus,itemListerQuantModifierMinus);
+                        itemQuantMinus.add(itemListerQuantModifierMinus);
                         itemListerQuant = new javax.swing.JLabel();
                         itemListerQuant.setText("0");
                         itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
@@ -157,28 +161,28 @@ public class ItemScreen extends javax.swing.JFrame {
            }
            i = 0;
            grid.insets = new Insets(5,5,5,5);
-           for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemQuantModifier.entrySet()){
+           for(javax.swing.JLabel iter : itemQuantPlus){
                grid.gridx=2;
                grid.gridy=i;
-               itemList.add(iter.getKey(),grid);
-               iter.getKey().addMouseListener(new YourMouseListener(iter.getKey(),i));
+               itemList.add(itemQuantMinus.get(i),grid);
+               itemQuantMinus.get(i).addMouseListener(new YourMouseListener(itemQuantMinus.get(i),i));
                grid.gridx=3;
                grid.gridy=i;
                itemList.add(itemQuant.get(i),grid);
                grid.gridx=4;
                grid.gridy=i;
-               itemList.add(iter.getValue(),grid);
-               iter.getValue().addMouseListener(new YourMouseListener(iter.getValue(),i));
+               itemList.add(iter,grid);
+               iter.addMouseListener(new YourMouseListener(iter,i));
                i++;
            }
           
     }
    void quantityChecker(){
        int cnt=0;
-            for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemQuantModifier.entrySet()){
+            for(javax.swing.JLabel iter : itemQuantPlus){
              if(itemQuantOrdered.get(cnt)==0){
-                iter.getKey().setForeground(Color.gray);
-                iter.getValue().setForeground(Color.gray);
+                iter.setForeground(Color.gray);
+                itemQuantMinus.get(cnt).setForeground(Color.gray);
                 itemQuant.get(cnt).setForeground(Color.gray);
              }
              cnt++;
@@ -204,15 +208,16 @@ public class ItemScreen extends javax.swing.JFrame {
             itemScreenTotalLabel.setText("Total : "+"₹"+totalPrice);
            }
           else{
-              itemQuant.get(quantNum).setForeground(Color.red);
+              actionLabel.setForeground(Color.gray);
           }
           if(quantChange==itemQuantOrdered.get(quantNum)){
-              itemQuant.get(quantNum).setForeground(Color.red);
+              actionLabel.setForeground(Color.gray);
           }
        }
        else{
           quantChange = Integer.parseInt(itemQuant.get(quantNum).getText())-1;
           if(quantChange>-1){
+            itemQuantPlus.get(quantNum).setForeground(Color.white);
             itemQuant.get(quantNum).setText(Integer.toString(quantChange));
             totalPrice = totalPrice-itemPrice.get(quantNum);
             itemScreenTotalLabel.setText("Total : "+"₹"+totalPrice);
@@ -252,6 +257,7 @@ public class ItemScreen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(64, 71, 109));
