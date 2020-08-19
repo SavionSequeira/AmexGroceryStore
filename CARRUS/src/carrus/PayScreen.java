@@ -905,9 +905,7 @@ public class PayScreen extends javax.swing.JFrame {
             fs.pack();
             fs.setLocationRelativeTo(null);
             fs.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-            
-            
+            this.dispose();       
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
