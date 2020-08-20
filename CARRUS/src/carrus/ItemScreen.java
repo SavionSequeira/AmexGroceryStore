@@ -9,18 +9,22 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 public class ItemScreen extends javax.swing.JFrame {
     Color buttonColor = new Color(67,71,109); 
-    void setStoreLabel(String str)
-    {
-        itemScreenStoreNameLabel.setText(str);
-    }
+  
+    Path currentPath = Paths.get(System.getProperty("user.dir"));
+    Path filePath; //= Paths.get(currentPath.toString(), "src","carrus","res","credit-card-visa.png");
+
     int i = 1;
     static int cartIdNumber = 0;
     static int totalPrice=0;
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemLabel = new HashMap<>();
     HashMap<javax.swing.JLabel,javax.swing.JLabel> itemQuantModifier= new HashMap<>();
+    ArrayList<javax.swing.JLabel> itemImage = new ArrayList<>();
     ArrayList<javax.swing.JLabel> itemQuantPlus=new ArrayList<>();
     ArrayList<javax.swing.JLabel> itemQuantMinus = new ArrayList<>();
     ArrayList<javax.swing.JLabel> itemQuant = new ArrayList<>();
@@ -47,9 +51,13 @@ public class ItemScreen extends javax.swing.JFrame {
         generateIdQuantOrder(firstItem,idQuant,itemLabel);
         quantityChecker();
     }
+    void setStoreLabel(String str)
+    {
+        itemScreenStoreNameLabel.setText(str);
+    }
     void generateIdQuantOrder(String firstItem,HashMap<Integer,Integer> idQuant,HashMap<javax.swing.JLabel,javax.swing.JLabel> itemInShop){
         Integer itemID;
-        sqlFunc=new SqlFunctions();
+        sqlFunc = new SqlFunctions();
         itemID = sqlFunc.itemIdChecker(firstItem);
         for(Map.Entry<Integer,Integer>iter1 : idQuant.entrySet()){
                if(itemID == iter1.getKey()){
@@ -86,6 +94,7 @@ public class ItemScreen extends javax.swing.JFrame {
    }  
    void generateLabels(String firstItem,int firstPrice,String storeName,HashMap<String,Integer> itemInShop)
    {
+           sqlFunc = new SqlFunctions();
            itemScreenStoreNameLabel.setText(storeName);
            grid = new GridBagConstraints();
            itemList.setLayout(new GridBagLayout());
@@ -97,14 +106,7 @@ public class ItemScreen extends javax.swing.JFrame {
            fixedPrice.setText("₹"+firstPrice);
            fixedPrice.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
            fixedPrice.setForeground(Color.white);
-           itemPrice.add(firstPrice);
-           grid.insets = new Insets(5,5,5,150);
-           grid.gridx=0;
-           grid.gridy=0;
-           itemList.add(fixedItem,grid);
-           grid.gridx=1;
-           grid.gridy=0;
-           itemList.add(fixedPrice,grid);
+           itemPrice.add(firstPrice);      
            itemListerQuantModifierPlus = new javax.swing.JLabel("+");
            itemListerQuantModifierPlus.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
            itemListerQuantModifierPlus.setForeground(Color.white);
@@ -118,6 +120,19 @@ public class ItemScreen extends javax.swing.JFrame {
            itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
            itemListerQuant.setForeground(Color.white);
            itemQuant.add(itemListerQuant);
+           filePath = Paths.get(currentPath.toString(), "src","carrus","res","Item_icon",sqlFunc.getDpDir(fixedItem.getText()));
+           itemImage.add(new javax.swing.JLabel(new ImageIcon(filePath.toString())));
+           grid.insets = new Insets(5,5,5,5);
+           grid.gridx=0;
+           grid.gridy=0;
+           itemList.add(itemImage.get(0),grid);
+           grid.insets = new Insets(5,5,5,150);
+           grid.gridx=1;
+           grid.gridy=0;
+           itemList.add(fixedItem,grid);
+           grid.gridx=2;
+           grid.gridy=0;
+           itemList.add(fixedPrice,grid);
            for(Map.Entry<String,Integer>iter : itemInShop.entrySet()){
                    if(iter.getKey().equalsIgnoreCase(firstItem)){
 
@@ -145,15 +160,24 @@ public class ItemScreen extends javax.swing.JFrame {
                         itemListerQuant.setFont(new Font("Segoe UI Semibold",Font.BOLD,18));
                         itemListerQuant.setForeground(Color.white);
                         itemQuant.add(itemListerQuant);
+                        //System.out.println(sqlFunc.getDpDir(itemListerName.getText()));
+                        
                    }
 
            }
            i=1;
            for(Map.Entry<javax.swing.JLabel,javax.swing.JLabel> iter : itemLabel.entrySet()){
+               grid.insets = new Insets(5,5,5,5);
                grid.gridx=0;
                grid.gridy=i;
-               itemList.add(iter.getKey(),grid);
+               filePath = Paths.get(currentPath.toString(), "src","carrus","res","Item_icon",sqlFunc.getDpDir(iter.getKey().getText()));
+               itemImage.add(new javax.swing.JLabel(new ImageIcon(filePath.toString())));
+               itemList.add(itemImage.get(i),grid);
+               grid.insets = new Insets(5,5,5,150);
                grid.gridx=1;
+               grid.gridy=i;
+               itemList.add(iter.getKey(),grid);
+               grid.gridx=2;
                grid.gridy=i;
                itemList.add(iter.getValue(),grid);
                itemPrice.add(Integer.parseInt(iter.getValue().getText().replaceAll("[\\D]", "")));
@@ -162,14 +186,14 @@ public class ItemScreen extends javax.swing.JFrame {
            i = 0;
            grid.insets = new Insets(5,5,5,5);
            for(javax.swing.JLabel iter : itemQuantPlus){
-               grid.gridx=2;
+               grid.gridx=3;
                grid.gridy=i;
                itemList.add(itemQuantMinus.get(i),grid);
                itemQuantMinus.get(i).addMouseListener(new YourMouseListener(itemQuantMinus.get(i),i));
-               grid.gridx=3;
+               grid.gridx=4;
                grid.gridy=i;
                itemList.add(itemQuant.get(i),grid);
-               grid.gridx=4;
+               grid.gridx=5;
                grid.gridy=i;
                itemList.add(iter,grid);
                iter.addMouseListener(new YourMouseListener(iter,i));

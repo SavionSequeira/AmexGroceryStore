@@ -1,6 +1,10 @@
 package carrus;
+
 import javax.swing.JFrame;
+
 public class WelcomeScreen extends javax.swing.JFrame {
+   
+   
     public WelcomeScreen() {
         initComponents();
          this.setLocationRelativeTo(null); 

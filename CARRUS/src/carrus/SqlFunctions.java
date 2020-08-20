@@ -444,4 +444,23 @@ public class SqlFunctions {
            System.out.println(e);
        }
    }
+   String getDpDir(String itemName){
+       String dp="";
+       try
+       {
+            rs = stmt.executeQuery("Select dpdir from item where UPPER(item_name) like UPPER('%"+itemName+"%')");
+                    
+            while(rs.next())
+            {
+                 dp = rs.getString(1);
+            }
+            System.out.println(dp);
+       }
+       catch(SQLException e)
+       {
+           System.out.println(e);
+       }
+       
+       return dp;
+   }
 }

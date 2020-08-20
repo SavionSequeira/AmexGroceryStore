@@ -5,14 +5,20 @@ import static carrus.SearchScreen.text;
 import java.awt.Color;
 import java.util.Random;
 import java.awt.event.KeyEvent;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import javax.swing.ImageIcon;
 
 
 public class PayScreen extends javax.swing.JFrame {
     String bill;
     int totalPrice;
+    Path currentPath = Paths.get(System.getProperty("user.dir"));
+    Path filePath = Paths.get(currentPath.toString(), "src","carrus","res","loader.gif");
+    Color buttonColor = new Color(67,71,109); 
+
     Random rand = new Random();
     int resRandom = rand.nextInt((9999 - 100) + 1) + 10;
     SqlFunctions ss = new SqlFunctions();
@@ -926,6 +932,8 @@ public class PayScreen extends javax.swing.JFrame {
         if(detailChecker()==true){
             Thread t1 = new Thread(() -> 
             {
+                jButton1.setText("");
+                jButton1.setIcon(new ImageIcon(filePath.toString()));
                 jButton1.setEnabled(false);
                 jButton2.setEnabled(false);
             });
