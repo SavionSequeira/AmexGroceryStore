@@ -374,7 +374,7 @@ public final class SearchScreen extends javax.swing.JFrame {
 
     private void SearchItem_TextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchItem_TextFieldKeyReleased
         // TODO add your handling code here:
-        SearchItem_TextField.setForeground(Color.black);
+        SearchItem_TextField.setForeground(Color.white);
         String searchKey = SearchItem_TextField.getText();
         if(searchKey.equals(""))
             {
